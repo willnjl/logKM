@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "../../sass/app.scss";
 
-function Example() {
+const App = () => {
     return (
         <div className="container">
             <div className="row justify-content-center">
@@ -18,10 +18,10 @@ function Example() {
             </div>
         </div>
     );
-}
+};
 
-export default Example;
+export default App;
 
 if (document.getElementById("root")) {
-    ReactDOM.render(<Example />, document.getElementById("root"));
+    ReactDOM.render(<App />, document.getElementById("root"));
 }
