@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "../axios";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -48,6 +49,30 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
     const classes = useStyles();
+    let [email, setEmail] = useState();
+    let [password, setPassword] = useState();
+
+    useEffect(() => {
+        axios
+            .get("/sanctum/csrf-cookie")
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => console.log(error));
+    }, []);
+
+    let handleSubmit = (e) => {
+        e.preventDefault();
+        axios
+            .post("/login", {
+                email: "your@email.horse",
+                password: "password",
+            })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => console.log(error));
+    };
 
     return (
         <Container component="main" maxWidth="xs">
@@ -70,6 +95,8 @@ export default function SignIn() {
                         name="email"
                         autoComplete="email"
                         autoFocus
+                        value={email}
+                        onChange={(e) => setEmail(e.currentTarget.value)}
                     />
                     <TextField
                         variant="outlined"
@@ -81,6 +108,8 @@ export default function SignIn() {
                         type="password"
                         id="password"
                         autoComplete="current-password"
+                        value={password}
+                        onChange={(e) => setPassword(e.currentTarget.value)}
                     />
                     <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
@@ -92,6 +121,7 @@ export default function SignIn() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        onClick={(e) => handleSubmit(e)}
                     >
                         Sign In
                     </Button>

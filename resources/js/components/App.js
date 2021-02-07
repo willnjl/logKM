@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import SignIn from "./SignIn";
 import "../../sass/app.scss";
 
 const App = () => {
@@ -23,5 +24,5 @@ const App = () => {
 export default App;
 
 if (document.getElementById("root")) {
-    ReactDOM.render(<App />, document.getElementById("root"));
+    ReactDOM.render(<SignIn />, document.getElementById("root"));
 }
