@@ -24,5 +24,5 @@ const App = () => {
 export default App;
 
 if (document.getElementById("root")) {
-    ReactDOM.render(<SignIn />, document.getElementById("root"));
+    ReactDOM.render(<App />, document.getElementById("root"));
 }
