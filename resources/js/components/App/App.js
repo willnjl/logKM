@@ -9,12 +9,13 @@ import history from "../../history";
 import SignIn from "../SignIn";
 import SignUp from "../SignUp/SignUp";
 import axios from "../../axios";
-import Dashboard from "../Dashboard/Dashboard";
+import Dashboard from "../Dashboard/";
+import Loaded from "../Loaded";
 
 function App({ user }) {
     const { loggedIn } = user;
     return (
-        <Router history={history}>
+        <Router>
             <Fragment>
                 <div className="App">
                     <header className="App-header">
@@ -29,7 +30,9 @@ function App({ user }) {
                         <SignUp />
                     </Route>
                     <Route exact path="/dashboard">
-                        <Dashboard />
+                        <Loaded>
+                            <Dashboard />
+                        </Loaded>
                     </Route>
                 </Switch>
             </Fragment>
