@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import history from "../history";
 import axios from "../axios";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -49,27 +50,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
     const classes = useStyles();
-    let [email, setEmail] = useState();
-    let [password, setPassword] = useState();
+    let [email, setEmail] = useState("");
+    let [password, setPassword] = useState("");
 
     useEffect(() => {
-        axios
-            .get("/sanctum/csrf-cookie")
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => console.log(error));
+        axios.get("/sanctum/csrf-cookie").catch((error) => console.log(error));
     }, []);
 
-    let handleSubmit = (e) => {
+    let handleSubmit = (e, email, password) => {
         e.preventDefault();
         axios
             .post("/login", {
-                email: "your@email.horse",
-                password: "password",
+                email,
+                password,
             })
             .then((response) => {
                 console.log(response);
+                history.push("/dashboard");
             })
             .catch((error) => console.log(error));
     };
@@ -121,7 +118,8 @@ export default function SignIn() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        onClick={(e) => handleSubmit(e)}
+                        disabled={email === "" || password === ""}
+                        onClick={(e) => handleSubmit(e, email, password)}
                     >
                         Sign In
                     </Button>
@@ -132,7 +130,7 @@ export default function SignIn() {
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link href="#" variant="body2">
+                            <Link href="#signup" variant="body2">
                                 {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>
