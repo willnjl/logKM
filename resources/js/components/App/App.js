@@ -31,9 +31,13 @@ function App({ user }) {
                         <SignUp />
                     </Route>
                     <Route exact path="/dashboard">
-                        <Loaded>
-                            <Dashboard />
-                        </Loaded>
+                        {!loggedIn ? (
+                            <Redirect to="/" />
+                        ) : (
+                            <Loaded>
+                                <Dashboard />
+                            </Loaded>
+                        )}
                     </Route>
                 </Switch>
             </Fragment>

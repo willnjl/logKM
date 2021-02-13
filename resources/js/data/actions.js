@@ -21,7 +21,10 @@ export const getActionData = () => {
         axios
             .get("api/actions", { withCredentials: true })
             .then(({ data }) => {
-                console.log(data);
+                dispatch({
+                    type: "ALL_ACTIONS",
+                    payload: { actions: data, isLoaded: true },
+                });
             })
             .catch((error) => console.log(error));
     };
