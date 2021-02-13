@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import history from "../history";
-import axios from "../axios";
+import history from "../../history";
+import axios from "../../axios";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SignIn() {
+export default function SignIn({ getUserData }) {
     const classes = useStyles();
     let [email, setEmail] = useState("harry@banana.com");
     let [password, setPassword] = useState("password");
@@ -65,7 +65,7 @@ export default function SignIn() {
                 password,
             })
             .then((response) => {
-                console.log(response);
+                getUserData();
                 history.push("/dashboard");
             })
             .catch((error) => console.log(error));

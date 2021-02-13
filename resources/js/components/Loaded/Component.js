@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-export default function Component({ loaded, children, handleLoad }) {
+export default function Component({ loaded, handleLoad }) {
     useEffect(() => {
-        if (!loaded) {
-            handleLoad();
-        }
+        handleLoad();
     }, []);
 
     return loaded ? children : <div>Loading</div>;

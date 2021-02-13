@@ -11,6 +11,7 @@ import SignUp from "../SignUp/SignUp";
 import axios from "../../axios";
 import Dashboard from "../Dashboard/";
 import Loaded from "../Loaded";
+import NavBar from "../NavBar";
 
 function App({ user }) {
     const { loggedIn } = user;
@@ -19,7 +20,7 @@ function App({ user }) {
             <Fragment>
                 <div className="App">
                     <header className="App-header">
-                        <h1>Activity Log Book</h1>
+                        <NavBar />
                     </header>
                 </div>
                 <Switch>

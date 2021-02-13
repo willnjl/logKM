@@ -1,10 +1,11 @@
 export const userInitial = {
-  loggedIn: false,
-  bearer: "",
-  username: "",
-  activities: [],
+    loggedIn: false,
+    name: "",
+    id: "",
+    email: "",
 };
 
 export const logInitial = {
-  isLoaded: false,
+    activities: [],
+    isLoaded: false,
 };

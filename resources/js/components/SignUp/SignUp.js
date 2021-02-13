@@ -64,7 +64,6 @@ export default function SignUp() {
                 password_confirmation: confirm,
             })
             .then((response) => {
-                console.log(response);
                 history.push("/dashboard");
             })
             .catch((error) => console.log(error));
