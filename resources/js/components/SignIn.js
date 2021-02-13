@@ -50,8 +50,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
     const classes = useStyles();
-    let [email, setEmail] = useState("");
-    let [password, setPassword] = useState("");
+    let [email, setEmail] = useState("harry@banana.com");
+    let [password, setPassword] = useState("password");
 
     useEffect(() => {
         axios.get("/sanctum/csrf-cookie").catch((error) => console.log(error));

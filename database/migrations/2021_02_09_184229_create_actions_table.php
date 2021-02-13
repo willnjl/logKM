@@ -21,8 +21,8 @@ class CreateActionsTable extends Migration
             
             $table->foreignId('user_id')->unsigned();
             $table->foreignId('activity_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -33,6 +33,12 @@ class CreateActionsTable extends Migration
      */
     public function down()
     {
+        Schema::table('actions', function(Blueprint $table){
+            $table->dropForeign(['activity_id']);
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('activity_id');
+            $table->dropColumn('user_id');
+        });
         Schema::dropIfExists('actions');
     }
 }

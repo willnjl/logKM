@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -16,11 +17,16 @@ use Illuminate\Validation\ValidationException;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::group(["prefix" => "user", "middleware" => ["auth:sanctum"]],function(){
+     Route::get('', function (Request $request) {
+        return $request->user();
+    });
 });
+   
 
 
+Auth::routes();
 
 Route::post('/sanctum/token', function (Request $request) {
     $request->validate([
