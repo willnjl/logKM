@@ -2342,6 +2342,85 @@ var TouchRipple = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.forwardRef(fun
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/Card/Card.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Card/Card.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _Paper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Paper */ "./node_modules/@material-ui/core/esm/Paper/Paper.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+
+
+
+
+
+
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {
+    overflow: 'hidden'
+  }
+};
+var Card = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function Card(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$raised = props.raised,
+      raised = _props$raised === void 0 ? false : _props$raised,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__.default)(props, ["classes", "className", "raised"]);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_Paper__WEBPACK_IMPORTED_MODULE_5__.default, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.root, className),
+    elevation: raised ? 8 : 1,
+    ref: ref
+  }, other));
+});
+ true ? Card.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The content of the component.
+   */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().node),
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+
+  /**
+   * If `true`, the card will use raised styling.
+   */
+  raised: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_6__.default)(styles, {
+  name: 'MuiCard'
+})(Card));
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/Checkbox/Checkbox.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Checkbox/Checkbox.js ***!
@@ -19831,8 +19910,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _history__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../history */ "./resources/js/history.js");
 /* harmony import */ var _SignIn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../SignIn */ "./resources/js/components/SignIn/index.js");
 /* harmony import */ var _SignUp_SignUp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../SignUp/SignUp */ "./resources/js/components/SignUp/SignUp.js");
@@ -19840,7 +19919,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Dashboard___WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Dashboard/ */ "./resources/js/components/Dashboard/index.js");
 /* harmony import */ var _Loaded__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Loaded */ "./resources/js/components/Loaded/index.js");
 /* harmony import */ var _NavBar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../NavBar */ "./resources/js/components/NavBar/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Avatar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Avatar */ "./resources/js/components/Avatar/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -19856,30 +19937,37 @@ __webpack_require__.r(__webpack_exports__);
 function App(_ref) {
   var user = _ref.user;
   var loggedIn = user.loggedIn;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.HashRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.HashRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "App",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("header", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("header", {
           className: "App-header",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_NavBar__WEBPACK_IMPORTED_MODULE_7__.default, {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_NavBar__WEBPACK_IMPORTED_MODULE_7__.default, {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Switch, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Switch, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           exact: true,
           path: "/",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SignIn__WEBPACK_IMPORTED_MODULE_2__.default, {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_SignIn__WEBPACK_IMPORTED_MODULE_2__.default, {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           exact: true,
           path: "/signup",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SignUp_SignUp__WEBPACK_IMPORTED_MODULE_3__.default, {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_SignUp_SignUp__WEBPACK_IMPORTED_MODULE_3__.default, {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           exact: true,
           path: "/dashboard",
-          children: !loggedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Redirect, {
+          children: !loggedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Redirect, {
             to: "/"
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Loaded__WEBPACK_IMPORTED_MODULE_6__.default, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Dashboard___WEBPACK_IMPORTED_MODULE_5__.default, {})
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Loaded__WEBPACK_IMPORTED_MODULE_6__.default, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Dashboard___WEBPACK_IMPORTED_MODULE_5__.default, {})
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+          path: "/avatar",
+          children: !loggedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Redirect, {
+            to: "/"
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Loaded__WEBPACK_IMPORTED_MODULE_6__.default, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Avatar__WEBPACK_IMPORTED_MODULE_8__.default, {})
           })
         })]
       })]
@@ -19918,6 +20006,141 @@ var mapStateToProps = function mapStateToProps(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Avatar/Avatar.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/Avatar/Avatar.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SignIn)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _history__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../history */ "./resources/js/history.js");
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../axios */ "./resources/js/axios.js");
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "./node_modules/@material-ui/core/esm/CssBaseline/CssBaseline.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Container */ "./node_modules/@material-ui/core/esm/Container/Container.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__.default)(function (theme) {
+  return {
+    paper: {
+      marginTop: theme.spacing(8),
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center"
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main
+    },
+    form: {
+      width: "100%",
+      // Fix IE 11 issue.
+      marginTop: theme.spacing(1)
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2)
+    }
+  };
+});
+function SignIn(_ref) {
+  var getUserData = _ref.getUserData;
+  var classes = useStyles();
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("harry@banana.com"),
+      _useState2 = _slicedToArray(_useState, 2),
+      email = _useState2[0],
+      setEmail = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("password"),
+      _useState4 = _slicedToArray(_useState3, 2),
+      password = _useState4[0],
+      setPassword = _useState4[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    _axios__WEBPACK_IMPORTED_MODULE_2__.default.get("/sanctum/csrf-cookie")["catch"](function (error) {
+      return console.log(error);
+    });
+  }, []);
+
+  var handleSubmit = function handleSubmit(e, email, password) {
+    e.preventDefault();
+    _axios__WEBPACK_IMPORTED_MODULE_2__.default.post("/login", {
+      email: email,
+      password: password
+    }).then(function (response) {
+      getUserData();
+      _history__WEBPACK_IMPORTED_MODULE_1__.default.push("/dashboard");
+    })["catch"](function (error) {
+      return console.log(error);
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_5__.default, {
+    component: "main",
+    maxWidth: "xs",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_6__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Card, {
+      className: classes.paper,
+      children: ["\u2202", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: classes.paper,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
+          className: classes.form,
+          noValidate: true,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            type: "file"
+          })
+        })
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/Avatar/index.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/Avatar/index.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _Avatar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Avatar */ "./resources/js/components/Avatar/Avatar.js");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)()(_Avatar__WEBPACK_IMPORTED_MODULE_1__.default));
+
+/***/ }),
+
 /***/ "./resources/js/components/Dashboard/component.js":
 /*!********************************************************!*\
   !*** ./resources/js/components/Dashboard/component.js ***!
@@ -19930,7 +20153,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Dashboard)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Container/Container.js");
+/* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Container */ "./node_modules/@material-ui/core/esm/Container/Container.js");
+/* harmony import */ var _material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Avatar */ "./node_modules/@material-ui/core/esm/Avatar/Avatar.js");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/Card.js");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
 /* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "./node_modules/@material-ui/core/esm/CssBaseline/CssBaseline.js");
 /* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../axios */ "./resources/js/axios.js");
@@ -19942,33 +20167,49 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Dashboard() {
-  var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__.default)(function (theme) {
-    return {
-      paper: {
-        marginTop: theme.spacing(8),
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center"
-      },
-      avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main
-      },
-      form: {
-        width: "100%",
-        // Fix IE 11 issue.
-        marginTop: theme.spacing(1)
-      },
-      submit: {
-        margin: theme.spacing(3, 0, 2)
-      }
-    };
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+
+
+var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__.default)(function (theme) {
+  return {
+    paper: {
+      marginTop: theme.spacing(8),
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center"
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main
+    },
+    form: {
+      width: "100%",
+      // Fix IE 11 issue.
+      marginTop: theme.spacing(1)
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2)
+    },
+    large: {
+      margin: theme.spacing(4),
+      width: theme.spacing(12),
+      height: theme.spacing(12)
+    }
+  };
+});
+function Dashboard(_ref) {
+  var user = _ref.user;
+  var classes = useStyles();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_4__.default, {
+    component: "main",
     maxWidth: "sm",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_5__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-      children: "Dashboard"
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_5__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_6__.default, {
+      className: classes.paper,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_7__.default, {
+        src: "https://material-ui.com/static/images/avatar/3.jpg",
+        className: classes.large
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+        children: user.name
+      })]
     })]
   });
 }
@@ -20876,13 +21117,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _data_reducers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data/reducers */ "./resources/js/data/reducers.js");
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _sass_app_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sass/app.scss */ "./resources/sass/app.scss");
-/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux_localstorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-localstorage */ "./node_modules/redux-localstorage/lib/persistState.js");
+/* harmony import */ var redux_localstorage__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(redux_localstorage__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _data_reducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./data/reducers */ "./resources/js/data/reducers.js");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _sass_app_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../sass/app.scss */ "./resources/sass/app.scss");
+/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -20892,17 +21135,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_8__.combineReducers)({
-  user: _data_reducers__WEBPACK_IMPORTED_MODULE_2__.userReducer,
-  log: _data_reducers__WEBPACK_IMPORTED_MODULE_2__.logReducer
+
+var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_9__.combineReducers)({
+  user: _data_reducers__WEBPACK_IMPORTED_MODULE_3__.userReducer,
+  log: _data_reducers__WEBPACK_IMPORTED_MODULE_3__.logReducer
 });
-var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || redux__WEBPACK_IMPORTED_MODULE_8__.compose;
-var store = (0,redux__WEBPACK_IMPORTED_MODULE_8__.createStore)(rootReducer, composeEnhancers((0,redux__WEBPACK_IMPORTED_MODULE_8__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_3__.default)));
+var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || redux__WEBPACK_IMPORTED_MODULE_9__.compose;
+var store = (0,redux__WEBPACK_IMPORTED_MODULE_9__.createStore)(rootReducer, composeEnhancers(redux_localstorage__WEBPACK_IMPORTED_MODULE_2___default()(), (0,redux__WEBPACK_IMPORTED_MODULE_9__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_4__.default)));
 
 if (document.getElementById("root")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_4__.Provider, {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_5__.Provider, {
     store: store,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_App__WEBPACK_IMPORTED_MODULE_6__.default, {})
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_App__WEBPACK_IMPORTED_MODULE_7__.default, {})
   }), document.getElementById("root"));
 }
 
@@ -94718,6 +94962,268 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react-jsx-runtime.development.js */ "./node_modules/react/cjs/react-jsx-runtime.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/redux-localstorage/lib/createSlicer.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/redux-localstorage/lib/createSlicer.js ***!
+  \*************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = createSlicer;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _getSubsetJs = __webpack_require__(/*! ./getSubset.js */ "./node_modules/redux-localstorage/lib/getSubset.js");
+
+var _getSubsetJs2 = _interopRequireDefault(_getSubsetJs);
+
+var _utilTypeOfJs = __webpack_require__(/*! ./util/typeOf.js */ "./node_modules/redux-localstorage/lib/util/typeOf.js");
+
+var _utilTypeOfJs2 = _interopRequireDefault(_utilTypeOfJs);
+
+/**
+ * @description
+ * createSlicer inspects the typeof paths and returns an appropriate slicer function.
+ *
+ * @param {String|String[]} [paths] The paths argument supplied to persistState.
+ *
+ * @return {Function} A slicer function, which returns the subset to store when called with Redux's store state.
+ */
+
+function createSlicer(paths) {
+  switch ((0, _utilTypeOfJs2['default'])(paths)) {
+    case 'void':
+      return function (state) {
+        return state;
+      };
+    case 'string':
+      return function (state) {
+        return (0, _getSubsetJs2['default'])(state, [paths]);
+      };
+    case 'array':
+      return function (state) {
+        return (0, _getSubsetJs2['default'])(state, paths);
+      };
+    default:
+      return console.error('Invalid paths argument, should be of type String, Array or Void');
+  }
+}
+
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ "./node_modules/redux-localstorage/lib/getSubset.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/redux-localstorage/lib/getSubset.js ***!
+  \**********************************************************/
+/***/ ((module, exports) => {
+
+"use strict";
+/**
+ * @description
+ * getSubset returns an object with the same structure as the original object passed in,
+ * but contains only the specified keys and only if that key has a truth-y value.
+ *
+ * @param {Object} obj The object from which to create a subset.
+ * @param {String[]} paths An array of (top-level) keys that should be included in the subset.
+ *
+ * @return {Object} An object that contains the specified keys with truth-y values
+ */
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = getSubset;
+
+function getSubset(obj, paths) {
+  var subset = {};
+
+  paths.forEach(function (key) {
+    var slice = obj[key];
+    if (slice) subset[key] = slice;
+  });
+
+  return subset;
+}
+
+module.exports = exports["default"];
+
+/***/ }),
+
+/***/ "./node_modules/redux-localstorage/lib/persistState.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/redux-localstorage/lib/persistState.js ***!
+  \*************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = persistState;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _createSlicerJs = __webpack_require__(/*! ./createSlicer.js */ "./node_modules/redux-localstorage/lib/createSlicer.js");
+
+var _createSlicerJs2 = _interopRequireDefault(_createSlicerJs);
+
+var _utilMergeStateJs = __webpack_require__(/*! ./util/mergeState.js */ "./node_modules/redux-localstorage/lib/util/mergeState.js");
+
+var _utilMergeStateJs2 = _interopRequireDefault(_utilMergeStateJs);
+
+/**
+ * @description
+ * persistState is a Store Enhancer that syncs (a subset of) store state to localStorage.
+ *
+ * @param {String|String[]} [paths] Specify keys to sync with localStorage, if left undefined the whole store is persisted
+ * @param {Object} [config] Optional config object
+ * @param {String} [config.key="redux"] String used as localStorage key
+ * @param {Function} [config.slicer] (paths) => (state) => subset. A function that returns a subset
+ * of store state that should be persisted to localStorage
+ * @param {Function} [config.serialize=JSON.stringify] (subset) => serializedData. Called just before persisting to
+ * localStorage. Should transform the subset into a format that can be stored.
+ * @param {Function} [config.deserialize=JSON.parse] (persistedData) => subset. Called directly after retrieving
+ * persistedState from localStorage. Should transform the data into the format expected by your application
+ *
+ * @return {Function} An enhanced store
+ */
+
+function persistState(paths, config) {
+  var cfg = _extends({
+    key: 'redux',
+    merge: _utilMergeStateJs2['default'],
+    slicer: _createSlicerJs2['default'],
+    serialize: JSON.stringify,
+    deserialize: JSON.parse
+  }, config);
+
+  var key = cfg.key;
+  var merge = cfg.merge;
+  var slicer = cfg.slicer;
+  var serialize = cfg.serialize;
+  var deserialize = cfg.deserialize;
+
+  return function (next) {
+    return function (reducer, initialState, enhancer) {
+      if (typeof initialState === 'function' && typeof enhancer === 'undefined') {
+        enhancer = initialState;
+        initialState = undefined;
+      }
+
+      var persistedState = undefined;
+      var finalInitialState = undefined;
+
+      try {
+        persistedState = deserialize(localStorage.getItem(key));
+        finalInitialState = merge(initialState, persistedState);
+      } catch (e) {
+        console.warn('Failed to retrieve initialize state from localStorage:', e);
+      }
+
+      var store = next(reducer, finalInitialState, enhancer);
+      var slicerFn = slicer(paths);
+
+      store.subscribe(function () {
+        var state = store.getState();
+        var subset = slicerFn(state);
+
+        try {
+          localStorage.setItem(key, serialize(subset));
+        } catch (e) {
+          console.warn('Unable to persist state to localStorage:', e);
+        }
+      });
+
+      return store;
+    };
+  };
+}
+
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ "./node_modules/redux-localstorage/lib/util/mergeState.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/redux-localstorage/lib/util/mergeState.js ***!
+  \****************************************************************/
+/***/ ((module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = mergeState;
+
+function mergeState(initialState, persistedState) {
+  return persistedState ? _extends({}, initialState, persistedState) : initialState;
+}
+
+module.exports = exports["default"];
+
+/***/ }),
+
+/***/ "./node_modules/redux-localstorage/lib/util/typeOf.js":
+/*!************************************************************!*\
+  !*** ./node_modules/redux-localstorage/lib/util/typeOf.js ***!
+  \************************************************************/
+/***/ ((module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = typeOf;
+var _isArray = Array.isArray || (Array.isArray = function (a) {
+  return '' + a !== a && ({}).toString.call(a) === '[object Array]';
+});
+
+/**
+ * @description
+ * typeof method that
+ * 1. groups all false-y & empty values as void
+ * 2. distinguishes between object and array
+ *
+ * @param {*} thing The thing to inspect
+ *
+ * @return {String} Actionable type classification
+ */
+
+function typeOf(thing) {
+  if (!thing) return 'void';
+
+  if (_isArray(thing)) {
+    if (!thing.length) return 'void';
+    return 'array';
+  }
+
+  return typeof thing;
+}
+
+module.exports = exports['default'];
 
 /***/ }),
 

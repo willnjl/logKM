@@ -12,6 +12,7 @@ import axios from "../../axios";
 import Dashboard from "../Dashboard/";
 import Loaded from "../Loaded";
 import NavBar from "../NavBar";
+import Avatar from "../Avatar";
 
 function App({ user }) {
     const { loggedIn } = user;
@@ -23,6 +24,7 @@ function App({ user }) {
                         <NavBar />
                     </header>
                 </div>
+
                 <Switch>
                     <Route exact path="/">
                         <SignIn />
@@ -36,6 +38,15 @@ function App({ user }) {
                         ) : (
                             <Loaded>
                                 <Dashboard />
+                            </Loaded>
+                        )}
+                    </Route>
+                    <Route path="/avatar">
+                        {!loggedIn ? (
+                            <Redirect to="/" />
+                        ) : (
+                            <Loaded>
+                                <Avatar />
                             </Loaded>
                         )}
                     </Route>
