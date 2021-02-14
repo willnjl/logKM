@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Card from "@material-ui/core/Card";
+
+import CardWrap from "../CardWrap";
 import { makeStyles } from "@material-ui/core/styles";
 import PageWrap from "../PageWrap";
 
@@ -22,23 +22,18 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
-    large: {
-        margin: theme.spacing(4),
-        width: theme.spacing(10),
-        height: theme.spacing(10),
-    },
 }));
 export default function Dashboard({ user }) {
     const classes = useStyles();
     return (
         <PageWrap>
-            <Card className={classes.paper}>
-                <Avatar
-                    src="https://material-ui.com/static/images/avatar/3.jpg"
-                    className={classes.large}
-                />
+            <CardWrap
+                avatar={
+                    "https://th.bing.com/th/id/OIP.HvGf81fkBjIWfac5OySUJgHaE7?pid=ImgDet&rs=1"
+                }
+            >
                 <h2>{user.name}</h2>
-            </Card>
+            </CardWrap>
         </PageWrap>
     );
 }

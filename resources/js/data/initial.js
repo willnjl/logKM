@@ -3,6 +3,7 @@ export const userInitial = {
     name: "",
     id: "",
     email: "",
+    avatar: "",
 };
 
 export const logInitial = {

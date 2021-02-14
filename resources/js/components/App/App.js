@@ -33,7 +33,7 @@ function App({ user }) {
                             </Loaded>
                         )}
                     </Route>
-                    {/* <Route path="/settings">
+                    <Route path="/settings">
                         {!loggedIn ? (
                             <Redirect to="/" />
                         ) : (
@@ -41,7 +41,7 @@ function App({ user }) {
                                 <Settings />
                             </Loaded>
                         )}
-                    </Route> */}
+                    </Route>
                 </Switch>
                 <Copyright />
             </Fragment>

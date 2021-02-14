@@ -30,8 +30,10 @@ export default function MenuListComposition({ user, logout }) {
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
-                <MenuList>
-                    <MenuItem>Profile</MenuItem>
+                <MenuList style={{ flexDirection: "row" }}>
+                    <MenuItem>
+                        <Link to="/dashboard">Dashboard</Link>
+                    </MenuItem>
                     <MenuItem>
                         <Link to="/settings">Settings</Link>
                     </MenuItem>
