@@ -2,6 +2,7 @@ import { userInitial, logInitial } from "./initial";
 import login from "./functions/login";
 import logout from "./functions/logout";
 import updateActions from "./functions/updateActions";
+import userUpdate from "./functions/userUpdate";
 
 export const userReducer = (state = userInitial, action) => {
     switch (action.type) {
@@ -9,6 +10,8 @@ export const userReducer = (state = userInitial, action) => {
             return login(action.payload);
         case "LOG_OUT":
             return logout("USER");
+        case "UPDATE":
+            return userUpdate(state, action.payload);
         default:
             return { ...state };
     }

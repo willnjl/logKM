@@ -20516,7 +20516,8 @@ var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default)(funct
   });
 });
 function Settings(_ref2) {
-  var user = _ref2.user;
+  var user = _ref2.user,
+      handleSubmit = _ref2.handleSubmit;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(user.email),
       _useState2 = _slicedToArray(_useState, 2),
@@ -20539,7 +20540,6 @@ function Settings(_ref2) {
       avatar: "https://th.bing.com/th/id/OIP.HvGf81fkBjIWfac5OySUJgHaE7?pid=ImgDet&rs=1",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
         className: classes.form,
-        encType: "multipart/form-data",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__.default, {
           label: "name",
           className: classes.input,
@@ -20567,7 +20567,8 @@ function Settings(_ref2) {
           className: classes.submit,
           disabled: email === "" || email === "",
           onClick: function onClick(e) {
-            return handleSubmit(e, email, avatar);
+            e.preventDefault();
+            handleSubmit(user.id, name, email, avatar);
           },
           children: "update"
         })]
@@ -20591,17 +20592,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Settings */ "./resources/js/components/Settings/Settings.js");
+/* harmony import */ var _data_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/actions */ "./resources/js/data/actions.js");
 
 
 
-var mapDispatchToProps = function mapDispatchToProps(_ref) {
+
+var mapSateToProps = function mapSateToProps(_ref) {
   var user = _ref.user;
   return {
     user: user
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapDispatchToProps)(_Settings__WEBPACK_IMPORTED_MODULE_1__.default));
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    handleSubmit: function handleSubmit(id, name, email, avatar) {
+      return dispatch((0,_data_actions__WEBPACK_IMPORTED_MODULE_2__.update)(id, name, email, avatar));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapSateToProps, mapDispatchToProps)(_Settings__WEBPACK_IMPORTED_MODULE_1__.default));
 
 /***/ }),
 
@@ -21110,7 +21121,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getUserData": () => (/* binding */ getUserData),
 /* harmony export */   "getActionData": () => (/* binding */ getActionData),
-/* harmony export */   "logout": () => (/* binding */ logout)
+/* harmony export */   "logout": () => (/* binding */ logout),
+/* harmony export */   "update": () => (/* binding */ update)
 /* harmony export */ });
 /* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../axios */ "./resources/js/axios.js");
 // API ACTIONS
@@ -21163,6 +21175,28 @@ var logout = function logout() {
       var data = _ref3.data;
       dispatch({
         type: "LOG_OUT"
+      });
+    })["catch"](function (error) {
+      return console.log(error);
+    });
+  };
+};
+var update = function update(id, name, email, avatar) {
+  var url = "/api/user/".concat(id);
+  return function (dispatch) {
+    console.log(url);
+    _axios__WEBPACK_IMPORTED_MODULE_0__.default.put(url, {
+      withCredentials: true,
+      id: id,
+      name: name,
+      email: email,
+      avatar: avatar
+    }).then(function (_ref4) {
+      var data = _ref4.data;
+      console.log(data);
+      dispatch({
+        type: "UPDATE",
+        payload: data
       });
     })["catch"](function (error) {
       return console.log(error);
@@ -21249,6 +21283,43 @@ var updateActions = function updateActions(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/data/functions/userUpdate.js":
+/*!***************************************************!*\
+  !*** ./resources/js/data/functions/userUpdate.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var userUpdate = function userUpdate(state, _ref) {
+  var name = _ref.name,
+      email = _ref.email,
+      id = _ref.id;
+  console.log({
+    name: name,
+    email: email,
+    id: id
+  });
+  return _objectSpread(_objectSpread({}, state), {}, {
+    name: name,
+    email: email,
+    id: id
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userUpdate);
+
+/***/ }),
+
 /***/ "./resources/js/data/initial.js":
 /*!**************************************!*\
   !*** ./resources/js/data/initial.js ***!
@@ -21291,11 +21362,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions/login */ "./resources/js/data/functions/login.js");
 /* harmony import */ var _functions_logout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./functions/logout */ "./resources/js/data/functions/logout.js");
 /* harmony import */ var _functions_updateActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./functions/updateActions */ "./resources/js/data/functions/updateActions.js");
+/* harmony import */ var _functions_userUpdate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./functions/userUpdate */ "./resources/js/data/functions/userUpdate.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -21311,6 +21384,9 @@ var userReducer = function userReducer() {
 
     case "LOG_OUT":
       return (0,_functions_logout__WEBPACK_IMPORTED_MODULE_2__.default)("USER");
+
+    case "UPDATE":
+      return (0,_functions_userUpdate__WEBPACK_IMPORTED_MODULE_4__.default)(state, action.payload);
 
     default:
       return _objectSpread({}, state);

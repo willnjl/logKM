@@ -1,5 +1,10 @@
 import { connect } from "react-redux";
 import Settings from "./Settings";
-let mapDispatchToProps = ({ user }) => ({ user });
+import { update } from "../../data/actions";
 
-export default connect(mapDispatchToProps)(Settings);
+let mapSateToProps = ({ user }) => ({ user });
+let mapDispatchToProps = (dispatch) => ({
+    handleSubmit: (id, name, email, avatar) =>
+        dispatch(update(id, name, email, avatar)),
+});
+export default connect(mapSateToProps, mapDispatchToProps)(Settings);

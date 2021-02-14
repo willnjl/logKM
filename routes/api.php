@@ -3,6 +3,7 @@
 use App\Models\User;
 use App\Models\Activity;
 use App\Http\Controllers\API\Actions;
+use App\Http\Controllers\API\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -23,7 +24,9 @@ Route::group(["prefix" => "user", "middleware" => ["auth:sanctum"]],function(){
      Route::get('', function (Request $request) {
         return $request->user();
     });
+   
 });
+Route::put('user/{user}', [Users ::class, "update"]);
    
 Route::group(["middleware" => "auth:sanctum"], function () {
     Route::get('/actions', [Actions::class, "index"]);

@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Settings({ user }) {
+export default function Settings({ user, handleSubmit }) {
     const [email, setEmail] = useState(user.email);
     const [name, setName] = useState(user.name);
     const [avatar, setAvatar] = useState(user.avatar);
@@ -36,7 +36,7 @@ export default function Settings({ user }) {
                     "https://th.bing.com/th/id/OIP.HvGf81fkBjIWfac5OySUJgHaE7?pid=ImgDet&rs=1"
                 }
             >
-                <form className={classes.form} encType={"multipart/form-data"}>
+                <form className={classes.form}>
                     <TextField
                         label="name"
                         className={classes.input}
@@ -60,7 +60,10 @@ export default function Settings({ user }) {
                         color="primary"
                         className={classes.submit}
                         disabled={email === "" || email === ""}
-                        onClick={(e) => handleSubmit(e, email, avatar)}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleSubmit(user.id, name, email, avatar);
+                        }}
                     >
                         update
                     </Button>

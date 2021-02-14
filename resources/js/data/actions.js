@@ -35,3 +35,22 @@ export const logout = () => {
             .catch((error) => console.log(error));
     };
 };
+export const update = (id, name, email, avatar) => {
+    let url = `/api/user/${id}`;
+    return (dispatch) => {
+        console.log(url);
+        axios
+            .put(url, {
+                withCredentials: true,
+                id,
+                name,
+                email,
+                avatar,
+            })
+            .then(({ data }) => {
+                console.log(data);
+                dispatch({ type: "UPDATE", payload: data });
+            })
+            .catch((error) => console.log(error));
+    };
+};
