@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Container from "@material-ui/core/Container";
 import Avatar from "@material-ui/core/Avatar";
 import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import axios from "../../axios";
+import PageWrap from "../PageWrap";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -26,15 +24,14 @@ const useStyles = makeStyles((theme) => ({
     },
     large: {
         margin: theme.spacing(4),
-        width: theme.spacing(12),
-        height: theme.spacing(12),
+        width: theme.spacing(10),
+        height: theme.spacing(10),
     },
 }));
 export default function Dashboard({ user }) {
     const classes = useStyles();
     return (
-        <Container component="main" maxWidth="sm">
-            <CssBaseline />
+        <PageWrap>
             <Card className={classes.paper}>
                 <Avatar
                     src="https://material-ui.com/static/images/avatar/3.jpg"
@@ -42,6 +39,6 @@ export default function Dashboard({ user }) {
                 />
                 <h2>{user.name}</h2>
             </Card>
-        </Container>
+        </PageWrap>
     );
 }

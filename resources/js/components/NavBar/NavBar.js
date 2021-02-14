@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
@@ -17,16 +18,26 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function MenuListComposition({ user }) {
+export default function MenuListComposition({ user, logout }) {
     const { loggedIn } = user;
     const classes = useStyles();
+    const handleClick = () => {
+        if (loggedIn) {
+            logout();
+        }
+    };
+
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
                 <MenuList>
                     <MenuItem>Profile</MenuItem>
-                    <MenuItem>My account</MenuItem>
-                    <MenuItem>{loggedIn ? "Logout" : "Sign In"}</MenuItem>
+                    <MenuItem>
+                        <Link to="/settings">My account</Link>
+                    </MenuItem>
+                    <MenuItem onClick={() => handleClick()}>
+                        <Link to="/"> {loggedIn ? "Logout" : "Sign In"}</Link>
+                    </MenuItem>
                 </MenuList>
             </Paper>
         </div>

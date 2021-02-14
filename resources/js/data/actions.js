@@ -1,10 +1,6 @@
 // API ACTIONS
 import axios from "../axios";
 
-// import in the pre-configured axios object
-// create a function that returns another function
-// the second function takes an argument that
-// represents dispatch
 export const getUserData = () => {
     return (dispatch) => {
         axios
@@ -25,6 +21,16 @@ export const getActionData = () => {
                     type: "ALL_ACTIONS",
                     payload: { actions: data, isLoaded: true },
                 });
+            })
+            .catch((error) => console.log(error));
+    };
+};
+export const logout = () => {
+    return (dispatch) => {
+        axios
+            .post("/logout", { withCredentials: true })
+            .then(({ data }) => {
+                dispatch({ type: "LOG_OUT" });
             })
             .catch((error) => console.log(error));
     };

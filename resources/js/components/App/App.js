@@ -5,14 +5,13 @@ import {
     Redirect,
     Switch,
 } from "react-router-dom";
-import history from "../../history";
 import SignIn from "../SignIn";
 import SignUp from "../SignUp/SignUp";
-import axios from "../../axios";
 import Dashboard from "../Dashboard/";
 import Loaded from "../Loaded";
 import NavBar from "../NavBar";
-import Avatar from "../Avatar";
+import Settings from "../Settings";
+import Copyright from "../Copyright";
 
 function App({ user }) {
     const { loggedIn } = user;
@@ -27,7 +26,7 @@ function App({ user }) {
 
                 <Switch>
                     <Route exact path="/">
-                        <SignIn />
+                        {!loggedIn ? <SignIn /> : <Redirect to="/dashboard" />}
                     </Route>
                     <Route exact path="/signup">
                         <SignUp />
@@ -41,16 +40,17 @@ function App({ user }) {
                             </Loaded>
                         )}
                     </Route>
-                    <Route path="/avatar">
+                    <Route path="/settings">
                         {!loggedIn ? (
                             <Redirect to="/" />
                         ) : (
                             <Loaded>
-                                <Avatar />
+                                <Settings />
                             </Loaded>
                         )}
                     </Route>
                 </Switch>
+                <Copyright />
             </Fragment>
         </Router>
     );
