@@ -33,7 +33,7 @@ export default function MenuListComposition({ user, logout }) {
                 <MenuList>
                     <MenuItem>Profile</MenuItem>
                     <MenuItem>
-                        <Link to="/settings">My account</Link>
+                        <Link to="/settings">Settings</Link>
                     </MenuItem>
                     <MenuItem onClick={() => handleClick()}>
                         <Link to="/"> {loggedIn ? "Logout" : "Sign In"}</Link>
