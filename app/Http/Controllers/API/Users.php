@@ -1,9 +1,9 @@
 <?php
 
+
 namespace App\Http\Controllers\API;
-
-
 use App\Models\User;
+use App\Http\Requests\API\UserRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -48,9 +48,16 @@ class Users extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $id)
+    public function update(UserRequest $request, User $user)
     {
-       return $request->all();
+    
+        $data = $request->all();
+        $user->update([
+            "name" => $request->name,
+            "email" => $request->email,
+            "avatar" => $request->file('avatar')->store('avatar', 'public')
+        ]);
+        return $user;
     }
 
     /**
