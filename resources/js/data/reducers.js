@@ -7,7 +7,7 @@ import userUpdate from "./functions/userUpdate";
 export const userReducer = (state = userInitial, action) => {
     switch (action.type) {
         case "LOG_IN":
-            return login(action.payload);
+            return login(state, action.payload);
         case "LOG_OUT":
             return logout("USER");
         case "UPDATE":

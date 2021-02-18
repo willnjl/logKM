@@ -1,5 +1,6 @@
-const login = (payload) => {
+const login = (state, payload) => {
     return {
+        ...state,
         loggedIn: true,
         ...payload,
     };

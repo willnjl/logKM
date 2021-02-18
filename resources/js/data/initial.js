@@ -3,7 +3,8 @@ export const userInitial = {
     name: "",
     id: "",
     email: "",
-    avatar: "",
+    avatar:
+        "https://th.bing.com/th/id/OIP.HvGf81fkBjIWfac5OySUJgHaE7?pid=ImgDet&rs=1",
 };
 
 export const logInitial = {

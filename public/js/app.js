@@ -20517,7 +20517,7 @@ var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default)(funct
 });
 function Settings(_ref2) {
   var user = _ref2.user,
-      handleSubmit = _ref2.handleSubmit;
+      postData = _ref2.postData;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(user.email),
       _useState2 = _slicedToArray(_useState, 2),
@@ -20534,12 +20534,40 @@ function Settings(_ref2) {
       avatar = _useState6[0],
       setAvatar = _useState6[1];
 
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState8 = _slicedToArray(_useState7, 2),
+      fileUpload = _useState8[0],
+      setFileUpload = _useState8[1];
+
+  var handleFileChange = function handleFileChange(e) {
+    if (!e.target.files.length) return;
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = function (e) {
+      var result = e.currentTarget.result;
+      setAvatar(result);
+      setFileUpload(file);
+    };
+  };
+
+  var handleSubmit = function handleSubmit(id, name, email, fileUpload) {
+    // let data = { name, email };
+    var data = new FormData();
+    data.append("email", email);
+    data.append("name", name);
+    data.append("avatar", fileUpload);
+    postData(id, data);
+  };
+
   var classes = useStyles();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_PageWrap__WEBPACK_IMPORTED_MODULE_1__.default, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_CardWrap__WEBPACK_IMPORTED_MODULE_2__.default, {
-      avatar: "https://th.bing.com/th/id/OIP.HvGf81fkBjIWfac5OySUJgHaE7?pid=ImgDet&rs=1",
+      avatar: avatar,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
         className: classes.form,
+        method: "PUT",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__.default, {
           label: "name",
           className: classes.input,
@@ -20558,7 +20586,11 @@ function Settings(_ref2) {
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "file",
-          className: classes.input
+          className: classes.input,
+          onChange: function onChange(e) {
+            return handleFileChange(e);
+          },
+          accept: "image/*"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6__.default, {
           type: "submit",
           fullWidth: true,
@@ -20568,7 +20600,7 @@ function Settings(_ref2) {
           disabled: email === "" || email === "",
           onClick: function onClick(e) {
             e.preventDefault();
-            handleSubmit(user.id, name, email, avatar);
+            handleSubmit(user.id, name, email, fileUpload);
           },
           children: "update"
         })]
@@ -20606,8 +20638,8 @@ var mapSateToProps = function mapSateToProps(_ref) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    handleSubmit: function handleSubmit(id, name, email, avatar) {
-      return dispatch((0,_data_actions__WEBPACK_IMPORTED_MODULE_2__.update)(id, name, email, avatar));
+    postData: function postData(id, data) {
+      return dispatch((0,_data_actions__WEBPACK_IMPORTED_MODULE_2__.update)(id, data));
     }
   };
 };
@@ -21181,22 +21213,19 @@ var logout = function logout() {
     });
   };
 };
-var update = function update(id, name, email, avatar) {
+var update = function update(id, data) {
   var url = "/api/user/".concat(id);
   return function (dispatch) {
-    console.log(url);
-    _axios__WEBPACK_IMPORTED_MODULE_0__.default.put(url, {
+    _axios__WEBPACK_IMPORTED_MODULE_0__.default.post(url, data, {
       withCredentials: true,
-      id: id,
-      name: name,
-      email: email,
-      avatar: avatar
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
     }).then(function (_ref4) {
       var data = _ref4.data;
-      console.log(data);
       dispatch({
         type: "UPDATE",
-        payload: data
+        payload: data.data
       });
     })["catch"](function (error) {
       return console.log(error);
@@ -21223,8 +21252,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var login = function login(payload) {
-  return _objectSpread({
+var login = function login(state, payload) {
+  return _objectSpread(_objectSpread({}, state), {}, {
     loggedIn: true
   }, payload);
 };
@@ -21301,18 +21330,18 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var userUpdate = function userUpdate(state, _ref) {
-  var name = _ref.name,
-      email = _ref.email,
-      id = _ref.id;
+  var email = _ref.email,
+      avatar = _ref.avatar,
+      name = _ref.name;
   console.log({
-    name: name,
     email: email,
-    id: id
+    avatar: avatar,
+    name: name
   });
   return _objectSpread(_objectSpread({}, state), {}, {
-    name: name,
     email: email,
-    id: id
+    avatar: avatar,
+    name: name
   });
 };
 
@@ -21337,7 +21366,7 @@ var userInitial = {
   name: "",
   id: "",
   email: "",
-  avatar: ""
+  avatar: "https://th.bing.com/th/id/OIP.HvGf81fkBjIWfac5OySUJgHaE7?pid=ImgDet&rs=1"
 };
 var logInitial = {
   activities: [],
@@ -21380,7 +21409,7 @@ var userReducer = function userReducer() {
 
   switch (action.type) {
     case "LOG_IN":
-      return (0,_functions_login__WEBPACK_IMPORTED_MODULE_1__.default)(action.payload);
+      return (0,_functions_login__WEBPACK_IMPORTED_MODULE_1__.default)(state, action.payload);
 
     case "LOG_OUT":
       return (0,_functions_logout__WEBPACK_IMPORTED_MODULE_2__.default)("USER");

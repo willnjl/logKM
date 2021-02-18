@@ -24,19 +24,39 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Settings({ user, handleSubmit }) {
+export default function Settings({ user, postData }) {
     const [email, setEmail] = useState(user.email);
     const [name, setName] = useState(user.name);
     const [avatar, setAvatar] = useState(user.avatar);
+    const [fileUpload, setFileUpload] = useState("");
+
+    const handleFileChange = (e) => {
+        if (!e.target.files.length) return;
+        let file = e.target.files[0];
+        let reader = new FileReader();
+
+        reader.readAsDataURL(file);
+
+        reader.onload = (e) => {
+            let result = e.currentTarget.result;
+            setAvatar(result);
+            setFileUpload(file);
+        };
+    };
+
+    const handleSubmit = (id, name, email, fileUpload) => {
+        // let data = { name, email };
+        let data = new FormData();
+        data.append("email", email);
+        data.append("name", name);
+        data.append("avatar", fileUpload);
+        postData(id, data);
+    };
     const classes = useStyles();
     return (
         <PageWrap>
-            <CardWrap
-                avatar={
-                    "https://th.bing.com/th/id/OIP.HvGf81fkBjIWfac5OySUJgHaE7?pid=ImgDet&rs=1"
-                }
-            >
-                <form className={classes.form}>
+            <CardWrap avatar={avatar}>
+                <form className={classes.form} method="PUT">
                     <TextField
                         label="name"
                         className={classes.input}
@@ -52,7 +72,12 @@ export default function Settings({ user, handleSubmit }) {
                         onChange={(e) => setEmail(e.currentTarget.value)}
                     />
 
-                    <input type="file" className={classes.input} />
+                    <input
+                        type="file"
+                        className={classes.input}
+                        onChange={(e) => handleFileChange(e)}
+                        accept="image/*"
+                    />
                     <Button
                         type="submit"
                         fullWidth
@@ -62,7 +87,7 @@ export default function Settings({ user, handleSubmit }) {
                         disabled={email === "" || email === ""}
                         onClick={(e) => {
                             e.preventDefault();
-                            handleSubmit(user.id, name, email, avatar);
+                            handleSubmit(user.id, name, email, fileUpload);
                         }}
                     >
                         update

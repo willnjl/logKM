@@ -2,6 +2,9 @@
 
 
 namespace App\Http\Controllers\API;
+use App\Http\Resources\API\UserListResource;
+use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Http\Requests\API\UserRequest;
 use App\Http\Controllers\Controller;
@@ -51,13 +54,19 @@ class Users extends Controller
     public function update(UserRequest $request, User $user)
     {
     
+          
         $data = $request->all();
         $user->update([
-            "name" => $request->name,
-            "email" => $request->email,
-            "avatar" => $request->file('avatar')->store('avatar', 'public')
-        ]);
-        return $user;
+            "name" => $data['name'],
+            "email" => $data['email'],
+            ]);
+            if($request->file('avatar')){
+                $user->update([
+                    'avatar' => $request->file('avatar')->store('avatars')
+                ]);
+            };
+          return new UserResource(User::findOrFail($user->id));
+    
     }
 
     /**

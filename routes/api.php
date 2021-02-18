@@ -26,7 +26,7 @@ Route::group(["prefix" => "user", "middleware" => ["auth:sanctum"]],function(){
     });
    
 });
-Route::put('user/{user}', [Users ::class, "update"]);
+Route::post('user/{user}', [Users::class, "update"]);
    
 Route::group(["middleware" => "auth:sanctum"], function () {
     Route::get('/actions', [Actions::class, "index"]);

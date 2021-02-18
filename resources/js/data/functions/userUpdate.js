@@ -1,10 +1,10 @@
-const userUpdate = (state, { name, email, id }) => {
-    console.log({ name, email, id });
+const userUpdate = (state, { email, avatar, name }) => {
+    console.log({ email, avatar, name });
     return {
         ...state,
-        name,
         email,
-        id,
+        avatar,
+        name,
     };
 };
 export default userUpdate;

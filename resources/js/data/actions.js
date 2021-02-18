@@ -35,21 +35,18 @@ export const logout = () => {
             .catch((error) => console.log(error));
     };
 };
-export const update = (id, name, email, avatar) => {
+export const update = (id, data) => {
     let url = `/api/user/${id}`;
     return (dispatch) => {
-        console.log(url);
         axios
-            .put(url, {
+            .post(url, data, {
                 withCredentials: true,
-                id,
-                name,
-                email,
-                avatar,
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
             })
             .then(({ data }) => {
-                console.log(data);
-                dispatch({ type: "UPDATE", payload: data });
+                dispatch({ type: "UPDATE", payload: data.data });
             })
             .catch((error) => console.log(error));
     };
