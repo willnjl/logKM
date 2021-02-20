@@ -20557,7 +20557,11 @@ function Settings(_ref2) {
     var data = new FormData();
     data.append("email", email);
     data.append("name", name);
-    data.append("avatar", fileUpload);
+
+    if (fileUpload) {
+      data.append("avatar", fileUpload);
+    }
+
     postData(id, data);
   };
 
@@ -21223,6 +21227,9 @@ var update = function update(id, data) {
       }
     }).then(function (_ref4) {
       var data = _ref4.data;
+      console.log({
+        data: data
+      });
       dispatch({
         type: "UPDATE",
         payload: data.data
@@ -21366,7 +21373,7 @@ var userInitial = {
   name: "",
   id: "",
   email: "",
-  avatar: "https://th.bing.com/th/id/OIP.HvGf81fkBjIWfac5OySUJgHaE7?pid=ImgDet&rs=1"
+  avatar: ""
 };
 var logInitial = {
   activities: [],

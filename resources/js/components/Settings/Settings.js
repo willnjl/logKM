@@ -49,7 +49,9 @@ export default function Settings({ user, postData }) {
         let data = new FormData();
         data.append("email", email);
         data.append("name", name);
-        data.append("avatar", fileUpload);
+        if (fileUpload) {
+            data.append("avatar", fileUpload);
+        }
         postData(id, data);
     };
     const classes = useStyles();

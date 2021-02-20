@@ -46,6 +46,7 @@ export const update = (id, data) => {
                 },
             })
             .then(({ data }) => {
+                console.log({ data });
                 dispatch({ type: "UPDATE", payload: data.data });
             })
             .catch((error) => console.log(error));

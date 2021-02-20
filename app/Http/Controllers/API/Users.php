@@ -53,7 +53,8 @@ class Users extends Controller
      */
     public function update(UserRequest $request, User $user)
     {
-    
+        
+        
           
         $data = $request->all();
         $user->update([
@@ -62,7 +63,7 @@ class Users extends Controller
             ]);
             if($request->file('avatar')){
                 $user->update([
-                    'avatar' => $request->file('avatar')->store('avatars')
+                    'avatar' => $request->file('avatar')->storePublicly('avatars')
                 ]);
             };
           return new UserResource(User::findOrFail($user->id));
