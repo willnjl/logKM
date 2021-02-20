@@ -8,6 +8,8 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         alignItems: "center",
         padding: theme.spacing(2),
+        height: "500px",
+        width: "333px",
     },
     large: {
         margin: theme.spacing(4),
