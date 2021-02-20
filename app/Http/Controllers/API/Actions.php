@@ -38,6 +38,7 @@ class Actions extends Controller
             'user_id' => $data['id'],
             'activity_id' => $data['activity_id']
         ]);
+        
 
         return $action;
     }
