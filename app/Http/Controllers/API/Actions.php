@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 
 use App\Models\Action;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class Actions extends Controller
     public function index()
     {
        return Action::all();
-        // return "blah";
+        
     }
 
     /**
@@ -39,7 +40,9 @@ class Actions extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        return $user->actions;
     }
 
     /**

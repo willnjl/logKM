@@ -2,8 +2,8 @@
 
 
 namespace App\Http\Controllers\API;
-use App\Http\Resources\API\UserListResource;
-use App\Http\Resources\UserResource;
+use App\Http\Resources\API\UserResource;
+
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Http\Requests\API\UserRequest;

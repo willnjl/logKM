@@ -9,4 +9,9 @@ class Action extends Model
 {
     use HasFactory;
     protected $table = 'actions';
+
+    public function user()
+    {
+        return $this->belongsTo(Article::class);
+    }
 }

@@ -24,13 +24,14 @@ Route::group(["prefix" => "user", "middleware" => ["auth:sanctum"]],function(){
      Route::get('', function (Request $request) {
         return $request->user();
     });
-   
+    Route::post('user/{user}', [Users::class, "update"]);
 });
-Route::post('user/{user}', [Users::class, "update"]);
-   
-Route::group(["middleware" => "auth:sanctum"], function () {
-    Route::get('/actions', [Actions::class, "index"]);
-});
+Route::group(["prefix" => "actions", "middleware" => ["auth:sanctum"]],function(){
+        Route::get('', [Actions::class, "index"]);
+        Route::post('/{id}', [Actions::class, "index"]);
+    });
+    Route::get('actions/{id}', [Actions::class, "show"]);
+
 
 Auth::routes();
 
