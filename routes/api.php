@@ -30,8 +30,8 @@ Route::group(["prefix" => "actions", "middleware" => ["auth:sanctum"]],function(
         Route::get('', [Actions::class, "index"]);
         Route::post('/{id}', [Actions::class, "index"]);
     });
-    Route::get('actions/{id}', [Actions::class, "show"]);
-
+    
+    Route::post('actions/{id}', [Actions::class, "store"]);
 
 Auth::routes();
 

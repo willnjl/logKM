@@ -60,14 +60,13 @@ class Users extends Controller
         $user->update([
             "name" => $data['name'],
             "email" => $data['email'],
-            ]);
-            if($request->file('avatar')){
-                $user->update([
+        ]);
+        if($request->file('avatar')){
+            $user->update([
                     'avatar' => $request->file('avatar')->storePublicly('avatars')
                 ]);
             };
           return new UserResource(User::findOrFail($user->id));
-    
     }
 
     /**

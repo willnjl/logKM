@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 
 use App\Models\Action;
 use App\Models\User;
+use App\Http\Resources\API\ActionListResource;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,16 @@ class Actions extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $action = Action::create([
+            'distanceKM' => $data['distanceKM'],
+            'date_completed' => $data['date_completed'],
+            'user_id' => $data['id'],
+            'activity_id' => $data['activity_id']
+        ]);
+
+        return $action;
     }
 
     /**
@@ -41,8 +51,7 @@ class Actions extends Controller
     public function show($id)
     {
         $user = User::find($id);
-
-        return $user->actions;
+        return ActionListResource::collection($user->actions);
     }
 
     /**

@@ -9,6 +9,8 @@ class Action extends Model
 {
     use HasFactory;
     protected $table = 'actions';
+    
+    protected $fillable = ["distanceKM", "date_completed", "user_id", "activity_id"];
 
     public function user()
     {
