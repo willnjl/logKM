@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center",
         padding: theme.spacing(2),
         height: "500px",
-        width: "333px",
+        maxWidth: "500px",
     },
     large: {
         margin: theme.spacing(4),

@@ -8,6 +8,7 @@ import CardWrap from "../CardWrap";
 const useStyles = makeStyles((theme) => ({
     form: {
         width: "100%", // Fix IE 11 issue.
+        padding: theme.spacing(1),
         marginTop: theme.spacing(1),
         display: "flex",
         flexDirection: "column",
