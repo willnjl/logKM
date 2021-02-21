@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { FormControl, makeStyles } from "@material-ui/core";
+import dayjs from "dayjs";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import MomentUtils from "@date-io/moment";
+import SaveIcon from "@material-ui/icons/Save";
+import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
 import CardWrap from "../CardWrap";
 import PageWrap from "../PageWrap";
+// import { set } from "lodash";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -18,31 +21,37 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
     },
 
+    col: {
+        display: "flex",
+        flexDirection: "column",
+        margin: theme.spacing(2),
+    },
     row: {
         display: "flex",
-        marginBottom: theme.spacing(5),
+        alignItems: "center",
+        margin: theme.spacing(2),
+        justifyContent: "space-between",
     },
     half: {
         flex: 1,
         margin: "0 10px",
     },
-    submit: {
-        margin: theme.spacing(3, 0, 2),
-    },
 
-    input: {
-        marginBottom: theme.spacing(5),
-    },
     submit: {
-        margin: theme.spacing(3, 0, 2),
+        margin: theme.spacing(3, "auto"),
+        marginBottom: "auto",
+    },
+    quickDate: {
+        padding: theme.spacing(0),
     },
 }));
+
 export default function AddAction() {
     const classes = useStyles();
-
+    const dateFormat = "YYYY-MM-DD";
     const [values, setValues] = useState({
         distance: 0,
-        date: new Date().toISOString().slice(0, 10),
+        date: dayjs().format(dateFormat),
         activity: 0,
         activityId: 0,
     });
@@ -58,6 +67,21 @@ export default function AddAction() {
     const handleChange = (prop, value) => {
         console.log(value);
         setValues({ ...values, [prop]: value });
+    };
+
+    const handleQuickDate = (values, selected) => {
+        if (selected === "yesterday") {
+            let yesterday = dayjs().subtract(1, "day").format(dateFormat);
+            setValues({
+                ...values,
+                date: yesterday,
+            });
+        } else {
+            setValues({
+                ...values,
+                date: dayjs().format(dateFormat),
+            });
+        }
     };
     return (
         <PageWrap>
@@ -98,18 +122,48 @@ export default function AddAction() {
                             </Select>
                         </FormControl>
                     </div>
-                    <TextField
-                        id="date"
-                        label="Birthday"
-                        type="date"
-                        defaultValue="2017-05-24"
-                        className={classes.textField}
-                        value={values.date}
-                        onChange={(e) => handleChange("date", e.target.value)}
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                    />
+                    <div className={classes.row}>
+                        <TextField
+                            id="date"
+                            label="Date Completed"
+                            type="date"
+                            className={classes.textField}
+                            value={values.date}
+                            onChange={(e) =>
+                                handleChange("date", e.target.value)
+                            }
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
+                        <div className={classes.col}>
+                            <Button
+                                className={classes.quickDate}
+                                onClick={() => handleQuickDate(values, "today")}
+                            >
+                                Today
+                            </Button>
+                            <Button
+                                className={classes.quickDate}
+                                onClick={() =>
+                                    handleQuickDate(values, "yesterday")
+                                }
+                            >
+                                Yesterday
+                            </Button>
+                        </div>
+                    </div>
+                    <div className={classes.row}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            size="large"
+                            className={classes.submit}
+                            startIcon={<SaveIcon />}
+                        >
+                            Save
+                        </Button>
+                    </div>
                 </form>
             </CardWrap>
         </PageWrap>
