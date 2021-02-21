@@ -30,7 +30,7 @@ function(){
     Route::post('/{user}', [Users::class, "update"]);
     Route::get('/{user}', [Users::class, "show"]);
 });
-Route::post('user/{user}', [Users::class, "update"]);
+
 
 Route::group(["prefix" => "actions", "middleware" => ["auth:sanctum"]],function(){
     Route::get('', [Actions::class, "index"]);
