@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function MenuListComposition({ user, logout }) {
+export default function MenuListComposition({ user, handleLogout }) {
     const { loggedIn } = user;
     const classes = useStyles();
 
@@ -38,9 +38,9 @@ export default function MenuListComposition({ user, logout }) {
     };
 
     const handleClick = () => {
-        handleClick();
+        handleClose();
         if (loggedIn) {
-            logout();
+            handleLogout();
         }
     };
 
@@ -69,7 +69,7 @@ export default function MenuListComposition({ user, logout }) {
                     <MenuItem onClick={handleClose}>
                         <Link to="/settings">Settings</Link>
                     </MenuItem>
-                    <MenuItem onClick={handleClose}>
+                    <MenuItem onClick={() => handleClick()}>
                         <Link to="/"> {loggedIn ? "Logout" : "Sign In"}</Link>
                     </MenuItem>
                 </Menu>

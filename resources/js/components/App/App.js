@@ -8,7 +8,7 @@ import {
 import SignIn from "../SignIn";
 import SignUp from "../SignUp/SignUp";
 import Dashboard from "../Dashboard/";
-import AddAction from "../AddAction/";
+
 import Loaded from "../Loaded";
 import Settings from "../Settings";
 import Copyright from "../Copyright";
@@ -30,8 +30,7 @@ function App({ user }) {
                             <Redirect to="/" />
                         ) : (
                             <Loaded>
-                                {/* <Dashboard /> */}
-                                <AddAction />
+                                <Dashboard />
                             </Loaded>
                         )}
                     </Route>

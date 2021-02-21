@@ -29,7 +29,8 @@ export const logout = () => {
     return (dispatch) => {
         axios
             .post("/logout", { withCredentials: true })
-            .then(({ data }) => {
+            .then(() => {
+                console.log("goodbye");
                 dispatch({ type: "LOG_OUT" });
             })
             .catch((error) => console.log(error));
@@ -37,6 +38,7 @@ export const logout = () => {
 };
 export const update = (id, data) => {
     let url = `/api/user/${id}`;
+    console.log(data.values());
     return (dispatch) => {
         axios
             .post(url, data, {
@@ -48,6 +50,29 @@ export const update = (id, data) => {
             .then(({ data }) => {
                 console.log({ data });
                 dispatch({ type: "UPDATE", payload: data.data });
+            })
+            .catch((error) => console.log(error));
+    };
+};
+export const postAction = (id, formData) => {
+    let url = `/api/actions`;
+    let data = {
+        id,
+        activity_id: formData.activity_id,
+        distanceKM: +formData.distance,
+        date_completed: formData.date,
+    };
+    console.log(data);
+    return (dispatch) => {
+        axios
+            .post(
+                url,
+
+                { withCredentials: true }
+            )
+            .then(({ data }) => {
+                console.log({ data });
+                // dispatch({ type: "UPDATE", payload: data.data });
             })
             .catch((error) => console.log(error));
     };

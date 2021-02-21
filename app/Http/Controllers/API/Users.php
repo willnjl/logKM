@@ -66,6 +66,7 @@ class Users extends Controller
                     'avatar' => $request->file('avatar')->storePublicly('avatars')
                 ]);
             };
+
           return new UserResource(User::findOrFail($user->id));
     }
 

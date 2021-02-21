@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         height: "500px",
         maxWidth: "500px",
+        position: "relative",
     },
     large: {
         margin: theme.spacing(4),

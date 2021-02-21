@@ -5,7 +5,7 @@ import { logout } from "../../data/actions";
 let mapStateToProps = ({ user }) => ({ user });
 
 let mapDispatchToProps = (dispatch) => ({
-    logout: () => dispatch(logout()),
+    handleLogout: () => dispatch(logout()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
