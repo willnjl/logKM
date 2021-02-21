@@ -20738,7 +20738,9 @@ var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default)(funct
     },
     col: {
       display: "flex",
+      flex: 1,
       flexDirection: "column",
+      justifyContent: "flex-end",
       margin: theme.spacing(2)
     },
     row: {
@@ -20827,7 +20829,7 @@ function AddAction(_ref) {
           labelId: "select-activity-label",
           label: "Activity",
           id: "demo-simple-select",
-          value: values.activityId,
+          value: values.activity_id,
           onChange: function onChange(e) {
             return handleChange("activity_id", e.target.value);
           },
@@ -20840,7 +20842,7 @@ function AddAction(_ref) {
         id: "date",
         label: "Date Completed",
         type: "date",
-        className: classes.textField,
+        className: classes.half,
         value: values.date,
         onChange: function onChange(e) {
           return handleChange("date", e.target.value);
@@ -21257,7 +21259,9 @@ function Component(_ref) {
       handleLoad = _ref.handleLoad,
       children = _ref.children;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    handleLoad();
+    if (!loaded) {
+      handleLoad();
+    }
   }, []);
   return loaded ? children : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     children: "Loading"
@@ -22356,19 +22360,23 @@ var postAction = function postAction(id, formData) {
   var url = "/api/actions";
   var data = {
     id: id,
-    activity_id: formData.activity_id,
+    // activity_id: formData.activity_id,
+    activity_id: 2,
     distanceKM: +formData.distance,
     date_completed: formData.date
   };
-  console.log(data);
   return function (dispatch) {
-    _axios__WEBPACK_IMPORTED_MODULE_0__.default.post(url, {
+    _axios__WEBPACK_IMPORTED_MODULE_0__.default.post(url, data, {
       withCredentials: true
     }).then(function (_ref4) {
       var data = _ref4.data;
       console.log({
         data: data
-      }); // dispatch({ type: "UPDATE", payload: data.data });
+      });
+      dispatch({
+        type: "NEW_ACTION",
+        payload: data.data
+      });
     })["catch"](function (error) {
       return console.log(error);
     });

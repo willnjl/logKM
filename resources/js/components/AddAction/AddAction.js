@@ -25,7 +25,9 @@ const useStyles = makeStyles((theme) => ({
 
     col: {
         display: "flex",
+        flex: 1,
         flexDirection: "column",
+        justifyContent: "flex-end",
         margin: theme.spacing(2),
     },
     row: {
@@ -105,7 +107,7 @@ export default function AddAction({ user, handleSubmit }) {
                         labelId="select-activity-label"
                         label="Activity"
                         id="demo-simple-select"
-                        value={values.activityId}
+                        value={values.activity_id}
                         onChange={(e) =>
                             handleChange("activity_id", e.target.value)
                         }
@@ -119,7 +121,7 @@ export default function AddAction({ user, handleSubmit }) {
                     id="date"
                     label="Date Completed"
                     type="date"
-                    className={classes.textField}
+                    className={classes.half}
                     value={values.date}
                     onChange={(e) => handleChange("date", e.target.value)}
                     InputLabelProps={{

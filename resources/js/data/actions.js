@@ -58,21 +58,17 @@ export const postAction = (id, formData) => {
     let url = `/api/actions`;
     let data = {
         id,
-        activity_id: formData.activity_id,
+        // activity_id: formData.activity_id,
+        activity_id: 2,
         distanceKM: +formData.distance,
         date_completed: formData.date,
     };
-    console.log(data);
     return (dispatch) => {
         axios
-            .post(
-                url,
-
-                { withCredentials: true }
-            )
+            .post(url, data, { withCredentials: true })
             .then(({ data }) => {
                 console.log({ data });
-                // dispatch({ type: "UPDATE", payload: data.data });
+                dispatch({ type: "NEW_ACTION", payload: data.data });
             })
             .catch((error) => console.log(error));
     };

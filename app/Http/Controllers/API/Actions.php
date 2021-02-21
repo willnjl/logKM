@@ -4,8 +4,10 @@ namespace App\Http\Controllers\API;
 
 
 use App\Models\Action;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Http\Resources\API\ActionListResource;
+use App\Http\Requests\API\ActionRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -28,13 +30,13 @@ class Actions extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ActionRequest $request)
     {
         $data = $request->all();
-
+        $date = new Carbon($data['date_completed']);
         $action = Action::create([
             'distanceKM' => $data['distanceKM'],
-            'date_completed' => $data['date_completed'],
+            'date_completed' => $date,
             'user_id' => $data['id'],
             'activity_id' => $data['activity_id']
         ]);

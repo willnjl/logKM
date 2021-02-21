@@ -34,10 +34,11 @@ function(){
 
 Route::group(["prefix" => "actions", "middleware" => ["auth:sanctum"]],function(){
     Route::get('', [Actions::class, "index"]);
-    Route::post('', [Actions::class, "index"]);
+    Route::get('/{id}', [Actions::class, "show"]);
 });
+Route::post('actions', [Actions::class, "store"]);
 
-Route::post('actions/{id}', [Actions::class, "store"]);
+
 
 Auth::routes();
 
