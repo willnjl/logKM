@@ -1,5 +1,6 @@
 // API ACTIONS
 import axios from "../axios";
+import history from "../history";
 
 export const getUserData = () => {
     return (dispatch) => {
@@ -67,7 +68,7 @@ export const postAction = (id, formData) => {
         axios
             .post(url, data, { withCredentials: true })
             .then(({ data }) => {
-                console.log({ data });
+                history.push("/");
                 dispatch({ type: "NEW_ACTION", payload: data.data });
             })
             .catch((error) => console.log(error));

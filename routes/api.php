@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Models\Activity;
 use App\Http\Controllers\API\Actions;
 use App\Http\Controllers\API\Users;
+use App\Http\Controllers\API\Activities;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -32,6 +33,10 @@ function(){
 });
 
 
+Route::group(["prefix" => "activities", "middleware" => ["auth:sanctum"]],function(){
+    Route::get('', [Activities::class, "index"]);
+    Route::get('activities', [Activities::class, "index"]);
+});
 Route::group(["prefix" => "actions", "middleware" => ["auth:sanctum"]],function(){
     Route::get('', [Actions::class, "index"]);
     Route::get('/{id}', [Actions::class, "show"]);

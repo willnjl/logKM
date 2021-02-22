@@ -6,7 +6,7 @@ let mapStateToProps = ({ user }) => ({ user });
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        handleSubmit: (id, data) => dispatch(postAction(id, data)),
+        postData: (id, data) => dispatch(postAction(id, data)),
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(AddAction);

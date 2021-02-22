@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import AddAction from "../AddAction/";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
-import CloseIcon from "@material-ui/icons/Close";
 import CardWrap from "../CardWrap";
 import { makeStyles } from "@material-ui/core/styles";
-import PageWrap from "../PageWrap";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     avatar: {
@@ -29,22 +27,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Dashboard({ user }) {
     const classes = useStyles();
-    const [formOpen, setFormOpen] = useState(false);
 
     return (
-        <PageWrap>
-            <CardWrap avatar={user.avatar}>
-                {formOpen ? <AddAction /> : <h2>{user.name}</h2>}
+        <CardWrap avatar={user.avatar}>
+            <h2>{user.name}</h2>
+            <Link to={"add"}>
                 <Fab
                     size="medium"
                     color="secondary"
                     aria-label="add"
                     className={classes.fab}
-                    onClick={() => setFormOpen(!formOpen)}
                 >
-                    {!formOpen ? <AddIcon /> : <CloseIcon />}
+                    <AddIcon />
                 </Fab>
-            </CardWrap>
-        </PageWrap>
+            </Link>
+        </CardWrap>
     );
 }

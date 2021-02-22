@@ -24,7 +24,7 @@ class ActionRequest extends FormRequest
     public function rules()
     {
         return [
-            'distanceKM' => ['required',  'numeric', 'max:100'],
+            'distanceKM' => ['required',  'numeric', 'max:100', 'min:0'],
             'date_completed' => ['required', 'date'],
             'activity_id' => ['required', 'numeric']
         ];
