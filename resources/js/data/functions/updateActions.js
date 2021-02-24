@@ -1,7 +1,8 @@
 import { truncate } from "lodash";
 
-const updateActions = ({ actions, isLoaded }) => {
+const updateActions = (state, { actions, isLoaded }) => {
     return {
+        ...state,
         isLoaded,
         actions,
     };

@@ -32,31 +32,13 @@ function App({ user }) {
                             <SignUp />
                         </Route>
                         <Route exact path="/dashboard">
-                            {!loggedIn ? (
-                                <Redirect to="/" />
-                            ) : (
-                                <Loaded>
-                                    <Dashboard />
-                                </Loaded>
-                            )}
+                            {!loggedIn ? <Redirect to="/" /> : <Dashboard />}
                         </Route>
                         <Route exact path="/add">
-                            {!loggedIn ? (
-                                <Redirect to="/" />
-                            ) : (
-                                <Loaded>
-                                    <AddAction />
-                                </Loaded>
-                            )}
+                            {!loggedIn ? <Redirect to="/" /> : <AddAction />}
                         </Route>
                         <Route path="/settings">
-                            {!loggedIn ? (
-                                <Redirect to="/" />
-                            ) : (
-                                <Loaded>
-                                    <Settings />
-                                </Loaded>
-                            )}
+                            {!loggedIn ? <Redirect to="/" /> : <Settings />}
                         </Route>
                     </Switch>
                     <Copyright />

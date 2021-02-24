@@ -3,10 +3,10 @@ import axios from "../axios";
 import history from "../history";
 
 const handleError = (error) => {
-    if (error.response.status === 401) {
-        dispatch({ type: "LOG_OUT" });
-    }
-    console.log(error.toJSON());
+    // if (error.response.status === 401) {
+    //     dispatch({ type: "LOG_OUT" });
+    // }
+    console.log(error);
 };
 
 export const getUserData = () => {
@@ -16,6 +16,17 @@ export const getUserData = () => {
             .then(({ data }) => {
                 let { email, id, name } = data;
                 dispatch({ type: "LOG_IN", payload: { email, id, name } });
+            })
+            .catch((error) => handleError(error));
+    };
+};
+export const getUserStats = (id) => {
+    return (dispatch) => {
+        axios
+            .get(`api/actions/${id}`, { withCredentials: true })
+            .then(({ data }) => {
+                let { actions, total } = data;
+                dispatch({ type: "USER_ACTIONS", payload: { actions, total } });
             })
             .catch((error) => handleError(error));
     };

@@ -4,6 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import CardWrap from "../CardWrap";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import Loaded from "../Loaded";
 
 const useStyles = makeStyles((theme) => ({
     avatar: {
@@ -25,12 +26,19 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(2),
     },
 }));
-export default function Dashboard({ user }) {
+export default function Dashboard({ user, log }) {
     const classes = useStyles();
 
     return (
         <CardWrap avatar={user.avatar}>
             <h2>{user.name}</h2>
+            <Loaded user={user.id}>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </Loaded>
             <Link to={"add"}>
                 <Fab
                     size="medium"

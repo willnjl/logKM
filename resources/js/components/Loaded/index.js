@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 import Component from "./Component";
-import { getActionData } from "../../data/actions";
+import { getUserStats } from "../../data/actions";
 
-let mapStateToProps = ({ log }) => ({ loaded: log.isLoaded });
+let mapStateToProps = ({ log }) => ({ loaded: log.user.isLoaded });
 
 let mapDispatchToProps = (dispatch) => ({
-    handleLoad: () => dispatch(getActionData()),
+    handleLoad: (id) => dispatch(getUserStats(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);

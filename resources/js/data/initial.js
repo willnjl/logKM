@@ -7,6 +7,9 @@ export const userInitial = {
 };
 
 export const logInitial = {
-    activities: [],
-    isLoaded: false,
+    user: {
+        hasLoaded: false,
+        total: 0,
+        actions: [],
+    },
 };
