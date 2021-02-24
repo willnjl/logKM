@@ -21561,9 +21561,11 @@ function Dashboard(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
       children: user.name
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Loaded__WEBPACK_IMPORTED_MODULE_2__.default, {
-      user: user.id,
+      id: user.id,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {})]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+          children: log.user.total
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {})]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
       to: "add",
@@ -21600,7 +21602,8 @@ var mapStateToProps = function mapStateToProps(_ref) {
   var user = _ref.user,
       log = _ref.log;
   return {
-    user: user
+    user: user,
+    log: log
   };
 };
 
@@ -21624,12 +21627,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Component(_ref) {
-  var loaded = _ref.loaded,
+  var id = _ref.id,
+      loaded = _ref.loaded,
       handleLoad = _ref.handleLoad,
       children = _ref.children;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (!loaded) {
-      handleLoad(user);
+      handleLoad(id);
     }
   }, []);
   return loaded ? children : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -21660,7 +21664,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(_ref) {
   var log = _ref.log;
   return {
-    loaded: log.user.isLoaded
+    loaded: log.user.hasLoaded
   };
 };
 

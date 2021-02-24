@@ -32,9 +32,9 @@ export default function Dashboard({ user, log }) {
     return (
         <CardWrap avatar={user.avatar}>
             <h2>{user.name}</h2>
-            <Loaded user={user.id}>
+            <Loaded id={user.id}>
                 <ul>
-                    <li></li>
+                    <li>{log.user.total}</li>
                     <li></li>
                     <li></li>
                 </ul>
