@@ -22644,7 +22644,7 @@ var handleError = function handleError(error) {
     });
   }
 
-  console.log(error);
+  console.log(error.toJSON());
 };
 
 var getUserData = function getUserData() {
@@ -22728,7 +22728,6 @@ var postAction = function postAction(id, formData) {
   var url = "/api/actions";
   var data = {
     id: id,
-    // activity_id: formData.activity_id,
     activity_id: 2,
     distanceKM: +formData.distance,
     date_completed: formData.date

@@ -6,7 +6,7 @@ const handleError = (error) => {
     if (error.response.status === 401) {
         dispatch({ type: "LOG_OUT" });
     }
-    console.log(error);
+    console.log(error.toJSON());
 };
 
 export const getUserData = () => {
@@ -68,7 +68,6 @@ export const postAction = (id, formData) => {
     let url = `/api/actions`;
     let data = {
         id,
-        // activity_id: formData.activity_id,
         activity_id: 2,
         distanceKM: +formData.distance,
         date_completed: formData.date,
