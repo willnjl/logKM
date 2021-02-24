@@ -53,8 +53,12 @@ class Actions extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return ActionListResource::collection($user->actions);
+        $user = User::findorfail($id);
+        $total = $user->actions->pluck('distanceKM')->reduce(fn($acc, $val) => $acc + $val, 0);
+        return response([
+            'total' => $total,
+           'actions' => ActionListResource::collection($user->actions),
+        ]);
     }
 
     /**
