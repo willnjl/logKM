@@ -13,7 +13,7 @@ import TextField from "@material-ui/core/TextField";
 import CardWrap from "../CardWrap";
 import { Link } from "react-router-dom";
 import Fab from "@material-ui/core/Fab";
-import CloseIcon from "@material-ui/icons";
+import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles((theme) => ({
     form: {

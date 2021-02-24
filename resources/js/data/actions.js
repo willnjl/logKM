@@ -2,6 +2,13 @@
 import axios from "../axios";
 import history from "../history";
 
+const handleError = (error) => {
+    if (error.response.status === 401) {
+        dispatch({ type: "LOG_OUT" });
+    }
+    console.log(error);
+};
+
 export const getUserData = () => {
     return (dispatch) => {
         axios
@@ -10,7 +17,7 @@ export const getUserData = () => {
                 let { email, id, name } = data;
                 dispatch({ type: "LOG_IN", payload: { email, id, name } });
             })
-            .catch((error) => console.log(error));
+            .catch((error) => handleError(error));
     };
 };
 export const getActionData = () => {
@@ -23,7 +30,9 @@ export const getActionData = () => {
                     payload: { actions: data, isLoaded: true },
                 });
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                handleError(error);
+            });
     };
 };
 export const logout = () => {
@@ -34,7 +43,7 @@ export const logout = () => {
                 console.log("goodbye");
                 dispatch({ type: "LOG_OUT" });
             })
-            .catch((error) => console.log(error));
+            .catch((error) => handleError(error));
     };
 };
 export const update = (id, data) => {
@@ -52,7 +61,7 @@ export const update = (id, data) => {
                 console.log({ data });
                 dispatch({ type: "UPDATE", payload: data.data });
             })
-            .catch((error) => console.log(error));
+            .catch((error) => handleError(error));
     };
 };
 export const postAction = (id, formData) => {
@@ -71,6 +80,6 @@ export const postAction = (id, formData) => {
                 history.push("/");
                 dispatch({ type: "NEW_ACTION", payload: data.data });
             })
-            .catch((error) => console.log(error));
+            .catch((error) => handleError(error));
     };
 };
