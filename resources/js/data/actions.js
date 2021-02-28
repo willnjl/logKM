@@ -14,8 +14,11 @@ export const getUserData = () => {
         axios
             .get("api/user", { withCredentials: true })
             .then(({ data }) => {
-                let { email, id, name } = data;
-                dispatch({ type: "LOG_IN", payload: { email, id, name } });
+                let { email, id, name, avatar } = data;
+                dispatch({
+                    type: "LOG_IN",
+                    payload: { email, id, name, avatar },
+                });
             })
             .catch((error) => handleError(error));
     };
@@ -88,7 +91,8 @@ export const postAction = (id, formData) => {
             .post(url, data, { withCredentials: true })
             .then(({ data }) => {
                 history.push("/");
-                dispatch({ type: "NEW_ACTION", payload: data.data });
+                dispatch({ type: "NEW_ACTION", payload: data });
+                console.log(data);
             })
             .catch((error) => handleError(error));
     };

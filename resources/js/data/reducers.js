@@ -22,6 +22,8 @@ export const logReducer = (state = logInitial, action) => {
     switch (action.type) {
         case "USER_ACTIONS":
             return addUserActions(state, action.payload);
+        case "NEW_ACTION":
+            return { ...state, user: { ...state.user, hasLoaded: false } };
         case "ALL_ACTIONS":
             return updateActions(action.payload);
         case "LOG_OUT":

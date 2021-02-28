@@ -15,13 +15,17 @@ class ActionListResource extends JsonResource
      */
     public function toArray($request)
     {
+       
         $sport = Activity::find($this->activity_id)->name;
         return [
-            'distance' => $this->distanceKM,
-            'activity' => $sport,
-            'activity_id' => $this->activity_id,
-            'date_completed' => $this->date_completed,
-            'date_created' => $this->created_at
+            'templates'=> [
+                'distance' => $this->distanceKM,
+                'activity' => $sport,
+                'activity_id' => $this->activity_id,
+                'date_completed' => $this->date_completed,
+                'date_created' => $this->created_at
+            ],
+        
         ];
     }
 }

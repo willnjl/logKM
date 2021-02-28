@@ -5,6 +5,7 @@ import CardWrap from "../CardWrap";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Loaded from "../Loaded";
+import UserActionFeed from "../UserActionFeed";
 
 const useStyles = makeStyles((theme) => ({
     avatar: {
@@ -33,11 +34,7 @@ export default function Dashboard({ user, log }) {
         <CardWrap avatar={user.avatar}>
             <h2>{user.name}</h2>
             <Loaded id={user.id}>
-                <ul>
-                    <li>{log.user.total}</li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                <UserActionFeed data={log.user.actions} />
             </Loaded>
             <Link to={"add"}>
                 <Fab

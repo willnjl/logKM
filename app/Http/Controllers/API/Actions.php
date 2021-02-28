@@ -7,6 +7,7 @@ use App\Models\Action;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Http\Resources\API\ActionListResource;
+
 use App\Http\Requests\API\ActionRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -20,7 +21,10 @@ class Actions extends Controller
      */
     public function index()
     {
-       return Action::all();
+
+        $data = Action::paginate(3);
+       
+       return [ dataActionListResource::collection($data)->response()->getData(true)];
         
     }
 
@@ -56,8 +60,11 @@ class Actions extends Controller
         $user = User::findorfail($id);
         $total = $user->actions->pluck('distanceKM')->reduce(fn($acc, $val) => $acc + $val, 0);
         return response([
-            'total' => $total,
-           'actions' => ActionListResource::collection($user->actions),
+            'data' =>[
+
+                'total' => $total,
+               'actions' => ActionListResource::collection($user->actions)->paginate(3),
+            ]
         ]);
     }
 
