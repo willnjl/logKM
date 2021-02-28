@@ -11,9 +11,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
 import CardWrap from "../CardWrap";
-import { Link } from "react-router-dom";
-import Fab from "@material-ui/core/Fab";
-import CloseIcon from "@material-ui/icons/Close";
+import ClosePage from "../ClosePage";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -204,16 +202,7 @@ export default function AddAction({ user, postData }) {
                     </Button>
                 </div>
             </form>
-            <Link to={"/dashboard"}>
-                <Fab
-                    size="medium"
-                    color="secondary"
-                    aria-label="dashboard"
-                    className={classes.fab}
-                >
-                    <CloseIcon />
-                </Fab>
-            </Link>
+            <ClosePage />
         </CardWrap>
     );
 }

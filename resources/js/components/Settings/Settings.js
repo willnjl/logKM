@@ -4,6 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CardWrap from "../CardWrap";
 import Alert from "../Alert";
+import ClosePage from "../ClosePage";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -11,9 +12,23 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(1),
         marginTop: theme.spacing(1),
         height: "100%",
+        marginBottom: theme.spacing(8),
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-evenly",
+    },
+    input: {
+        margin: theme.spacing(2),
+    },
+    submit: {
+        marginTop: "auto",
+    },
+
+    team_token: {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        color: "#aaaaaa",
+        margin: theme.spacing(2),
     },
 }));
 
@@ -71,7 +86,7 @@ export default function Settings({ user, postData }) {
                     onChange={(e) => handleFileChange(e)}
                     accept="image/*"
                 />
-                <Alert />
+                {/* <Alert /> */}
                 <Button
                     type="submit"
                     fullWidth
@@ -87,6 +102,8 @@ export default function Settings({ user, postData }) {
                     update
                 </Button>
             </form>
+            <span className={classes.team_token}>{user.team_token}</span>
+            <ClosePage />
         </CardWrap>
     );
 }
