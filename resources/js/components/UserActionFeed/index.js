@@ -65,6 +65,19 @@ export default function UserActionFeed({ userActions, handlePage }) {
                     </tr>
                 </thead>
                 <tbody>{makeRows(data)}</tbody>
+                <tfoot>
+                    <tr
+                        style={{
+                            textAlign: "right",
+                        }}
+                    >
+                        <td colSpan={3}>
+                            <span>
+                                Page {current_page} of {last_page}
+                            </span>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
             <ButtonGroup
                 color="primary"
