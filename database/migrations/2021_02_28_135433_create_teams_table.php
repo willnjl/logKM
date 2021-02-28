@@ -15,11 +15,8 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('token', 11);
+            $table->string('id_token');
             $table->timestamps();
-
-            $table->foreignId('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,10 +27,6 @@ class CreateTeamsTable extends Migration
      */
     public function down()
     {
-        Schema::table('teams', function(Blueprint $table){
-            $table->dropForeign(['user_id']);
-            $table->dropColumn('user_id');
-        });
         Schema::dropIfExists('teams');
     }
 }
