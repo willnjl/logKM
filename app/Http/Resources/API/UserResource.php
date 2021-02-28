@@ -20,7 +20,7 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'avatar' => Storage::url($this->avatar),
-            'team_token' => $team->id_token,
+            'team_token' => $team->team_token,
         ];
     }
 }
