@@ -4,6 +4,7 @@ export const userInitial = {
     id: "",
     email: "",
     avatar: "",
+    team_token: "",
 };
 
 export const logInitial = {

@@ -23615,7 +23615,8 @@ var userInitial = {
   name: "",
   id: "",
   email: "",
-  avatar: ""
+  avatar: "",
+  team_token: ""
 };
 var logInitial = {
   user: {

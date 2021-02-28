@@ -14,11 +14,13 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
+        $team = $this->team;
         return [
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
             'avatar' => Storage::url($this->avatar),
+            'team_token' => $team->id_token,
         ];
     }
 }

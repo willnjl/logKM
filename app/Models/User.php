@@ -51,7 +51,7 @@ class User extends Authenticatable
       return $this->hasMany(Action::class)->orderBy('date_completed', 'DESC');
   }
 
-  public function teams()
+  public function team()
   {
       return $this->belongsTo(Team::class);
   }
