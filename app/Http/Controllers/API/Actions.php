@@ -36,12 +36,13 @@ class Actions extends Controller
      */
     public function store(ActionRequest $request)
     {
+        return auth()->user()->id;
         $data = $request->all();
         $date = new Carbon($data['date_completed']);
         $action = Action::create([
             'distanceKM' => $data['distanceKM'],
             'date_completed' => $date,
-            'user_id' => $data['id'],
+            'user_id' => auth()->user()->id(),
             'activity_id' => $data['activity_id']
         ]);
         

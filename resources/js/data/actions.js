@@ -3,10 +3,10 @@ import axios from "../axios";
 import history from "../history";
 
 const handleError = (error) => {
-    // if (error.response.status === 401) {
-    //     dispatch({ type: "LOG_OUT" });
-    // }
     console.log(error);
+    if (error.response.status === 401) {
+        dispatch({ type: "LOG_OUT" });
+    }
 };
 
 export const getUserData = () => {

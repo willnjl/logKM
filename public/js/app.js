@@ -23383,10 +23383,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var handleError = function handleError(error) {
-  // if (error.response.status === 401) {
-  //     dispatch({ type: "LOG_OUT" });
-  // }
   console.log(error);
+
+  if (error.response.status === 401) {
+    dispatch({
+      type: "LOG_OUT"
+    });
+  }
 };
 
 var getUserData = function getUserData() {

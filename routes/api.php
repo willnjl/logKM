@@ -40,10 +40,9 @@ Route::group(["prefix" => "activities", "middleware" => ["auth:sanctum"]],functi
 });
 Route::group(["prefix" => "actions", "middleware" => ["auth:sanctum"]],function(){
     Route::get('', [Actions::class, "index"]);
+    Route::post('', [Actions::class, "store"]);
+    Route::get('/{id}', [Actions::class, "show"]);
 });
-Route::post('actions', [Actions::class, "store"]);
-Route::get('actions', [Actions::class, "index"]);
-Route::get('actions/{id}', [Actions::class, "show"]);
 
 
 
