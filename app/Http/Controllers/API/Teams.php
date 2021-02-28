@@ -38,8 +38,13 @@ class Teams extends Controller
      */
     public function show($token)
     {
+
         $team = Team::where('team_token', $token)->firstOrFail();
-        return  TeamListResource::collection($team->users);
+        $collection = TeamListResource::collection($team->users);
+        return  [
+            'team_total' => $team->getTotal(),
+            'mates' => TeamListResource::collection($team->users),
+        ];
     }
 
     /**

@@ -58,9 +58,11 @@ class User extends Authenticatable
 
   public function getTotal()
   {
-     return $this->actions
+
+      return $this->actions
         ->pluck('distanceKM')
         ->reduce(fn($acc, $val) => $acc + $val, 0);
+       
   }
   public function recent()
   {

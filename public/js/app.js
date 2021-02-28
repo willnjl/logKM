@@ -23382,9 +23382,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var handleError = function handleError(error) {
-  console.log(error);
-
+var handleError = function handleError(dispatch, error) {
   if (error.response.status === 401) {
     dispatch({
       type: "LOG_OUT"
@@ -23421,7 +23419,7 @@ var getUserActions = function getUserActions(id, page) {
         payload: data
       });
     })["catch"](function (error) {
-      return handleError(error);
+      return handleError(dispatch, error);
     });
   };
 };

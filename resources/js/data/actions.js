@@ -2,8 +2,7 @@
 import axios from "../axios";
 import history from "../history";
 
-const handleError = (error) => {
-    console.log(error);
+const handleError = (dispatch, error) => {
     if (error.response.status === 401) {
         dispatch({ type: "LOG_OUT" });
     }
@@ -34,7 +33,7 @@ export const getUserActions = (id, page) => {
             .then(({ data }) => {
                 dispatch({ type: "USER_ACTIONS", payload: data });
             })
-            .catch((error) => handleError(error));
+            .catch((error) => handleError(dispatch, error));
     };
 };
 export const getActionData = () => {
