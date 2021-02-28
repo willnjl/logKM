@@ -83,6 +83,7 @@ export const update = (id, data) => {
 };
 export const postAction = (id, formData) => {
     let url = `/api/actions`;
+
     let data = {
         id,
         activity_id: 2,

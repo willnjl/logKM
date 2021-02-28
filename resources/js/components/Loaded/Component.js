@@ -6,7 +6,7 @@ export default function Component({ id, page, loaded, handleLoad, children }) {
         handleLoad(id, page);
         if (!loaded) {
         }
-    }, [page]);
+    }, [page, loaded]);
 
     return loaded ? children : <div>Loading</div>;
 }

@@ -21620,7 +21620,6 @@ function AddAction(_ref) {
   };
 
   var handleChange = function handleChange(prop, value) {
-    console.log(value);
     setValues(_objectSpread(_objectSpread({}, values), {}, _defineProperty({}, prop, value)));
   };
 
@@ -22182,7 +22181,7 @@ function Component(_ref) {
     handleLoad(id, page);
 
     if (!loaded) {}
-  }, [page]);
+  }, [page, loaded]);
   return loaded ? children : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     children: "Loading"
   });

@@ -61,7 +61,6 @@ class Actions extends Controller
         $total = $user->actions->pluck('distanceKM')->reduce(fn($acc, $val) => $acc + $val, 0);
         return response([
             'data' =>[
-
                 'total' => $total,
                'actions' => ActionListResource::collection($user->actions)->paginate(5),
             ]

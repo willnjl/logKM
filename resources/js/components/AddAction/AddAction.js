@@ -93,7 +93,6 @@ export default function AddAction({ user, postData }) {
         setSent(true);
     };
     const handleChange = (prop, value) => {
-        console.log(value);
         setValues({ ...values, [prop]: value });
     };
 
