@@ -13,5 +13,10 @@ export const logInitial = {
         total: 0,
         actions: [],
     },
-    team: [],
+    team: {
+        hasLoaded: false,
+        goal: 0,
+        total: 0,
+        mates: [],
+    },
 };

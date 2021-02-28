@@ -2,11 +2,12 @@
 import axios from "../axios";
 import history from "../history";
 
-const handleError = (dispatch, error) => {
-    if (error.response.status === 401) {
-        dispatch({ type: "LOG_OUT" });
-    }
-};
+// const handleError = (dispatch, error) => {
+//     console.log(error);
+//     if (error.response.status === 401) {
+//         dispatch({ type: "LOG_OUT" });
+//     }
+// };
 
 export const getUserData = () => {
     return (dispatch) => {
@@ -18,7 +19,7 @@ export const getUserData = () => {
                     payload: data.data,
                 });
             })
-            .catch((error) => handleError(error));
+            .catch((error) => console.log(error));
     };
 };
 export const getUserActions = (id, page) => {
@@ -33,7 +34,7 @@ export const getUserActions = (id, page) => {
             .then(({ data }) => {
                 dispatch({ type: "USER_ACTIONS", payload: data });
             })
-            .catch((error) => handleError(dispatch, error));
+            .catch((error) => console.log(error));
     };
 };
 export const getActionData = () => {
@@ -47,7 +48,7 @@ export const getActionData = () => {
                 });
             })
             .catch((error) => {
-                handleError(error);
+                console.log(error);
             });
     };
 };
@@ -59,7 +60,7 @@ export const logout = () => {
                 console.log("goodbye");
                 dispatch({ type: "LOG_OUT" });
             })
-            .catch((error) => handleError(error));
+            .catch((error) => console.log(error));
     };
 };
 export const update = (id, data) => {
@@ -77,7 +78,7 @@ export const update = (id, data) => {
                 dispatch({ type: "UPDATE_USER_DATA", payload: data });
                 history.push("/dashboard");
             })
-            .catch((error) => handleError(error));
+            .catch((error) => console.log(error));
     };
 };
 export const postAction = (id, formData) => {
@@ -96,6 +97,20 @@ export const postAction = (id, formData) => {
                 history.push("/");
                 dispatch({ type: "NEW_ACTION", payload: data });
             })
-            .catch((error) => handleError(error));
+            .catch((error) => console.log(error));
+    };
+};
+export const loadTeam = (token) => {
+    let url = `/api/team/${token}`;
+    return (dispatch) => {
+        axios
+            .get(url, { withCredentials: true })
+            .then(({ data }) => {
+                console.log(data);
+                dispatch({ type: "TEAM_DATA", payload: data });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 };

@@ -4,8 +4,10 @@ import AddIcon from "@material-ui/icons/Add";
 import CardWrap from "../CardWrap";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import Loaded from "../Loaded";
+import Loaded from "../LoadUser";
+import LoadTeam from "../LoadTeam";
 import UserActionFeed from "../UserActionFeed";
+import TeamInfo from "../TeamInfo";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -33,12 +35,15 @@ export default function Dashboard({ user, log }) {
     return (
         <CardWrap avatar={user.avatar}>
             <h2 className={classes.title}>{user.name}</h2>
-            <Loaded id={user.id} page={page}>
+            <LoadTeam>
+                <TeamInfo />
+            </LoadTeam>
+            {/* <LoadUser id={user.id} page={page} loaded={log.user.hasLoaded}>
                 <UserActionFeed
                     userActions={log.user.actions}
                     handlePage={(increment) => setPage(page + increment)}
                 />
-            </Loaded>
+            </LoadUser> */}
             <Link to={"add"}>
                 <Fab
                     size="medium"

@@ -4,6 +4,7 @@ import init from "./functions/init";
 import updateActions from "./functions/updateActions";
 import userUpdate from "./functions/userUpdate";
 import addUserActions from "./functions/addUserActions";
+import teamData from "./functions/teamData";
 
 export const userReducer = (state = userInitial, action) => {
     switch (action.type) {
@@ -25,7 +26,9 @@ export const logReducer = (state = logInitial, action) => {
         case "NEW_ACTION":
             return { ...state, user: { ...state.user, hasLoaded: false } };
         case "ALL_ACTIONS":
-            return updateActions(action.payload);
+            return updateActions(state, action.payload);
+        case "TEAM_DATA":
+            return teamData(state, action.payload);
         case "LOG_OUT":
             return init("LOG");
         default:
