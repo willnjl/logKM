@@ -14,10 +14,9 @@ export const getUserData = () => {
         axios
             .get("api/user", { withCredentials: true })
             .then(({ data }) => {
-                let { email, id, name, avatar } = data;
                 dispatch({
-                    type: "LOG_IN",
-                    payload: { email, id, name, avatar },
+                    type: "USER_DATA",
+                    payload: data.data,
                 });
             })
             .catch((error) => handleError(error));
@@ -28,8 +27,7 @@ export const getUserStats = (id) => {
         axios
             .get(`api/actions/${id}`, { withCredentials: true })
             .then(({ data }) => {
-                let { actions, total } = data;
-                dispatch({ type: "USER_ACTIONS", payload: { actions, total } });
+                dispatch({ type: "USER_ACTIONS", payload: data });
             })
             .catch((error) => handleError(error));
     };
@@ -72,8 +70,8 @@ export const update = (id, data) => {
                 },
             })
             .then(({ data }) => {
-                console.log({ data });
-                dispatch({ type: "UPDATE", payload: data.data });
+                dispatch({ type: "UPDATE_USER_DATA", payload: data });
+                history.push("/dashboard");
             })
             .catch((error) => handleError(error));
     };
@@ -92,7 +90,6 @@ export const postAction = (id, formData) => {
             .then(({ data }) => {
                 history.push("/");
                 dispatch({ type: "NEW_ACTION", payload: data });
-                console.log(data);
             })
             .catch((error) => handleError(error));
     };

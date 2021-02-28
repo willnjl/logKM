@@ -12,4 +12,5 @@ export const logInitial = {
         total: 0,
         actions: [],
     },
+    team: [],
 };

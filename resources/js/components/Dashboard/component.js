@@ -33,9 +33,9 @@ export default function Dashboard({ user, log }) {
     return (
         <CardWrap avatar={user.avatar}>
             <h2>{user.name}</h2>
-            <Loaded id={user.id}>
+            {/* <Loaded id={user.id}>
                 <UserActionFeed data={log.user.actions} />
-            </Loaded>
+            </Loaded> */}
             <Link to={"add"}>
                 <Fab
                     size="medium"

@@ -1,4 +1,4 @@
-const login = (state, payload) => {
+const userData = (state, payload) => {
     return {
         ...state,
         loggedIn: true,
@@ -6,4 +6,4 @@ const login = (state, payload) => {
     };
 };
 
-export default login;
+export default userData;

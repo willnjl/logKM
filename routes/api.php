@@ -5,6 +5,7 @@ use App\Models\Activity;
 use App\Http\Controllers\API\Actions;
 use App\Http\Controllers\API\Users;
 use App\Http\Controllers\API\Activities;
+use App\Http\Resources\API\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -26,7 +27,7 @@ Route::group(["prefix" => "user",
 ],
 function(){
      Route::get('', function (Request $request) {
-        return $request->user();
+        return new UserResource($request->user());
     });
     Route::post('/{user}', [Users::class, "update"]);
     Route::get('/{user}', [Users::class, "show"]);

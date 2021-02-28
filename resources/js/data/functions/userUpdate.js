@@ -1,5 +1,5 @@
-const userUpdate = (state, { email, avatar, name }) => {
-    console.log({ email, avatar, name });
+const userUpdate = (state, { data }) => {
+    const { email, avatar, name } = data;
     return {
         ...state,
         email,

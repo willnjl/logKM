@@ -1,17 +1,17 @@
 import { userInitial, logInitial } from "./initial";
-import login from "./functions/login";
-import logout from "./functions/logout";
+import userData from "./functions/userData";
+import init from "./functions/init";
 import updateActions from "./functions/updateActions";
 import userUpdate from "./functions/userUpdate";
 import addUserActions from "./functions/addUserActions";
 
 export const userReducer = (state = userInitial, action) => {
     switch (action.type) {
-        case "LOG_IN":
-            return login(state, action.payload);
+        case "USER_DATA":
+            return userData(state, action.payload);
         case "LOG_OUT":
-            return logout("USER");
-        case "UPDATE":
+            return init("USER");
+        case "UPDATE_USER_DATA":
             return userUpdate(state, action.payload);
 
         default:
@@ -27,7 +27,7 @@ export const logReducer = (state = logInitial, action) => {
         case "ALL_ACTIONS":
             return updateActions(action.payload);
         case "LOG_OUT":
-            return logout("LOG");
+            return init("LOG");
         default:
             return { ...state };
     }

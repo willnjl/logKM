@@ -1,7 +1,7 @@
 import { userInitial, logInitial } from "../initial";
 
-const logout = (reducer) => {
+const init = (reducer) => {
     return reducer === "LOG" ? logInitial : userInitial;
 };
 
-export default logout;
+export default init;

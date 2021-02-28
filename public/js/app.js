@@ -21746,11 +21746,6 @@ function Dashboard(_ref) {
     avatar: user.avatar,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
       children: user.name
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Loaded__WEBPACK_IMPORTED_MODULE_2__.default, {
-      id: user.id,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UserActionFeed__WEBPACK_IMPORTED_MODULE_3__.default, {
-        data: log.user.actions
-      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
       to: "add",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Fab__WEBPACK_IMPORTED_MODULE_7__.default, {
@@ -22936,18 +22931,9 @@ var getUserData = function getUserData() {
       withCredentials: true
     }).then(function (_ref) {
       var data = _ref.data;
-      var email = data.email,
-          id = data.id,
-          name = data.name,
-          avatar = data.avatar;
       dispatch({
-        type: "LOG_IN",
-        payload: {
-          email: email,
-          id: id,
-          name: name,
-          avatar: avatar
-        }
+        type: "USER_DATA",
+        payload: data.data
       });
     })["catch"](function (error) {
       return handleError(error);
@@ -22960,14 +22946,9 @@ var getUserStats = function getUserStats(id) {
       withCredentials: true
     }).then(function (_ref2) {
       var data = _ref2.data;
-      var actions = data.actions,
-          total = data.total;
       dispatch({
         type: "USER_ACTIONS",
-        payload: {
-          actions: actions,
-          total: total
-        }
+        payload: data
       });
     })["catch"](function (error) {
       return handleError(error);
@@ -23017,13 +22998,11 @@ var update = function update(id, data) {
       }
     }).then(function (_ref4) {
       var data = _ref4.data;
-      console.log({
-        data: data
-      });
       dispatch({
-        type: "UPDATE",
-        payload: data.data
+        type: "UPDATE_USER_DATA",
+        payload: data
       });
+      _history__WEBPACK_IMPORTED_MODULE_1__.default.push("/dashboard");
     })["catch"](function (error) {
       return handleError(error);
     });
@@ -23047,7 +23026,6 @@ var postAction = function postAction(id, formData) {
         type: "NEW_ACTION",
         payload: data
       });
-      console.log(data);
     })["catch"](function (error) {
       return handleError(error);
     });
@@ -23089,37 +23067,10 @@ var addUserActions = function addUserActions(state, _ref) {
 
 /***/ }),
 
-/***/ "./resources/js/data/functions/login.js":
-/*!**********************************************!*\
-  !*** ./resources/js/data/functions/login.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var login = function login(state, payload) {
-  return _objectSpread(_objectSpread({}, state), {}, {
-    loggedIn: true
-  }, payload);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (login);
-
-/***/ }),
-
-/***/ "./resources/js/data/functions/logout.js":
-/*!***********************************************!*\
-  !*** ./resources/js/data/functions/logout.js ***!
-  \***********************************************/
+/***/ "./resources/js/data/functions/init.js":
+/*!*********************************************!*\
+  !*** ./resources/js/data/functions/init.js ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -23130,11 +23081,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _initial__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../initial */ "./resources/js/data/initial.js");
 
 
-var logout = function logout(reducer) {
+var init = function init(reducer) {
   return reducer === "LOG" ? _initial__WEBPACK_IMPORTED_MODULE_0__.logInitial : _initial__WEBPACK_IMPORTED_MODULE_0__.userInitial;
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (logout);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (init);
 
 /***/ }),
 
@@ -23168,6 +23119,33 @@ var updateActions = function updateActions(state, _ref) {
 
 /***/ }),
 
+/***/ "./resources/js/data/functions/userData.js":
+/*!*************************************************!*\
+  !*** ./resources/js/data/functions/userData.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var userData = function userData(state, payload) {
+  return _objectSpread(_objectSpread({}, state), {}, {
+    loggedIn: true
+  }, payload);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userData);
+
+/***/ }),
+
 /***/ "./resources/js/data/functions/userUpdate.js":
 /*!***************************************************!*\
   !*** ./resources/js/data/functions/userUpdate.js ***!
@@ -23186,14 +23164,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var userUpdate = function userUpdate(state, _ref) {
-  var email = _ref.email,
-      avatar = _ref.avatar,
-      name = _ref.name;
-  console.log({
-    email: email,
-    avatar: avatar,
-    name: name
-  });
+  var data = _ref.data;
+  var email = data.email,
+      avatar = data.avatar,
+      name = data.name;
   return _objectSpread(_objectSpread({}, state), {}, {
     email: email,
     avatar: avatar,
@@ -23229,7 +23203,8 @@ var logInitial = {
     hasLoaded: false,
     total: 0,
     actions: []
-  }
+  },
+  team: []
 };
 
 /***/ }),
@@ -23247,8 +23222,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "logReducer": () => (/* binding */ logReducer)
 /* harmony export */ });
 /* harmony import */ var _initial__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./initial */ "./resources/js/data/initial.js");
-/* harmony import */ var _functions_login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions/login */ "./resources/js/data/functions/login.js");
-/* harmony import */ var _functions_logout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./functions/logout */ "./resources/js/data/functions/logout.js");
+/* harmony import */ var _functions_userData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions/userData */ "./resources/js/data/functions/userData.js");
+/* harmony import */ var _functions_init__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./functions/init */ "./resources/js/data/functions/init.js");
 /* harmony import */ var _functions_updateActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./functions/updateActions */ "./resources/js/data/functions/updateActions.js");
 /* harmony import */ var _functions_userUpdate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./functions/userUpdate */ "./resources/js/data/functions/userUpdate.js");
 /* harmony import */ var _functions_addUserActions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./functions/addUserActions */ "./resources/js/data/functions/addUserActions.js");
@@ -23269,13 +23244,13 @@ var userReducer = function userReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case "LOG_IN":
-      return (0,_functions_login__WEBPACK_IMPORTED_MODULE_1__.default)(state, action.payload);
+    case "USER_DATA":
+      return (0,_functions_userData__WEBPACK_IMPORTED_MODULE_1__.default)(state, action.payload);
 
     case "LOG_OUT":
-      return (0,_functions_logout__WEBPACK_IMPORTED_MODULE_2__.default)("USER");
+      return (0,_functions_init__WEBPACK_IMPORTED_MODULE_2__.default)("USER");
 
-    case "UPDATE":
+    case "UPDATE_USER_DATA":
       return (0,_functions_userUpdate__WEBPACK_IMPORTED_MODULE_4__.default)(state, action.payload);
 
     default:
@@ -23301,7 +23276,7 @@ var logReducer = function logReducer() {
       return (0,_functions_updateActions__WEBPACK_IMPORTED_MODULE_3__.default)(action.payload);
 
     case "LOG_OUT":
-      return (0,_functions_logout__WEBPACK_IMPORTED_MODULE_2__.default)("LOG");
+      return (0,_functions_init__WEBPACK_IMPORTED_MODULE_2__.default)("LOG");
 
     default:
       return _objectSpread({}, state);
