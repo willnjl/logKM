@@ -22,7 +22,7 @@ class ActionListResource extends JsonResource
                 'activity' => $sport,
                 'activity_id' => $this->activity_id,
                 'date_completed' => $this->date_completed,
-                'date_created' => $this->created_at
+                // 'date_created' => $this->created_at
             ];
     }
 }

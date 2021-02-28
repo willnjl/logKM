@@ -55,4 +55,15 @@ class User extends Authenticatable
   {
       return $this->belongsTo(Team::class);
   }
+
+  public function getTotal()
+  {
+     return $this->actions
+        ->pluck('distanceKM')
+        ->reduce(fn($acc, $val) => $acc + $val, 0);
+  }
+  public function recent()
+  {
+     return $this->actions->take(1);
+  }
 }
