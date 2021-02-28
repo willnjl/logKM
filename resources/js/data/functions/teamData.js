@@ -4,8 +4,8 @@ const teamData = (state, { team_total, mates }) => {
     };
     return {
         ...state,
-        team_total,
         team: {
+            team_total,
             hasLoaded: true,
             mates: addLoad(mates),
         },

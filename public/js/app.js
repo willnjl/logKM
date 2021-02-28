@@ -22202,7 +22202,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function LoadTeam(_ref) {
-  var hasLoaded = _ref.hasLoaded,
+  var children = _ref.children,
+      hasLoaded = _ref.hasLoaded,
       teamToken = _ref.teamToken,
       handleLoad = _ref.handleLoad;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -22210,7 +22211,9 @@ function LoadTeam(_ref) {
       handleLoad(teamToken);
     }
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
+  return !hasLoaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+    children: "loading.."
+  }) : children;
 }
 
 /***/ }),
@@ -23280,18 +23283,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
-
 function TeamInfo(_ref) {
   var team = _ref.team;
+  console.log(team);
   var total = team.total,
       mates = team.mates,
-      goal = team.goal;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-      children: goal
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-      children: total
-    })]
+      team_total = team.team_total;
+  console.log(team_total);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+      children: team_total
+    })
   });
 }
 
@@ -23314,8 +23316,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(_ref) {
-  var log = _ref.log,
-      user = _ref.user;
+  var log = _ref.log;
   return {
     team: log.team
   };
@@ -23734,8 +23735,8 @@ var teamData = function teamData(state, _ref) {
   };
 
   return _objectSpread(_objectSpread({}, state), {}, {
-    team_total: team_total,
     team: {
+      team_total: team_total,
       hasLoaded: true,
       mates: addLoad(mates)
     }

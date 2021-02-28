@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
 
-export default function LoadTeam({ hasLoaded, teamToken, handleLoad }) {
+export default function LoadTeam({
+    children,
+    hasLoaded,
+    teamToken,
+    handleLoad,
+}) {
     useEffect(() => {
         if (!hasLoaded) {
             handleLoad(teamToken);
         }
     }, []);
 
-    return <div></div>;
+    return !hasLoaded ? <p>loading..</p> : children;
 }
