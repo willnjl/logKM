@@ -8,10 +8,6 @@ import Loaded from "../Loaded";
 import UserActionFeed from "../UserActionFeed";
 
 const useStyles = makeStyles((theme) => ({
-    avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
-    },
     form: {
         width: "100%", // Fix IE 11 issue.
         marginTop: theme.spacing(1),
@@ -26,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
         right: 0,
         margin: theme.spacing(2),
     },
+    title: {
+        marginBottom: theme.spacing(2),
+    },
 }));
 export default function Dashboard({ user, log }) {
     const classes = useStyles();
@@ -33,7 +32,7 @@ export default function Dashboard({ user, log }) {
 
     return (
         <CardWrap avatar={user.avatar}>
-            <h2>{user.name}</h2>
+            <h2 className={classes.title}>{user.name}</h2>
             <Loaded id={user.id} page={page}>
                 <UserActionFeed
                     userActions={log.user.actions}

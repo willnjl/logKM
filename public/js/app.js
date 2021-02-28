@@ -22104,10 +22104,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.default)(function (theme) {
   return {
-    avatar: {
-      margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main
-    },
     form: {
       width: "100%",
       // Fix IE 11 issue.
@@ -22121,6 +22117,9 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.default
       bottom: 0,
       right: 0,
       margin: theme.spacing(2)
+    },
+    title: {
+      marginBottom: theme.spacing(2)
     }
   };
 });
@@ -22137,6 +22136,7 @@ function Dashboard(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_CardWrap__WEBPACK_IMPORTED_MODULE_1__.default, {
     avatar: user.avatar,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+      className: classes.title,
       children: user.name
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Loaded__WEBPACK_IMPORTED_MODULE_2__.default, {
       id: user.id,
