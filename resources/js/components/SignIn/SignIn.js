@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn({ getUserData }) {
     const classes = useStyles();
-    let [email, setEmail] = useState("harry@banana.com");
+    let [email, setEmail] = useState("harry@horse.cow");
     let [password, setPassword] = useState("password");
 
     useEffect(() => {

@@ -22,10 +22,15 @@ export const getUserData = () => {
             .catch((error) => handleError(error));
     };
 };
-export const getUserStats = (id) => {
+export const getUserActions = (id, page) => {
     return (dispatch) => {
         axios
-            .get(`api/actions/${id}`, { withCredentials: true })
+            .get(`api/actions/${id}`, {
+                withCredentials: true,
+                params: {
+                    page: page,
+                },
+            })
             .then(({ data }) => {
                 dispatch({ type: "USER_ACTIONS", payload: data });
             })

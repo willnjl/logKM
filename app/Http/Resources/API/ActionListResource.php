@@ -18,14 +18,11 @@ class ActionListResource extends JsonResource
        
         $sport = Activity::find($this->activity_id)->name;
         return [
-            'templates'=> [
                 'distance' => $this->distanceKM,
                 'activity' => $sport,
                 'activity_id' => $this->activity_id,
                 'date_completed' => $this->date_completed,
                 'date_created' => $this->created_at
-            ],
-        
-        ];
+            ];
     }
 }

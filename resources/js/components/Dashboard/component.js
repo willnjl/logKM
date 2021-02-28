@@ -29,13 +29,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Dashboard({ user, log }) {
     const classes = useStyles();
+    const [page, setPage] = useState(1);
 
     return (
         <CardWrap avatar={user.avatar}>
             <h2>{user.name}</h2>
-            {/* <Loaded id={user.id}>
-                <UserActionFeed data={log.user.actions} />
-            </Loaded> */}
+            <Loaded id={user.id} page={page}>
+                <UserActionFeed
+                    userActions={log.user.actions}
+                    handlePage={(increment) => setPage(page + increment)}
+                />
+            </Loaded>
             <Link to={"add"}>
                 <Fab
                     size="medium"
