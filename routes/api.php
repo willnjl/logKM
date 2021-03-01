@@ -48,6 +48,7 @@ Route::group([
     ], 
      function(){
         Route::get('/{token}', [Teams::class, "show"]);
+        Route::get('/feed/{token}', [Teams::class, "feed"]);
     }
 );
 

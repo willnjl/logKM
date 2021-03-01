@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Models\Team;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\API\ActionListResource;
 use App\Http\Resources\API\TeamListResource;
 use Illuminate\Http\Request;
 
@@ -68,5 +69,17 @@ class Teams extends Controller
     public function destroy($id)
     {
         //
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function feed($token)
+    {
+        $team = Team::where('team_token', $token)->firstOrFail();
+
+        return ActionListResource::collection($team->actions)->paginate(5);
     }
 }

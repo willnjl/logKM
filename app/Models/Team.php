@@ -18,7 +18,7 @@ class Team extends Model
   }
      public function actions()
   {
-      return $this->hasMany(Action::class);
+      return $this->hasMany(Action::class)->orderBy('date_completed', 'DESC');
   }
   public function getTotal()
   {
