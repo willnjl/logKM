@@ -23283,17 +23283,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
+
 function TeamInfo(_ref) {
   var team = _ref.team;
   console.log(team);
-  var total = team.total,
-      mates = team.mates,
+  var goal = team.goal,
       team_total = team.team_total;
   console.log(team_total);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
       children: team_total
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+      children: goal
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+      children: goal - team_total
+    })]
   });
 }
 
@@ -23582,7 +23586,6 @@ var logout = function logout() {
 };
 var update = function update(id, data) {
   var url = "/api/user/".concat(id);
-  console.log(data.values());
   return function (dispatch) {
     _axios__WEBPACK_IMPORTED_MODULE_0__.default.post(url, data, {
       withCredentials: true,
@@ -23631,7 +23634,6 @@ var loadTeam = function loadTeam(token) {
       withCredentials: true
     }).then(function (_ref6) {
       var data = _ref6.data;
-      console.log(data);
       dispatch({
         type: "TEAM_DATA",
         payload: data
@@ -23724,7 +23726,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var teamData = function teamData(state, _ref) {
   var team_total = _ref.team_total,
-      mates = _ref.mates;
+      mates = _ref.mates,
+      goal = _ref.goal;
+  console.log(goal);
 
   var addLoad = function addLoad(mates) {
     return mates.map(function (mate) {
@@ -23738,7 +23742,8 @@ var teamData = function teamData(state, _ref) {
     team: {
       team_total: team_total,
       hasLoaded: true,
-      mates: addLoad(mates)
+      mates: addLoad(mates),
+      goal: goal
     }
   });
 };
@@ -23942,6 +23947,7 @@ var logReducer = function logReducer() {
       return (0,_functions_updateActions__WEBPACK_IMPORTED_MODULE_3__.default)(state, action.payload);
 
     case "TEAM_DATA":
+      console.log(action.payload);
       return (0,_functions_teamData__WEBPACK_IMPORTED_MODULE_6__.default)(state, action.payload);
 
     case "LOG_OUT":

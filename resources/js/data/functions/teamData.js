@@ -1,4 +1,5 @@
-const teamData = (state, { team_total, mates }) => {
+const teamData = (state, { team_total, mates, goal }) => {
+    console.log(goal);
     let addLoad = (mates) => {
         return mates.map((mate) => ({ ...mate, hasLoaded: false }));
     };
@@ -8,6 +9,7 @@ const teamData = (state, { team_total, mates }) => {
             team_total,
             hasLoaded: true,
             mates: addLoad(mates),
+            goal,
         },
     };
 };

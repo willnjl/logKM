@@ -40,9 +40,9 @@ class Teams extends Controller
     {
 
         $team = Team::where('team_token', $token)->firstOrFail();
-        $collection = TeamListResource::collection($team->users);
         return  [
             'team_total' => $team->getTotal(),
+            'goal' => $team->goal,
             'mates' => TeamListResource::collection($team->users),
         ];
     }

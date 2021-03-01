@@ -65,7 +65,7 @@ export const logout = () => {
 };
 export const update = (id, data) => {
     let url = `/api/user/${id}`;
-    console.log(data.values());
+
     return (dispatch) => {
         axios
             .post(url, data, {
@@ -106,7 +106,6 @@ export const loadTeam = (token) => {
         axios
             .get(url, { withCredentials: true })
             .then(({ data }) => {
-                console.log(data);
                 dispatch({ type: "TEAM_DATA", payload: data });
             })
             .catch((error) => {

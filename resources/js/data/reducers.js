@@ -28,6 +28,7 @@ export const logReducer = (state = logInitial, action) => {
         case "ALL_ACTIONS":
             return updateActions(state, action.payload);
         case "TEAM_DATA":
+            console.log(action.payload);
             return teamData(state, action.payload);
         case "LOG_OUT":
             return init("LOG");
