@@ -23286,10 +23286,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function TeamInfo(_ref) {
   var team = _ref.team;
-  console.log(team);
   var goal = team.goal,
       team_total = team.team_total;
-  console.log(team_total);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
       children: team_total
