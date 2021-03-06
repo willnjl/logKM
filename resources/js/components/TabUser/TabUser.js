@@ -23,13 +23,25 @@ export default function TabUser({ user, handleLoad }) {
         handleLoad(meta.id, page);
     }, [page]);
 
+    const tabSelector = (tab) => {
+        switch (tab) {
+            case 0:
+                return (
+                    <UserActionFeed
+                        handlePage={(increment) => setPage(page + increment)}
+                        feed={data.feed}
+                    />
+                );
+                break;
+            case 1:
+                return <p> stats</p>;
+                break;
+        }
+    };
+
     return (
         <>
-            <UserActionFeed
-                handlePage={(increment) => setPage(page + increment)}
-                feed={data.feed}
-            />
-
+            {tabSelector(tab)}
             <Tabs
                 value={tab}
                 onChange={(e, newValue) => setTab(newValue)}

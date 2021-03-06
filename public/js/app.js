@@ -24727,13 +24727,28 @@ function TabUser(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     handleLoad(meta.id, page);
   }, [page]);
+
+  var tabSelector = function tabSelector(tab) {
+    switch (tab) {
+      case 0:
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_UserActionFeed__WEBPACK_IMPORTED_MODULE_1__.default, {
+          handlePage: function handlePage(increment) {
+            return setPage(page + increment);
+          },
+          feed: data.feed
+        });
+        break;
+
+      case 1:
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          children: " stats"
+        });
+        break;
+    }
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_UserActionFeed__WEBPACK_IMPORTED_MODULE_1__.default, {
-      handlePage: function handlePage(increment) {
-        return setPage(page + increment);
-      },
-      feed: data.feed
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_3__.default, {
+    children: [tabSelector(tab), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_3__.default, {
       value: tab,
       onChange: function onChange(e, newValue) {
         return setTab(newValue);
