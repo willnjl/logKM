@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import UserActionFeed from "../UserActionFeed";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import List from "@material-ui/icons/List";
 import Equalizer from "@material-ui/icons/Equalizer";
-
-const useStyles = makeStyles((theme) => ({
-    indicator: {
-        backgroundColor: "#3f51b5",
-    },
-}));
 
 function a11yProps(index) {
     return {
@@ -22,7 +15,7 @@ function a11yProps(index) {
 
 export default function TabUser({ user, handleLoad }) {
     const { data, meta } = user;
-    const classes = useStyles();
+
     const [page, setPage] = useState(1);
     const [tab, setTab] = useState(0);
 
@@ -41,9 +34,6 @@ export default function TabUser({ user, handleLoad }) {
                 value={tab}
                 onChange={(e, newValue) => setTab(newValue)}
                 style={{ marginTop: "auto" }}
-                // classes={{
-                //     indicator: classes.indicator,
-                // }}
                 variant="scrollable"
                 scrollButtons="on"
                 indicatorColor="primary"

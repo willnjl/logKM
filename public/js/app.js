@@ -24666,12 +24666,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ TabUser)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
 /* harmony import */ var _UserActionFeed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UserActionFeed */ "./resources/js/components/UserActionFeed/index.js");
-/* harmony import */ var _material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Tabs */ "./node_modules/@material-ui/core/esm/Tabs/Tabs.js");
-/* harmony import */ var _material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Tab */ "./node_modules/@material-ui/core/esm/Tab/Tab.js");
-/* harmony import */ var _material_ui_icons_List__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/icons/List */ "./node_modules/@material-ui/icons/List.js");
-/* harmony import */ var _material_ui_icons_Equalizer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/icons/Equalizer */ "./node_modules/@material-ui/icons/Equalizer.js");
+/* harmony import */ var _material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Tabs */ "./node_modules/@material-ui/core/esm/Tabs/Tabs.js");
+/* harmony import */ var _material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Tab */ "./node_modules/@material-ui/core/esm/Tab/Tab.js");
+/* harmony import */ var _material_ui_icons_List__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/icons/List */ "./node_modules/@material-ui/icons/List.js");
+/* harmony import */ var _material_ui_icons_Equalizer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/icons/Equalizer */ "./node_modules/@material-ui/icons/Equalizer.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -24702,14 +24701,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default)(function (theme) {
-  return {
-    indicator: {
-      backgroundColor: "#3f51b5"
-    }
-  };
-});
-
 function a11yProps(index) {
   return {
     id: "scrollable-force-tab-".concat(index),
@@ -24722,7 +24713,6 @@ function TabUser(_ref) {
       handleLoad = _ref.handleLoad;
   var data = user.data,
       meta = user.meta;
-  var classes = useStyles();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
       _useState2 = _slicedToArray(_useState, 2),
@@ -24743,26 +24733,23 @@ function TabUser(_ref) {
         return setPage(page + increment);
       },
       feed: data.feed
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_4__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_3__.default, {
       value: tab,
       onChange: function onChange(e, newValue) {
         return setTab(newValue);
       },
       style: {
         marginTop: "auto"
-      } // classes={{
-      //     indicator: classes.indicator,
-      // }}
-      ,
+      },
       variant: "scrollable",
       scrollButtons: "on",
       indicatorColor: "primary",
       textColor: "primary",
       "aria-label": "scrollable force tabs example",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_5__.default, _objectSpread({
-        icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_icons_List__WEBPACK_IMPORTED_MODULE_6__.default, {})
-      }, a11yProps(0))), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_5__.default, _objectSpread({
-        icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_icons_Equalizer__WEBPACK_IMPORTED_MODULE_7__.default, {})
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4__.default, _objectSpread({
+        icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_icons_List__WEBPACK_IMPORTED_MODULE_5__.default, {})
+      }, a11yProps(0))), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4__.default, _objectSpread({
+        icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_icons_Equalizer__WEBPACK_IMPORTED_MODULE_6__.default, {})
       }, a11yProps(1)))]
     })]
   });
