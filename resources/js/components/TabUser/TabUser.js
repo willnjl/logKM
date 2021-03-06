@@ -32,10 +32,8 @@ export default function TabUser({ user, handleLoad }) {
                         feed={data.feed}
                     />
                 );
-                break;
             case 1:
-                return <p> stats</p>;
-                break;
+                return <TeamOverview />;
         }
     };
 

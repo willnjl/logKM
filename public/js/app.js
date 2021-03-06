@@ -24737,13 +24737,9 @@ function TabUser(_ref) {
           },
           feed: data.feed
         });
-        break;
 
       case 1:
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-          children: " stats"
-        });
-        break;
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TeamOverview, {});
     }
   };
 
