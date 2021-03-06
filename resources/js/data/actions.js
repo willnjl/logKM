@@ -2,26 +2,13 @@
 import axios from "../axios";
 import history from "../history";
 
-// const handleError = (dispatch, error) => {
-//     console.log(error);
-//     if (error.response.status === 401) {
-//         dispatch({ type: "LOG_OUT" });
-//     }
-// };
-
-export const getUserData = () => {
-    return (dispatch) => {
-        axios
-            .get("api/user", { withCredentials: true })
-            .then(({ data }) => {
-                dispatch({
-                    type: "USER_DATA",
-                    payload: data.data,
-                });
-            })
-            .catch((error) => console.log(error));
-    };
+const handleError = (dispatch, error) => {
+    console.log(error);
+    if (error.response.status === 401) {
+        dispatch({ type: "LOG_OUT" });
+    }
 };
+
 export const getUserActions = (id, page) => {
     return (dispatch) => {
         axios
@@ -94,7 +81,6 @@ export const postAction = (id, formData) => {
         axios
             .post(url, data, { withCredentials: true })
             .then(({ data }) => {
-                history.push("/");
                 dispatch({ type: "NEW_ACTION", payload: data });
             })
             .catch((error) => console.log(error));
@@ -107,6 +93,19 @@ export const loadTeam = (token) => {
             .get(url, { withCredentials: true })
             .then(({ data }) => {
                 dispatch({ type: "TEAM_DATA", payload: data });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+};
+export const loadFeed = (token) => {
+    let url = `/api/team/feed/${token}`;
+    return (dispatch) => {
+        axios
+            .get(url, { withCredentials: true })
+            .then(({ data }) => {
+                dispatch({ type: "TEAM_FEED", payload: data });
             })
             .catch((error) => {
                 console.log(error);

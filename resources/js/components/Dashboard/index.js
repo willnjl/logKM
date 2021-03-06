@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import component from "./component";
 
-let mapStateToProps = ({ user, log }) => ({ user, log });
+let mapStateToProps = ({ user }) => ({ user });
 
 export default connect(mapStateToProps)(component);

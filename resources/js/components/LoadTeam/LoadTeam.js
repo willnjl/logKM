@@ -1,16 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function LoadTeam({
     children,
-    hasLoaded,
+    teamLoaded,
+    feedLoaded,
     teamToken,
-    handleLoad,
+    loadTeam,
+    loadFeed,
 }) {
+    let loaded = teamLoaded && feedLoaded;
     useEffect(() => {
-        if (!hasLoaded) {
-            handleLoad(teamToken);
+        if (!loaded) {
+            loadFeed(teamToken);
+            loadTeam(teamToken);
         }
     }, []);
 
-    return !hasLoaded ? <p>loading..</p> : children;
+    return !loaded ? <p>loading..</p> : children;
 }

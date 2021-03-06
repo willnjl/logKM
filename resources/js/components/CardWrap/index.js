@@ -13,9 +13,9 @@ const useStyles = makeStyles((theme) => ({
         position: "relative",
     },
     large: {
-        margin: theme.spacing(2),
-        width: theme.spacing(10),
-        height: theme.spacing(10),
+        margin: theme.spacing(1),
+        width: theme.spacing(8),
+        height: theme.spacing(8),
     },
 }));
 

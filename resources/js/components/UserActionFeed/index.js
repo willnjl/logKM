@@ -42,6 +42,14 @@ const makeRows = (data) => {
         <DirectionsBike />,
         <Pool />,
     ];
+    const empty = [
+        { distance: null, date_completed: null, activity_id: null },
+        { distance: null, date_completed: null, activity_id: null },
+        { distance: null, date_completed: null, activity_id: null },
+    ];
+    if (!data) {
+        data = empty;
+    }
     return data.map((row, i) => {
         return (
             <tr key={i}>
@@ -53,8 +61,8 @@ const makeRows = (data) => {
     });
 };
 
-export default function UserActionFeed({ userActions, handlePage }) {
-    const { data, current_page, last_page } = userActions;
+export default function UserActionFeed({ feed, handlePage, isFetching }) {
+    const { data, current_page, last_page } = feed;
     return (
         <>
             <table className={"table"}>

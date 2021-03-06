@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import SignIn from "./SignIn";
-import { getUserData } from "../../data/actions";
+import { getUserData } from "../../data/actions/userActions";
 
 let mapStateToProps = ({ user }) => ({ user });
 

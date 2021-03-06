@@ -16,6 +16,7 @@ import PageWrap from "../PageWrap";
 
 function App({ user }) {
     const { loggedIn } = user;
+
     return (
         <Router>
             <Fragment>

@@ -4,10 +4,14 @@ import AddIcon from "@material-ui/icons/Add";
 import CardWrap from "../CardWrap";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import Loaded from "../LoadUser";
-import LoadTeam from "../LoadTeam";
-import UserActionFeed from "../UserActionFeed";
-import TeamInfo from "../TeamInfo";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import TabUser from "../TabUser";
+// import LoadUser from "../LoadUser";
+// import LoadTeam from "../LoadTeam";
+// import UserActionFeed from "../UserActionFeed";
+// import TeamInfo from "../TeamInfo";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -25,25 +29,56 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(2),
     },
     title: {
+        marginBottom: theme.spacing(1),
+    },
+    spinner: {
+        marginTop: theme.spacing(10),
+    },
+    tabs: {
         marginBottom: theme.spacing(2),
     },
 }));
-export default function Dashboard({ user, log }) {
+
+const pageSelector = (page) => {
+    switch (page) {
+        case 0:
+            return <TabUser />;
+            break;
+        case 1:
+            return <p> Team </p>;
+        default:
+            break;
+    }
+};
+export default function Dashboard({ user }) {
     const classes = useStyles();
     const [page, setPage] = useState(1);
+    const [tab, setTab] = useState(0);
+    const { meta, data } = user;
 
-    return (
-        <CardWrap avatar={user.avatar}>
-            <h2 className={classes.title}>{user.name}</h2>
-            <LoadTeam>
-                <TeamInfo />
-            </LoadTeam>
-            {/* <LoadUser id={user.id} page={page} loaded={log.user.hasLoaded}>
-                <UserActionFeed
-                    userActions={log.user.actions}
-                    handlePage={(increment) => setPage(page + increment)}
+    if (meta.isFetching) {
+        return (
+            <CardWrap>
+                <CircularProgress
+                    className={classes.spinner}
+                    size={"1.25rem"}
                 />
-            </LoadUser> */}
+            </CardWrap>
+        );
+    }
+    return (
+        <CardWrap avatar={meta.avatar}>
+            <h2 className={classes.title}>{meta.name}</h2>
+            <Tabs
+                variant={"fullWidth"}
+                value={tab}
+                onChange={(e, newValue) => setTab(newValue)}
+                className={classes.tabs}
+            >
+                <Tab label={meta.name}></Tab>
+                <Tab label={"team"}></Tab>
+            </Tabs>
+            {pageSelector(tab)}
             <Link to={"add"}>
                 <Fab
                     size="medium"

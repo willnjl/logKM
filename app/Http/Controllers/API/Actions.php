@@ -22,7 +22,7 @@ class Actions extends Controller
     public function index()
     {
 
-        $data = Action::paginate(5);
+        $data = Action::paginate(3);
        
        return [ ActionListResource::collection($data)->response()->getData(true)];
         
@@ -63,7 +63,7 @@ class Actions extends Controller
         return response([
             'data' =>[
                 'total' => $total,
-               'actions' => ActionListResource::collection($user->actions)->paginate(5),
+               'actions' => ActionListResource::collection($user->actions)->paginate(3),
             ]
         ]);
     }

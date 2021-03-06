@@ -1,22 +1,44 @@
 export const userInitial = {
     loggedIn: false,
-    name: "",
-    id: "",
-    email: "",
-    avatar: "",
-    team_token: "",
+    meta: {
+        name: "",
+        id: "",
+        email: "",
+        avatar: "",
+        team_token: "",
+        isFetching: false,
+    },
+    data: {
+        feed: {
+            data: [],
+            current_page: 0,
+            last_page: 0,
+        },
+        total: 0,
+        isFetching: false,
+    },
+    error: false,
 };
 
 export const logInitial = {
-    user: {
-        hasLoaded: false,
-        total: 0,
-        actions: [],
-    },
     team: {
-        hasLoaded: false,
-        goal: 0,
-        total: 0,
-        mates: [],
+        meta: {
+            isFetch: false,
+        },
+        data: {
+            total: 0,
+            goal: 0,
+        },
+
+        feed: {
+            isFetch: false,
+        },
+    },
+};
+
+export const RequestsInitial = {
+    loader: {
+        actions: [],
+        errors: [],
     },
 };

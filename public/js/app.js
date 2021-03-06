@@ -12722,6 +12722,1225 @@ SvgIcon.muiName = 'SvgIcon';
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/Tab/Tab.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Tab/Tab.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _ButtonBase__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ButtonBase */ "./node_modules/@material-ui/core/esm/ButtonBase/ButtonBase.js");
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@material-ui/core/esm/utils/capitalize.js");
+/* harmony import */ var _utils_unsupportedProp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/unsupportedProp */ "./node_modules/@material-ui/core/esm/utils/unsupportedProp.js");
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  var _extends2;
+
+  return {
+    /* Styles applied to the root element. */
+    root: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__.default)({}, theme.typography.button, (_extends2 = {
+      maxWidth: 264,
+      minWidth: 72,
+      position: 'relative',
+      boxSizing: 'border-box',
+      minHeight: 48,
+      flexShrink: 0,
+      padding: '6px 12px'
+    }, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__.default)(_extends2, theme.breakpoints.up('sm'), {
+      padding: '6px 24px'
+    }), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__.default)(_extends2, "overflow", 'hidden'), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__.default)(_extends2, "whiteSpace", 'normal'), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__.default)(_extends2, "textAlign", 'center'), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__.default)(_extends2, theme.breakpoints.up('sm'), {
+      minWidth: 160
+    }), _extends2)),
+
+    /* Styles applied to the root element if both `icon` and `label` are provided. */
+    labelIcon: {
+      minHeight: 72,
+      paddingTop: 9,
+      '& $wrapper > *:first-child': {
+        marginBottom: 6
+      }
+    },
+
+    /* Styles applied to the root element if the parent [`Tabs`](/api/tabs/) has `textColor="inherit"`. */
+    textColorInherit: {
+      color: 'inherit',
+      opacity: 0.7,
+      '&$selected': {
+        opacity: 1
+      },
+      '&$disabled': {
+        opacity: 0.5
+      }
+    },
+
+    /* Styles applied to the root element if the parent [`Tabs`](/api/tabs/) has `textColor="primary"`. */
+    textColorPrimary: {
+      color: theme.palette.text.secondary,
+      '&$selected': {
+        color: theme.palette.primary.main
+      },
+      '&$disabled': {
+        color: theme.palette.text.disabled
+      }
+    },
+
+    /* Styles applied to the root element if the parent [`Tabs`](/api/tabs/) has `textColor="secondary"`. */
+    textColorSecondary: {
+      color: theme.palette.text.secondary,
+      '&$selected': {
+        color: theme.palette.secondary.main
+      },
+      '&$disabled': {
+        color: theme.palette.text.disabled
+      }
+    },
+
+    /* Pseudo-class applied to the root element if `selected={true}` (controlled by the Tabs component). */
+    selected: {},
+
+    /* Pseudo-class applied to the root element if `disabled={true}` (controlled by the Tabs component). */
+    disabled: {},
+
+    /* Styles applied to the root element if `fullWidth={true}` (controlled by the Tabs component). */
+    fullWidth: {
+      flexShrink: 1,
+      flexGrow: 1,
+      flexBasis: 0,
+      maxWidth: 'none'
+    },
+
+    /* Styles applied to the root element if `wrapped={true}`. */
+    wrapped: {
+      fontSize: theme.typography.pxToRem(12),
+      lineHeight: 1.5
+    },
+
+    /* Styles applied to the `icon` and `label`'s wrapper element. */
+    wrapper: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      flexDirection: 'column'
+    }
+  };
+};
+var Tab = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.forwardRef(function Tab(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$disableFocusRi = props.disableFocusRipple,
+      disableFocusRipple = _props$disableFocusRi === void 0 ? false : _props$disableFocusRi,
+      fullWidth = props.fullWidth,
+      icon = props.icon,
+      indicator = props.indicator,
+      label = props.label,
+      onChange = props.onChange,
+      onClick = props.onClick,
+      onFocus = props.onFocus,
+      selected = props.selected,
+      selectionFollowsFocus = props.selectionFollowsFocus,
+      _props$textColor = props.textColor,
+      textColor = _props$textColor === void 0 ? 'inherit' : _props$textColor,
+      value = props.value,
+      _props$wrapped = props.wrapped,
+      wrapped = _props$wrapped === void 0 ? false : _props$wrapped,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__.default)(props, ["classes", "className", "disabled", "disableFocusRipple", "fullWidth", "icon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "textColor", "value", "wrapped"]);
+
+  var handleClick = function handleClick(event) {
+    if (onChange) {
+      onChange(event, value);
+    }
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
+  var handleFocus = function handleFocus(event) {
+    if (selectionFollowsFocus && !selected && onChange) {
+      onChange(event, value);
+    }
+
+    if (onFocus) {
+      onFocus(event);
+    }
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ButtonBase__WEBPACK_IMPORTED_MODULE_6__.default, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__.default)({
+    focusRipple: !disableFocusRipple,
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__.default)(classes.root, classes["textColor".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_7__.default)(textColor))], className, disabled && classes.disabled, selected && classes.selected, label && icon && classes.labelIcon, fullWidth && classes.fullWidth, wrapped && classes.wrapped),
+    ref: ref,
+    role: "tab",
+    "aria-selected": selected,
+    disabled: disabled,
+    onClick: handleClick,
+    onFocus: handleFocus,
+    tabIndex: selected ? 0 : -1
+  }, other), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("span", {
+    className: classes.wrapper
+  }, icon, label), indicator);
+});
+ true ? Tab.propTypes = {
+  /**
+   * This prop isn't supported.
+   * Use the `component` prop if you need to change the children structure.
+   */
+  children: _utils_unsupportedProp__WEBPACK_IMPORTED_MODULE_8__.default,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().object.isRequired),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().string),
+
+  /**
+   * If `true`, the tab will be disabled.
+   */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
+
+  /**
+   * If `true`, the  keyboard focus ripple will be disabled.
+   */
+  disableFocusRipple: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
+
+  /**
+   * If `true`, the ripple effect will be disabled.
+   */
+  disableRipple: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
+
+  /**
+   * @ignore
+   */
+  fullWidth: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
+
+  /**
+   * The icon element.
+   */
+  icon: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().node),
+
+  /**
+   * @ignore
+   * For server-side rendering consideration, we let the selected tab
+   * render the indicator.
+   */
+  indicator: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().node),
+
+  /**
+   * The label element.
+   */
+  label: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().node),
+
+  /**
+   * @ignore
+   */
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().func),
+
+  /**
+   * @ignore
+   */
+  onClick: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().func),
+
+  /**
+   * @ignore
+   */
+  onFocus: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().func),
+
+  /**
+   * @ignore
+   */
+  selected: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
+
+  /**
+   * @ignore
+   */
+  selectionFollowsFocus: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
+
+  /**
+   * @ignore
+   */
+  textColor: prop_types__WEBPACK_IMPORTED_MODULE_4___default().oneOf(['secondary', 'primary', 'inherit']),
+
+  /**
+   * You can provide your own value. Otherwise, we fallback to the child position index.
+   */
+  value: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().any),
+
+  /**
+   * Tab labels appear in a single row.
+   * They can use a second line if needed.
+   */
+  wrapped: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_9__.default)(styles, {
+  name: 'MuiTab'
+})(Tab));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/TabScrollButton/TabScrollButton.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/TabScrollButton/TabScrollButton.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _internal_svg_icons_KeyboardArrowLeft__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../internal/svg-icons/KeyboardArrowLeft */ "./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowLeft.js");
+/* harmony import */ var _internal_svg_icons_KeyboardArrowRight__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../internal/svg-icons/KeyboardArrowRight */ "./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowRight.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _ButtonBase__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ButtonBase */ "./node_modules/@material-ui/core/esm/ButtonBase/ButtonBase.js");
+
+
+
+/* eslint-disable jsx-a11y/aria-role */
+
+
+
+
+
+
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {
+    width: 40,
+    flexShrink: 0,
+    opacity: 0.8,
+    '&$disabled': {
+      opacity: 0
+    }
+  },
+
+  /* Styles applied to the root element if `orientation="vertical"`. */
+  vertical: {
+    width: '100%',
+    height: 40,
+    '& svg': {
+      transform: 'rotate(90deg)'
+    }
+  },
+
+  /* Pseudo-class applied to the root element if `disabled={true}`. */
+  disabled: {}
+};
+
+var _ref = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_internal_svg_icons_KeyboardArrowLeft__WEBPACK_IMPORTED_MODULE_5__.default, {
+  fontSize: "small"
+});
+
+var _ref2 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_internal_svg_icons_KeyboardArrowRight__WEBPACK_IMPORTED_MODULE_6__.default, {
+  fontSize: "small"
+});
+
+var TabScrollButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function TabScrollButton(props, ref) {
+  var classes = props.classes,
+      classNameProp = props.className,
+      direction = props.direction,
+      orientation = props.orientation,
+      disabled = props.disabled,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__.default)(props, ["classes", "className", "direction", "orientation", "disabled"]);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_ButtonBase__WEBPACK_IMPORTED_MODULE_7__.default, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    component: "div",
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.root, classNameProp, disabled && classes.disabled, orientation === 'vertical' && classes.vertical),
+    ref: ref,
+    role: null,
+    tabIndex: null
+  }, other), direction === 'left' ? _ref : _ref2);
+});
+ true ? TabScrollButton.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The content of the component.
+   */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().node),
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+
+  /**
+   * Which direction should the button indicate?
+   */
+  direction: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['left', 'right']).isRequired,
+
+  /**
+   * If `true`, the element will be disabled.
+   */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * The tabs orientation (layout flow direction).
+   */
+  orientation: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['horizontal', 'vertical']).isRequired
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_8__.default)(styles, {
+  name: 'MuiTabScrollButton'
+})(TabScrollButton));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Tabs/ScrollbarSize.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Tabs/ScrollbarSize.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ScrollbarSize)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _utils_debounce__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/debounce */ "./node_modules/@material-ui/core/esm/utils/debounce.js");
+
+
+
+
+
+var styles = {
+  width: 99,
+  height: 99,
+  position: 'absolute',
+  top: -9999,
+  overflow: 'scroll'
+};
+/**
+ * @ignore - internal component.
+ * The component originates from https://github.com/STORIS/react-scrollbar-size.
+ * It has been moved into the core in order to minimize the bundle size.
+ */
+
+function ScrollbarSize(props) {
+  var onChange = props.onChange,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__.default)(props, ["onChange"]);
+
+  var scrollbarHeight = react__WEBPACK_IMPORTED_MODULE_2__.useRef();
+  var nodeRef = react__WEBPACK_IMPORTED_MODULE_2__.useRef(null);
+
+  var setMeasurements = function setMeasurements() {
+    scrollbarHeight.current = nodeRef.current.offsetHeight - nodeRef.current.clientHeight;
+  };
+
+  react__WEBPACK_IMPORTED_MODULE_2__.useEffect(function () {
+    var handleResize = (0,_utils_debounce__WEBPACK_IMPORTED_MODULE_4__.default)(function () {
+      var prevHeight = scrollbarHeight.current;
+      setMeasurements();
+
+      if (prevHeight !== scrollbarHeight.current) {
+        onChange(scrollbarHeight.current);
+      }
+    });
+    window.addEventListener('resize', handleResize);
+    return function () {
+      handleResize.clear();
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [onChange]);
+  react__WEBPACK_IMPORTED_MODULE_2__.useEffect(function () {
+    setMeasurements();
+    onChange(scrollbarHeight.current);
+  }, [onChange]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    style: styles,
+    ref: nodeRef
+  }, other));
+}
+ true ? ScrollbarSize.propTypes = {
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func.isRequired)
+} : 0;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Tabs/TabIndicator.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Tabs/TabIndicator.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@material-ui/core/esm/utils/capitalize.js");
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    root: {
+      position: 'absolute',
+      height: 2,
+      bottom: 0,
+      width: '100%',
+      transition: theme.transitions.create()
+    },
+    colorPrimary: {
+      backgroundColor: theme.palette.primary.main
+    },
+    colorSecondary: {
+      backgroundColor: theme.palette.secondary.main
+    },
+    vertical: {
+      height: '100%',
+      width: 2,
+      right: 0
+    }
+  };
+};
+/**
+ * @ignore - internal component.
+ */
+
+var TabIndicator = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function TabIndicator(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      color = props.color,
+      orientation = props.orientation,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__.default)(props, ["classes", "className", "color", "orientation"]);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("span", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.root, classes["color".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__.default)(color))], className, orientation === 'vertical' && classes.vertical),
+    ref: ref
+  }, other));
+});
+ true ? TabIndicator.propTypes = {
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object.isRequired),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+
+  /**
+   * @ignore
+   * The color of the tab indicator.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['primary', 'secondary']).isRequired,
+
+  /**
+   * The tabs orientation (layout flow direction).
+   */
+  orientation: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['horizontal', 'vertical']).isRequired
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_6__.default)(styles, {
+  name: 'PrivateTabIndicator'
+})(TabIndicator));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Tabs/Tabs.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Tabs/Tabs.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_utils__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/utils */ "./node_modules/@material-ui/utils/esm/refType.js");
+/* harmony import */ var _utils_debounce__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../utils/debounce */ "./node_modules/@material-ui/core/esm/utils/debounce.js");
+/* harmony import */ var _utils_ownerWindow__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../utils/ownerWindow */ "./node_modules/@material-ui/core/esm/utils/ownerWindow.js");
+/* harmony import */ var _utils_scrollLeft__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/scrollLeft */ "./node_modules/@material-ui/core/esm/utils/scrollLeft.js");
+/* harmony import */ var _internal_animate__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../internal/animate */ "./node_modules/@material-ui/core/esm/internal/animate.js");
+/* harmony import */ var _ScrollbarSize__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ScrollbarSize */ "./node_modules/@material-ui/core/esm/Tabs/ScrollbarSize.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _TabIndicator__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./TabIndicator */ "./node_modules/@material-ui/core/esm/Tabs/TabIndicator.js");
+/* harmony import */ var _TabScrollButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../TabScrollButton */ "./node_modules/@material-ui/core/esm/TabScrollButton/TabScrollButton.js");
+/* harmony import */ var _utils_useEventCallback__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/useEventCallback */ "./node_modules/@material-ui/core/esm/utils/useEventCallback.js");
+/* harmony import */ var _styles_useTheme__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/useTheme */ "./node_modules/@material-ui/core/esm/styles/useTheme.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      overflow: 'hidden',
+      minHeight: 48,
+      WebkitOverflowScrolling: 'touch',
+      // Add iOS momentum scrolling.
+      display: 'flex'
+    },
+
+    /* Styles applied to the root element if `orientation="vertical"`. */
+    vertical: {
+      flexDirection: 'column'
+    },
+
+    /* Styles applied to the flex container element. */
+    flexContainer: {
+      display: 'flex'
+    },
+
+    /* Styles applied to the flex container element if `orientation="vertical"`. */
+    flexContainerVertical: {
+      flexDirection: 'column'
+    },
+
+    /* Styles applied to the flex container element if `centered={true}` & `!variant="scrollable"`. */
+    centered: {
+      justifyContent: 'center'
+    },
+
+    /* Styles applied to the tablist element. */
+    scroller: {
+      position: 'relative',
+      display: 'inline-block',
+      flex: '1 1 auto',
+      whiteSpace: 'nowrap'
+    },
+
+    /* Styles applied to the tablist element if `!variant="scrollable"`. */
+    fixed: {
+      overflowX: 'hidden',
+      width: '100%'
+    },
+
+    /* Styles applied to the tablist element if `variant="scrollable"`. */
+    scrollable: {
+      overflowX: 'scroll',
+      // Hide dimensionless scrollbar on MacOS
+      scrollbarWidth: 'none',
+      // Firefox
+      '&::-webkit-scrollbar': {
+        display: 'none' // Safari + Chrome
+
+      }
+    },
+
+    /* Styles applied to the `ScrollButtonComponent` component. */
+    scrollButtons: {},
+
+    /* Styles applied to the `ScrollButtonComponent` component if `scrollButtons="auto"` or scrollButtons="desktop"`. */
+    scrollButtonsDesktop: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__.default)({}, theme.breakpoints.down('xs'), {
+      display: 'none'
+    }),
+
+    /* Styles applied to the `TabIndicator` component. */
+    indicator: {}
+  };
+};
+var Tabs = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.forwardRef(function Tabs(props, ref) {
+  var ariaLabel = props['aria-label'],
+      ariaLabelledBy = props['aria-labelledby'],
+      action = props.action,
+      _props$centered = props.centered,
+      centered = _props$centered === void 0 ? false : _props$centered,
+      childrenProp = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'div' : _props$component,
+      _props$indicatorColor = props.indicatorColor,
+      indicatorColor = _props$indicatorColor === void 0 ? 'secondary' : _props$indicatorColor,
+      onChange = props.onChange,
+      _props$orientation = props.orientation,
+      orientation = _props$orientation === void 0 ? 'horizontal' : _props$orientation,
+      _props$ScrollButtonCo = props.ScrollButtonComponent,
+      ScrollButtonComponent = _props$ScrollButtonCo === void 0 ? _TabScrollButton__WEBPACK_IMPORTED_MODULE_7__.default : _props$ScrollButtonCo,
+      _props$scrollButtons = props.scrollButtons,
+      scrollButtons = _props$scrollButtons === void 0 ? 'auto' : _props$scrollButtons,
+      selectionFollowsFocus = props.selectionFollowsFocus,
+      _props$TabIndicatorPr = props.TabIndicatorProps,
+      TabIndicatorProps = _props$TabIndicatorPr === void 0 ? {} : _props$TabIndicatorPr,
+      TabScrollButtonProps = props.TabScrollButtonProps,
+      _props$textColor = props.textColor,
+      textColor = _props$textColor === void 0 ? 'inherit' : _props$textColor,
+      value = props.value,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'standard' : _props$variant,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__.default)(props, ["aria-label", "aria-labelledby", "action", "centered", "children", "classes", "className", "component", "indicatorColor", "onChange", "orientation", "ScrollButtonComponent", "scrollButtons", "selectionFollowsFocus", "TabIndicatorProps", "TabScrollButtonProps", "textColor", "value", "variant"]);
+
+  var theme = (0,_styles_useTheme__WEBPACK_IMPORTED_MODULE_8__.default)();
+  var scrollable = variant === 'scrollable';
+  var isRtl = theme.direction === 'rtl';
+  var vertical = orientation === 'vertical';
+  var scrollStart = vertical ? 'scrollTop' : 'scrollLeft';
+  var start = vertical ? 'top' : 'left';
+  var end = vertical ? 'bottom' : 'right';
+  var clientSize = vertical ? 'clientHeight' : 'clientWidth';
+  var size = vertical ? 'height' : 'width';
+
+  if (true) {
+    if (centered && scrollable) {
+      console.error('Material-UI: You can not use the `centered={true}` and `variant="scrollable"` properties ' + 'at the same time on a `Tabs` component.');
+    }
+  }
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_3__.useState(false),
+      mounted = _React$useState[0],
+      setMounted = _React$useState[1];
+
+  var _React$useState2 = react__WEBPACK_IMPORTED_MODULE_3__.useState({}),
+      indicatorStyle = _React$useState2[0],
+      setIndicatorStyle = _React$useState2[1];
+
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_3__.useState({
+    start: false,
+    end: false
+  }),
+      displayScroll = _React$useState3[0],
+      setDisplayScroll = _React$useState3[1];
+
+  var _React$useState4 = react__WEBPACK_IMPORTED_MODULE_3__.useState({
+    overflow: 'hidden',
+    marginBottom: null
+  }),
+      scrollerStyle = _React$useState4[0],
+      setScrollerStyle = _React$useState4[1];
+
+  var valueToIndex = new Map();
+  var tabsRef = react__WEBPACK_IMPORTED_MODULE_3__.useRef(null);
+  var tabListRef = react__WEBPACK_IMPORTED_MODULE_3__.useRef(null);
+
+  var getTabsMeta = function getTabsMeta() {
+    var tabsNode = tabsRef.current;
+    var tabsMeta;
+
+    if (tabsNode) {
+      var rect = tabsNode.getBoundingClientRect(); // create a new object with ClientRect class props + scrollLeft
+
+      tabsMeta = {
+        clientWidth: tabsNode.clientWidth,
+        scrollLeft: tabsNode.scrollLeft,
+        scrollTop: tabsNode.scrollTop,
+        scrollLeftNormalized: (0,_utils_scrollLeft__WEBPACK_IMPORTED_MODULE_9__.getNormalizedScrollLeft)(tabsNode, theme.direction),
+        scrollWidth: tabsNode.scrollWidth,
+        top: rect.top,
+        bottom: rect.bottom,
+        left: rect.left,
+        right: rect.right
+      };
+    }
+
+    var tabMeta;
+
+    if (tabsNode && value !== false) {
+      var _children = tabListRef.current.children;
+
+      if (_children.length > 0) {
+        var tab = _children[valueToIndex.get(value)];
+
+        if (true) {
+          if (!tab) {
+            console.error(["Material-UI: The value provided to the Tabs component is invalid.", "None of the Tabs' children match with `".concat(value, "`."), valueToIndex.keys ? "You can provide one of the following values: ".concat(Array.from(valueToIndex.keys()).join(', '), ".") : null].join('\n'));
+          }
+        }
+
+        tabMeta = tab ? tab.getBoundingClientRect() : null;
+      }
+    }
+
+    return {
+      tabsMeta: tabsMeta,
+      tabMeta: tabMeta
+    };
+  };
+
+  var updateIndicatorState = (0,_utils_useEventCallback__WEBPACK_IMPORTED_MODULE_10__.default)(function () {
+    var _newIndicatorStyle;
+
+    var _getTabsMeta = getTabsMeta(),
+        tabsMeta = _getTabsMeta.tabsMeta,
+        tabMeta = _getTabsMeta.tabMeta;
+
+    var startValue = 0;
+
+    if (tabMeta && tabsMeta) {
+      if (vertical) {
+        startValue = tabMeta.top - tabsMeta.top + tabsMeta.scrollTop;
+      } else {
+        var correction = isRtl ? tabsMeta.scrollLeftNormalized + tabsMeta.clientWidth - tabsMeta.scrollWidth : tabsMeta.scrollLeft;
+        startValue = tabMeta.left - tabsMeta.left + correction;
+      }
+    }
+
+    var newIndicatorStyle = (_newIndicatorStyle = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__.default)(_newIndicatorStyle, start, startValue), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__.default)(_newIndicatorStyle, size, tabMeta ? tabMeta[size] : 0), _newIndicatorStyle);
+
+    if (isNaN(indicatorStyle[start]) || isNaN(indicatorStyle[size])) {
+      setIndicatorStyle(newIndicatorStyle);
+    } else {
+      var dStart = Math.abs(indicatorStyle[start] - newIndicatorStyle[start]);
+      var dSize = Math.abs(indicatorStyle[size] - newIndicatorStyle[size]);
+
+      if (dStart >= 1 || dSize >= 1) {
+        setIndicatorStyle(newIndicatorStyle);
+      }
+    }
+  });
+
+  var scroll = function scroll(scrollValue) {
+    (0,_internal_animate__WEBPACK_IMPORTED_MODULE_11__.default)(scrollStart, tabsRef.current, scrollValue);
+  };
+
+  var moveTabsScroll = function moveTabsScroll(delta) {
+    var scrollValue = tabsRef.current[scrollStart];
+
+    if (vertical) {
+      scrollValue += delta;
+    } else {
+      scrollValue += delta * (isRtl ? -1 : 1); // Fix for Edge
+
+      scrollValue *= isRtl && (0,_utils_scrollLeft__WEBPACK_IMPORTED_MODULE_9__.detectScrollType)() === 'reverse' ? -1 : 1;
+    }
+
+    scroll(scrollValue);
+  };
+
+  var handleStartScrollClick = function handleStartScrollClick() {
+    moveTabsScroll(-tabsRef.current[clientSize]);
+  };
+
+  var handleEndScrollClick = function handleEndScrollClick() {
+    moveTabsScroll(tabsRef.current[clientSize]);
+  };
+
+  var handleScrollbarSizeChange = react__WEBPACK_IMPORTED_MODULE_3__.useCallback(function (scrollbarHeight) {
+    setScrollerStyle({
+      overflow: null,
+      marginBottom: -scrollbarHeight
+    });
+  }, []);
+
+  var getConditionalElements = function getConditionalElements() {
+    var conditionalElements = {};
+    conditionalElements.scrollbarSizeListener = scrollable ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ScrollbarSize__WEBPACK_IMPORTED_MODULE_12__.default, {
+      className: classes.scrollable,
+      onChange: handleScrollbarSizeChange
+    }) : null;
+    var scrollButtonsActive = displayScroll.start || displayScroll.end;
+    var showScrollButtons = scrollable && (scrollButtons === 'auto' && scrollButtonsActive || scrollButtons === 'desktop' || scrollButtons === 'on');
+    conditionalElements.scrollButtonStart = showScrollButtons ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ScrollButtonComponent, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+      orientation: orientation,
+      direction: isRtl ? 'right' : 'left',
+      onClick: handleStartScrollClick,
+      disabled: !displayScroll.start,
+      className: (0,clsx__WEBPACK_IMPORTED_MODULE_6__.default)(classes.scrollButtons, scrollButtons !== 'on' && classes.scrollButtonsDesktop)
+    }, TabScrollButtonProps)) : null;
+    conditionalElements.scrollButtonEnd = showScrollButtons ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ScrollButtonComponent, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+      orientation: orientation,
+      direction: isRtl ? 'left' : 'right',
+      onClick: handleEndScrollClick,
+      disabled: !displayScroll.end,
+      className: (0,clsx__WEBPACK_IMPORTED_MODULE_6__.default)(classes.scrollButtons, scrollButtons !== 'on' && classes.scrollButtonsDesktop)
+    }, TabScrollButtonProps)) : null;
+    return conditionalElements;
+  };
+
+  var scrollSelectedIntoView = (0,_utils_useEventCallback__WEBPACK_IMPORTED_MODULE_10__.default)(function () {
+    var _getTabsMeta2 = getTabsMeta(),
+        tabsMeta = _getTabsMeta2.tabsMeta,
+        tabMeta = _getTabsMeta2.tabMeta;
+
+    if (!tabMeta || !tabsMeta) {
+      return;
+    }
+
+    if (tabMeta[start] < tabsMeta[start]) {
+      // left side of button is out of view
+      var nextScrollStart = tabsMeta[scrollStart] + (tabMeta[start] - tabsMeta[start]);
+      scroll(nextScrollStart);
+    } else if (tabMeta[end] > tabsMeta[end]) {
+      // right side of button is out of view
+      var _nextScrollStart = tabsMeta[scrollStart] + (tabMeta[end] - tabsMeta[end]);
+
+      scroll(_nextScrollStart);
+    }
+  });
+  var updateScrollButtonState = (0,_utils_useEventCallback__WEBPACK_IMPORTED_MODULE_10__.default)(function () {
+    if (scrollable && scrollButtons !== 'off') {
+      var _tabsRef$current = tabsRef.current,
+          scrollTop = _tabsRef$current.scrollTop,
+          scrollHeight = _tabsRef$current.scrollHeight,
+          clientHeight = _tabsRef$current.clientHeight,
+          scrollWidth = _tabsRef$current.scrollWidth,
+          clientWidth = _tabsRef$current.clientWidth;
+      var showStartScroll;
+      var showEndScroll;
+
+      if (vertical) {
+        showStartScroll = scrollTop > 1;
+        showEndScroll = scrollTop < scrollHeight - clientHeight - 1;
+      } else {
+        var scrollLeft = (0,_utils_scrollLeft__WEBPACK_IMPORTED_MODULE_9__.getNormalizedScrollLeft)(tabsRef.current, theme.direction); // use 1 for the potential rounding error with browser zooms.
+
+        showStartScroll = isRtl ? scrollLeft < scrollWidth - clientWidth - 1 : scrollLeft > 1;
+        showEndScroll = !isRtl ? scrollLeft < scrollWidth - clientWidth - 1 : scrollLeft > 1;
+      }
+
+      if (showStartScroll !== displayScroll.start || showEndScroll !== displayScroll.end) {
+        setDisplayScroll({
+          start: showStartScroll,
+          end: showEndScroll
+        });
+      }
+    }
+  });
+  react__WEBPACK_IMPORTED_MODULE_3__.useEffect(function () {
+    var handleResize = (0,_utils_debounce__WEBPACK_IMPORTED_MODULE_13__.default)(function () {
+      updateIndicatorState();
+      updateScrollButtonState();
+    });
+    var win = (0,_utils_ownerWindow__WEBPACK_IMPORTED_MODULE_14__.default)(tabsRef.current);
+    win.addEventListener('resize', handleResize);
+    return function () {
+      handleResize.clear();
+      win.removeEventListener('resize', handleResize);
+    };
+  }, [updateIndicatorState, updateScrollButtonState]);
+  var handleTabsScroll = react__WEBPACK_IMPORTED_MODULE_3__.useCallback((0,_utils_debounce__WEBPACK_IMPORTED_MODULE_13__.default)(function () {
+    updateScrollButtonState();
+  }));
+  react__WEBPACK_IMPORTED_MODULE_3__.useEffect(function () {
+    return function () {
+      handleTabsScroll.clear();
+    };
+  }, [handleTabsScroll]);
+  react__WEBPACK_IMPORTED_MODULE_3__.useEffect(function () {
+    setMounted(true);
+  }, []);
+  react__WEBPACK_IMPORTED_MODULE_3__.useEffect(function () {
+    updateIndicatorState();
+    updateScrollButtonState();
+  });
+  react__WEBPACK_IMPORTED_MODULE_3__.useEffect(function () {
+    scrollSelectedIntoView();
+  }, [scrollSelectedIntoView, indicatorStyle]);
+  react__WEBPACK_IMPORTED_MODULE_3__.useImperativeHandle(action, function () {
+    return {
+      updateIndicator: updateIndicatorState,
+      updateScrollButtons: updateScrollButtonState
+    };
+  }, [updateIndicatorState, updateScrollButtonState]);
+  var indicator = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_TabIndicator__WEBPACK_IMPORTED_MODULE_15__.default, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    className: classes.indicator,
+    orientation: orientation,
+    color: indicatorColor
+  }, TabIndicatorProps, {
+    style: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, indicatorStyle, TabIndicatorProps.style)
+  }));
+  var childIndex = 0;
+  var children = react__WEBPACK_IMPORTED_MODULE_3__.Children.map(childrenProp, function (child) {
+    if (! /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.isValidElement(child)) {
+      return null;
+    }
+
+    if (true) {
+      if ((0,react_is__WEBPACK_IMPORTED_MODULE_4__.isFragment)(child)) {
+        console.error(["Material-UI: The Tabs component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n'));
+      }
+    }
+
+    var childValue = child.props.value === undefined ? childIndex : child.props.value;
+    valueToIndex.set(childValue, childIndex);
+    var selected = childValue === value;
+    childIndex += 1;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.cloneElement(child, {
+      fullWidth: variant === 'fullWidth',
+      indicator: selected && !mounted && indicator,
+      selected: selected,
+      selectionFollowsFocus: selectionFollowsFocus,
+      onChange: onChange,
+      textColor: textColor,
+      value: childValue
+    });
+  });
+
+  var handleKeyDown = function handleKeyDown(event) {
+    var target = event.target; // Keyboard navigation assumes that [role="tab"] are siblings
+    // though we might warn in the future about nested, interactive elements
+    // as a a11y violation
+
+    var role = target.getAttribute('role');
+
+    if (role !== 'tab') {
+      return;
+    }
+
+    var newFocusTarget = null;
+    var previousItemKey = orientation !== "vertical" ? 'ArrowLeft' : 'ArrowUp';
+    var nextItemKey = orientation !== "vertical" ? 'ArrowRight' : 'ArrowDown';
+
+    if (orientation !== "vertical" && theme.direction === 'rtl') {
+      // swap previousItemKey with nextItemKey
+      previousItemKey = 'ArrowRight';
+      nextItemKey = 'ArrowLeft';
+    }
+
+    switch (event.key) {
+      case previousItemKey:
+        newFocusTarget = target.previousElementSibling || tabListRef.current.lastChild;
+        break;
+
+      case nextItemKey:
+        newFocusTarget = target.nextElementSibling || tabListRef.current.firstChild;
+        break;
+
+      case 'Home':
+        newFocusTarget = tabListRef.current.firstChild;
+        break;
+
+      case 'End':
+        newFocusTarget = tabListRef.current.lastChild;
+        break;
+
+      default:
+        break;
+    }
+
+    if (newFocusTarget !== null) {
+      newFocusTarget.focus();
+      event.preventDefault();
+    }
+  };
+
+  var conditionalElements = getConditionalElements();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(Component, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_6__.default)(classes.root, className, vertical && classes.vertical),
+    ref: ref
+  }, other), conditionalElements.scrollButtonStart, conditionalElements.scrollbarSizeListener, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_6__.default)(classes.scroller, scrollable ? classes.scrollable : classes.fixed),
+    style: scrollerStyle,
+    ref: tabsRef,
+    onScroll: handleTabsScroll
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
+    "aria-label": ariaLabel,
+    "aria-labelledby": ariaLabelledBy,
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_6__.default)(classes.flexContainer, vertical && classes.flexContainerVertical, centered && !scrollable && classes.centered),
+    onKeyDown: handleKeyDown,
+    ref: tabListRef,
+    role: "tablist"
+  }, children), mounted && indicator), conditionalElements.scrollButtonEnd);
+});
+ true ? Tabs.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Callback fired when the component mounts.
+   * This is useful when you want to trigger an action programmatically.
+   * It supports two actions: `updateIndicator()` and `updateScrollButtons()`
+   *
+   * @param {object} actions This object contains all possible actions
+   * that can be triggered programmatically.
+   */
+  action: _material_ui_utils__WEBPACK_IMPORTED_MODULE_16__.default,
+
+  /**
+   * The label for the Tabs as a string.
+   */
+  'aria-label': (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string),
+
+  /**
+   * An id or list of ids separated by a space that label the Tabs.
+   */
+  'aria-labelledby': (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string),
+
+  /**
+   * If `true`, the tabs will be centered.
+   * This property is intended for large views.
+   */
+  centered: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().bool),
+
+  /**
+   * The content of the component.
+   */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().node),
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().object),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string),
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().elementType),
+
+  /**
+   * Determines the color of the indicator.
+   */
+  indicatorColor: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['primary', 'secondary']),
+
+  /**
+   * Callback fired when the value changes.
+   *
+   * @param {object} event The event source of the callback
+   * @param {any} value We default to the index of the child (number)
+   */
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().func),
+
+  /**
+   * The tabs orientation (layout flow direction).
+   */
+  orientation: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['horizontal', 'vertical']),
+
+  /**
+   * The component used to render the scroll buttons.
+   */
+  ScrollButtonComponent: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().elementType),
+
+  /**
+   * Determine behavior of scroll buttons when tabs are set to scroll:
+   *
+   * - `auto` will only present them when not all the items are visible.
+   * - `desktop` will only present them on medium and larger viewports.
+   * - `on` will always present them.
+   * - `off` will never present them.
+   */
+  scrollButtons: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['auto', 'desktop', 'off', 'on']),
+
+  /**
+   * If `true` the selected tab changes on focus. Otherwise it only
+   * changes on activation.
+   */
+  selectionFollowsFocus: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().bool),
+
+  /**
+   * Props applied to the tab indicator element.
+   */
+  TabIndicatorProps: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().object),
+
+  /**
+   * Props applied to the [`TabScrollButton`](/api/tab-scroll-button/) element.
+   */
+  TabScrollButtonProps: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().object),
+
+  /**
+   * Determines the color of the `Tab`.
+   */
+  textColor: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['inherit', 'primary', 'secondary']),
+
+  /**
+   * The value of the currently selected `Tab`.
+   * If you don't want any selected `Tab`, you can set this property to `false`.
+   */
+  value: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().any),
+
+  /**
+   * Determines additional display behavior of the tabs:
+   *
+   *  - `scrollable` will invoke scrolling properties and allow for horizontally
+   *  scrolling (or swiping) of the tab bar.
+   *  -`fullWidth` will make the tabs grow to use all the available space,
+   *  which should be used for small views, like on mobile.
+   *  - `standard` will render the default state.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['fullWidth', 'scrollable', 'standard'])
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_17__.default)(styles, {
+  name: 'MuiTabs'
+})(Tabs));
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/TextField/TextField.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/TextField/TextField.js ***!
@@ -14365,6 +15584,70 @@ var SwitchBase = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.forwardRef(func
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/internal/animate.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/animate.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ animate)
+/* harmony export */ });
+function easeInOutSin(time) {
+  return (1 + Math.sin(Math.PI * time - Math.PI / 2)) / 2;
+}
+
+function animate(property, element, to) {
+  var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+  var cb = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : function () {};
+  var _options$ease = options.ease,
+      ease = _options$ease === void 0 ? easeInOutSin : _options$ease,
+      _options$duration = options.duration,
+      duration = _options$duration === void 0 ? 300 : _options$duration;
+  var start = null;
+  var from = element[property];
+  var cancelled = false;
+
+  var cancel = function cancel() {
+    cancelled = true;
+  };
+
+  var step = function step(timestamp) {
+    if (cancelled) {
+      cb(new Error('Animation cancelled'));
+      return;
+    }
+
+    if (start === null) {
+      start = timestamp;
+    }
+
+    var time = Math.min(1, (timestamp - start) / duration);
+    element[property] = ease(time) * (to - from) + from;
+
+    if (time >= 1) {
+      requestAnimationFrame(function () {
+        cb(null);
+      });
+      return;
+    }
+
+    requestAnimationFrame(step);
+  };
+
+  if (from === to) {
+    cb(new Error('Element already at target position'));
+    return cancel;
+  }
+
+  requestAnimationFrame(step);
+  return cancel;
+}
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/internal/svg-icons/ArrowDropDown.js":
 /*!********************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/ArrowDropDown.js ***!
@@ -14462,6 +15745,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__.default)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
   d: "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"
 }), 'IndeterminateCheckBox'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowLeft.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowLeft.js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/createSvgIcon */ "./node_modules/@material-ui/core/esm/utils/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__.default)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+  d: "M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+}), 'KeyboardArrowLeft'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowRight.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowRight.js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/createSvgIcon */ "./node_modules/@material-ui/core/esm/utils/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__.default)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+  d: "M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+}), 'KeyboardArrowRight'));
 
 /***/ }),
 
@@ -16212,6 +17545,97 @@ function requirePropFactory(componentNameInError) {
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/utils/scrollLeft.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/utils/scrollLeft.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "detectScrollType": () => (/* binding */ detectScrollType),
+/* harmony export */   "getNormalizedScrollLeft": () => (/* binding */ getNormalizedScrollLeft)
+/* harmony export */ });
+// Source from https://github.com/alitaheri/normalize-scroll-left
+var cachedType;
+/**
+ * Based on the jquery plugin https://github.com/othree/jquery.rtl-scroll-type
+ *
+ * Types of scrollLeft, assuming scrollWidth=100 and direction is rtl.
+ *
+ * Type             | <- Most Left | Most Right -> | Initial
+ * ---------------- | ------------ | ------------- | -------
+ * default          | 0            | 100           | 100
+ * negative (spec*) | -100         | 0             | 0
+ * reverse          | 100          | 0             | 0
+ *
+ * Edge 85: default
+ * Safari 14: negative
+ * Chrome 85: negative
+ * Firefox 81: negative
+ * IE 11: reverse
+ *
+ * spec* https://drafts.csswg.org/cssom-view/#dom-window-scroll
+ */
+
+function detectScrollType() {
+  if (cachedType) {
+    return cachedType;
+  }
+
+  var dummy = document.createElement('div');
+  var container = document.createElement('div');
+  container.style.width = '10px';
+  container.style.height = '1px';
+  dummy.appendChild(container);
+  dummy.dir = 'rtl';
+  dummy.style.fontSize = '14px';
+  dummy.style.width = '4px';
+  dummy.style.height = '1px';
+  dummy.style.position = 'absolute';
+  dummy.style.top = '-1000px';
+  dummy.style.overflow = 'scroll';
+  document.body.appendChild(dummy);
+  cachedType = 'reverse';
+
+  if (dummy.scrollLeft > 0) {
+    cachedType = 'default';
+  } else {
+    dummy.scrollLeft = 1;
+
+    if (dummy.scrollLeft === 0) {
+      cachedType = 'negative';
+    }
+  }
+
+  document.body.removeChild(dummy);
+  return cachedType;
+} // Based on https://stackoverflow.com/a/24394376
+
+function getNormalizedScrollLeft(element, direction) {
+  var scrollLeft = element.scrollLeft; // Perform the calculations only when direction is rtl to avoid messing up the ltr bahavior
+
+  if (direction !== 'rtl') {
+    return scrollLeft;
+  }
+
+  var type = detectScrollType();
+
+  switch (type) {
+    case 'negative':
+      return element.scrollWidth - element.clientWidth + scrollLeft;
+
+    case 'reverse':
+      return element.scrollWidth - element.clientWidth - scrollLeft;
+
+    default:
+      return scrollLeft;
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/utils/setRef.js":
 /*!************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/utils/setRef.js ***!
@@ -16742,6 +18166,36 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/Equalizer.js":
+/*!******************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Equalizer.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z"
+}), 'Equalizer');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/Event.js":
 /*!**************************************************!*\
   !*** ./node_modules/@material-ui/icons/Event.js ***!
@@ -16767,6 +18221,36 @@ var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/crea
 var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
   d: "M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
 }), 'Event');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/List.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@material-ui/icons/List.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"
+}), 'List');
 
 exports.default = _default;
 
@@ -21947,9 +23431,9 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__.default
       position: "relative"
     },
     large: {
-      margin: theme.spacing(2),
-      width: theme.spacing(10),
-      height: theme.spacing(10)
+      margin: theme.spacing(1),
+      width: theme.spacing(8),
+      height: theme.spacing(8)
     }
   };
 });
@@ -22073,13 +23557,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Fab__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Fab */ "./node_modules/@material-ui/core/esm/Fab/Fab.js");
 /* harmony import */ var _material_ui_icons_Add__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/Add */ "./node_modules/@material-ui/icons/Add.js");
 /* harmony import */ var _CardWrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardWrap */ "./resources/js/components/CardWrap/index.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _LoadUser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../LoadUser */ "./resources/js/components/LoadUser/index.js");
-/* harmony import */ var _LoadTeam__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../LoadTeam */ "./resources/js/components/LoadTeam/index.js");
-/* harmony import */ var _UserActionFeed__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../UserActionFeed */ "./resources/js/components/UserActionFeed/index.js");
-/* harmony import */ var _TeamInfo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../TeamInfo */ "./resources/js/components/TeamInfo/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "./node_modules/@material-ui/core/esm/CircularProgress/CircularProgress.js");
+/* harmony import */ var _material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Tabs */ "./node_modules/@material-ui/core/esm/Tabs/Tabs.js");
+/* harmony import */ var _material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Tab */ "./node_modules/@material-ui/core/esm/Tab/Tab.js");
+/* harmony import */ var _TabUser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../TabUser */ "./resources/js/components/TabUser/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -22101,10 +23585,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+ // import LoadUser from "../LoadUser";
+// import LoadTeam from "../LoadTeam";
+// import UserActionFeed from "../UserActionFeed";
+// import TeamInfo from "../TeamInfo";
 
 
 
-var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__.default)(function (theme) {
+var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__.default)(function (theme) {
   return {
     form: {
       width: "100%",
@@ -22121,13 +23609,35 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__.default
       margin: theme.spacing(2)
     },
     title: {
+      marginBottom: theme.spacing(1)
+    },
+    spinner: {
+      marginTop: theme.spacing(10)
+    },
+    tabs: {
       marginBottom: theme.spacing(2)
     }
   };
 });
+
+var pageSelector = function pageSelector(page) {
+  switch (page) {
+    case 0:
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TabUser__WEBPACK_IMPORTED_MODULE_2__.default, {});
+      break;
+
+    case 1:
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        children: " Team "
+      });
+
+    default:
+      break;
+  }
+};
+
 function Dashboard(_ref) {
-  var user = _ref.user,
-      log = _ref.log;
+  var user = _ref.user;
   var classes = useStyles();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
@@ -22135,21 +23645,48 @@ function Dashboard(_ref) {
       page = _useState2[0],
       setPage = _useState2[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_CardWrap__WEBPACK_IMPORTED_MODULE_1__.default, {
-    avatar: user.avatar,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      tab = _useState4[0],
+      setTab = _useState4[1];
+
+  var meta = user.meta,
+      data = user.data;
+
+  if (meta.isFetching) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_CardWrap__WEBPACK_IMPORTED_MODULE_1__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_5__.default, {
+        className: classes.spinner,
+        size: "1.25rem"
+      })
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_CardWrap__WEBPACK_IMPORTED_MODULE_1__.default, {
+    avatar: meta.avatar,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
       className: classes.title,
-      children: user.name
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_LoadTeam__WEBPACK_IMPORTED_MODULE_3__.default, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_TeamInfo__WEBPACK_IMPORTED_MODULE_5__.default, {})
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+      children: meta.name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_6__.default, {
+      variant: "fullWidth",
+      value: tab,
+      onChange: function onChange(e, newValue) {
+        return setTab(newValue);
+      },
+      className: classes.tabs,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_7__.default, {
+        label: meta.name
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_7__.default, {
+        label: "team"
+      })]
+    }), pageSelector(tab), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
       to: "add",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_Fab__WEBPACK_IMPORTED_MODULE_9__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Fab__WEBPACK_IMPORTED_MODULE_9__.default, {
         size: "medium",
         color: "secondary",
         "aria-label": "add",
         className: classes.fab,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_icons_Add__WEBPACK_IMPORTED_MODULE_10__.default, {})
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_icons_Add__WEBPACK_IMPORTED_MODULE_10__.default, {})
       })
     })]
   });
@@ -22174,164 +23711,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(_ref) {
-  var user = _ref.user,
-      log = _ref.log;
+  var user = _ref.user;
   return {
-    user: user,
-    log: log
+    user: user
   };
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps)(_component__WEBPACK_IMPORTED_MODULE_1__.default));
-
-/***/ }),
-
-/***/ "./resources/js/components/LoadTeam/LoadTeam.js":
-/*!******************************************************!*\
-  !*** ./resources/js/components/LoadTeam/LoadTeam.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ LoadTeam)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-function LoadTeam(_ref) {
-  var children = _ref.children,
-      hasLoaded = _ref.hasLoaded,
-      teamToken = _ref.teamToken,
-      handleLoad = _ref.handleLoad;
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (!hasLoaded) {
-      handleLoad(teamToken);
-    }
-  }, []);
-  return !hasLoaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-    children: "loading.."
-  }) : children;
-}
-
-/***/ }),
-
-/***/ "./resources/js/components/LoadTeam/index.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/LoadTeam/index.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _LoadTeam__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoadTeam */ "./resources/js/components/LoadTeam/LoadTeam.js");
-/* harmony import */ var _data_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/actions */ "./resources/js/data/actions.js");
-
-
-
-
-var mapStateToProps = function mapStateToProps(_ref) {
-  var log = _ref.log,
-      user = _ref.user;
-  return {
-    hasLoaded: log.team.hasLoaded,
-    teamToken: user.team_token
-  };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    handleLoad: function handleLoad(token) {
-      return dispatch((0,_data_actions__WEBPACK_IMPORTED_MODULE_2__.loadTeam)(token));
-    }
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, mapDispatchToProps)(_LoadTeam__WEBPACK_IMPORTED_MODULE_1__.default));
-
-/***/ }),
-
-/***/ "./resources/js/components/LoadUser/Component.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/LoadUser/Component.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Component)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-function Component(_ref) {
-  var id = _ref.id,
-      page = _ref.page,
-      loaded = _ref.loaded,
-      loadUserActions = _ref.loadUserActions,
-      children = _ref.children;
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    loadUserActions(id, page);
-
-    if (!loaded) {}
-  }, [page, loaded]);
-  return loaded ? children : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "Loading"
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/components/LoadUser/index.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/LoadUser/index.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Component */ "./resources/js/components/LoadUser/Component.js");
-/* harmony import */ var _data_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/actions */ "./resources/js/data/actions.js");
-function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
-
-
-
-
-
-var mapStateToProps = function mapStateToProps(_ref, _ref2) {
-  _objectDestructuringEmpty(_ref);
-
-  var page = _ref2.page,
-      id = _ref2.id,
-      loaded = _ref2.loaded;
-  return {
-    loaded: loaded,
-    page: page,
-    id: id
-  };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    loadUserActions: function loadUserActions(id, page) {
-      return dispatch((0,_data_actions__WEBPACK_IMPORTED_MODULE_2__.getUserActions)(id, page));
-    }
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, mapDispatchToProps)(_Component__WEBPACK_IMPORTED_MODULE_1__.default));
 
 /***/ }),
 
@@ -22997,7 +24383,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _SignIn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SignIn */ "./resources/js/components/SignIn/SignIn.js");
-/* harmony import */ var _data_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/actions */ "./resources/js/data/actions.js");
+/* harmony import */ var _data_actions_userActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/actions/userActions */ "./resources/js/data/actions/userActions.js");
 
 
 
@@ -23012,7 +24398,7 @@ var mapStateToProps = function mapStateToProps(_ref) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     getUserData: function getUserData() {
-      return dispatch((0,_data_actions__WEBPACK_IMPORTED_MODULE_2__.getUserData)());
+      return dispatch((0,_data_actions_userActions__WEBPACK_IMPORTED_MODULE_2__.getUserData)());
     }
   };
 };
@@ -23268,43 +24654,126 @@ function SignUp() {
 
 /***/ }),
 
-/***/ "./resources/js/components/TeamInfo/TeamInfo.js":
-/*!******************************************************!*\
-  !*** ./resources/js/components/TeamInfo/TeamInfo.js ***!
-  \******************************************************/
+/***/ "./resources/js/components/TabUser/TabUser.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/TabUser/TabUser.js ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ TeamInfo)
+/* harmony export */   "default": () => (/* binding */ TabUser)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _UserActionFeed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UserActionFeed */ "./resources/js/components/UserActionFeed/index.js");
+/* harmony import */ var _material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Tabs */ "./node_modules/@material-ui/core/esm/Tabs/Tabs.js");
+/* harmony import */ var _material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Tab */ "./node_modules/@material-ui/core/esm/Tab/Tab.js");
+/* harmony import */ var _material_ui_icons_List__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/icons/List */ "./node_modules/@material-ui/icons/List.js");
+/* harmony import */ var _material_ui_icons_Equalizer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/icons/Equalizer */ "./node_modules/@material-ui/icons/Equalizer.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function TeamInfo(_ref) {
-  var team = _ref.team;
-  var goal = team.goal,
-      team_total = team.team_total;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-      children: team_total
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-      children: goal
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-      children: goal - team_total
+
+
+
+
+
+
+
+
+
+var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default)(function (theme) {
+  return {
+    indicator: {
+      backgroundColor: "#3f51b5"
+    }
+  };
+});
+
+function a11yProps(index) {
+  return {
+    id: "scrollable-force-tab-".concat(index),
+    "aria-controls": "scrollable-force-tabpanel-".concat(index)
+  };
+}
+
+function TabUser(_ref) {
+  var user = _ref.user,
+      handleLoad = _ref.handleLoad;
+  var data = user.data,
+      meta = user.meta;
+  var classes = useStyles();
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+      _useState2 = _slicedToArray(_useState, 2),
+      page = _useState2[0],
+      setPage = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      tab = _useState4[0],
+      setTab = _useState4[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    handleLoad(meta.id, page);
+  }, [page]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_UserActionFeed__WEBPACK_IMPORTED_MODULE_1__.default, {
+      handlePage: function handlePage(increment) {
+        return setPage(page + increment);
+      },
+      feed: data.feed
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_4__.default, {
+      value: tab,
+      onChange: function onChange(e, newValue) {
+        return setTab(newValue);
+      },
+      style: {
+        marginTop: "auto"
+      } // classes={{
+      //     indicator: classes.indicator,
+      // }}
+      ,
+      variant: "scrollable",
+      scrollButtons: "on",
+      indicatorColor: "primary",
+      textColor: "primary",
+      "aria-label": "scrollable force tabs example",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_5__.default, _objectSpread({
+        icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_icons_List__WEBPACK_IMPORTED_MODULE_6__.default, {})
+      }, a11yProps(0))), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_5__.default, _objectSpread({
+        icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_icons_Equalizer__WEBPACK_IMPORTED_MODULE_7__.default, {})
+      }, a11yProps(1)))]
     })]
   });
 }
 
 /***/ }),
 
-/***/ "./resources/js/components/TeamInfo/index.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/TeamInfo/index.js ***!
-  \***************************************************/
+/***/ "./resources/js/components/TabUser/index.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/TabUser/index.js ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -23313,18 +24782,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _TeamInfo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TeamInfo */ "./resources/js/components/TeamInfo/TeamInfo.js");
+/* harmony import */ var _TabUser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TabUser */ "./resources/js/components/TabUser/TabUser.js");
+/* harmony import */ var _data_actions_userActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/actions/userActions */ "./resources/js/data/actions/userActions.js");
+
 
 
 
 var mapStateToProps = function mapStateToProps(_ref) {
-  var log = _ref.log;
+  var user = _ref.user;
   return {
-    team: log.team
+    user: user
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps)(_TeamInfo__WEBPACK_IMPORTED_MODULE_1__.default));
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    handleLoad: function handleLoad(id, page) {
+      return dispatch((0,_data_actions_userActions__WEBPACK_IMPORTED_MODULE_2__.getUserFeed)(id, page));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, mapDispatchToProps)(_TabUser__WEBPACK_IMPORTED_MODULE_1__.default));
 
 /***/ }),
 
@@ -23396,6 +24875,24 @@ var makeCols = function makeCols(cols) {
 
 var makeRows = function makeRows(data) {
   var icons = [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_icons_DirectionsWalk__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_icons_DirectionsRun__WEBPACK_IMPORTED_MODULE_5__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_icons_DirectionsBike__WEBPACK_IMPORTED_MODULE_6__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_icons_Pool__WEBPACK_IMPORTED_MODULE_7__.default, {})];
+  var empty = [{
+    distance: null,
+    date_completed: null,
+    activity_id: null
+  }, {
+    distance: null,
+    date_completed: null,
+    activity_id: null
+  }, {
+    distance: null,
+    date_completed: null,
+    activity_id: null
+  }];
+
+  if (!data) {
+    data = empty;
+  }
+
   return data.map(function (row, i) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
@@ -23410,11 +24907,12 @@ var makeRows = function makeRows(data) {
 };
 
 function UserActionFeed(_ref) {
-  var userActions = _ref.userActions,
-      handlePage = _ref.handlePage;
-  var data = userActions.data,
-      current_page = userActions.current_page,
-      last_page = userActions.last_page;
+  var feed = _ref.feed,
+      handlePage = _ref.handlePage,
+      isFetching = _ref.isFetching;
+  var data = feed.data,
+      current_page = feed.current_page,
+      last_page = feed.last_page;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("table", {
       className: "table",
@@ -23498,40 +24996,30 @@ function UserAvatar(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getUserData": () => (/* binding */ getUserData),
 /* harmony export */   "getUserActions": () => (/* binding */ getUserActions),
 /* harmony export */   "getActionData": () => (/* binding */ getActionData),
 /* harmony export */   "logout": () => (/* binding */ logout),
 /* harmony export */   "update": () => (/* binding */ update),
 /* harmony export */   "postAction": () => (/* binding */ postAction),
-/* harmony export */   "loadTeam": () => (/* binding */ loadTeam)
+/* harmony export */   "loadTeam": () => (/* binding */ loadTeam),
+/* harmony export */   "loadFeed": () => (/* binding */ loadFeed)
 /* harmony export */ });
 /* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../axios */ "./resources/js/axios.js");
 /* harmony import */ var _history__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../history */ "./resources/js/history.js");
 // API ACTIONS
 
- // const handleError = (dispatch, error) => {
-//     console.log(error);
-//     if (error.response.status === 401) {
-//         dispatch({ type: "LOG_OUT" });
-//     }
-// };
 
-var getUserData = function getUserData() {
-  return function (dispatch) {
-    _axios__WEBPACK_IMPORTED_MODULE_0__.default.get("api/user", {
-      withCredentials: true
-    }).then(function (_ref) {
-      var data = _ref.data;
-      dispatch({
-        type: "USER_DATA",
-        payload: data.data
-      });
-    })["catch"](function (error) {
-      return console.log(error);
+
+var handleError = function handleError(dispatch, error) {
+  console.log(error);
+
+  if (error.response.status === 401) {
+    dispatch({
+      type: "LOG_OUT"
     });
-  };
+  }
 };
+
 var getUserActions = function getUserActions(id, page) {
   return function (dispatch) {
     _axios__WEBPACK_IMPORTED_MODULE_0__.default.get("api/actions/".concat(id), {
@@ -23539,8 +25027,8 @@ var getUserActions = function getUserActions(id, page) {
       params: {
         page: page
       }
-    }).then(function (_ref2) {
-      var data = _ref2.data;
+    }).then(function (_ref) {
+      var data = _ref.data;
       dispatch({
         type: "USER_ACTIONS",
         payload: data
@@ -23554,8 +25042,8 @@ var getActionData = function getActionData() {
   return function (dispatch) {
     _axios__WEBPACK_IMPORTED_MODULE_0__.default.get("api/actions", {
       withCredentials: true
-    }).then(function (_ref3) {
-      var data = _ref3.data;
+    }).then(function (_ref2) {
+      var data = _ref2.data;
       dispatch({
         type: "ALL_ACTIONS",
         payload: {
@@ -23590,8 +25078,8 @@ var update = function update(id, data) {
       headers: {
         "Content-Type": "multipart/form-data"
       }
-    }).then(function (_ref4) {
-      var data = _ref4.data;
+    }).then(function (_ref3) {
+      var data = _ref3.data;
       dispatch({
         type: "UPDATE_USER_DATA",
         payload: data
@@ -23613,9 +25101,8 @@ var postAction = function postAction(id, formData) {
   return function (dispatch) {
     _axios__WEBPACK_IMPORTED_MODULE_0__.default.post(url, data, {
       withCredentials: true
-    }).then(function (_ref5) {
-      var data = _ref5.data;
-      _history__WEBPACK_IMPORTED_MODULE_1__.default.push("/");
+    }).then(function (_ref4) {
+      var data = _ref4.data;
       dispatch({
         type: "NEW_ACTION",
         payload: data
@@ -23630,10 +25117,26 @@ var loadTeam = function loadTeam(token) {
   return function (dispatch) {
     _axios__WEBPACK_IMPORTED_MODULE_0__.default.get(url, {
       withCredentials: true
+    }).then(function (_ref5) {
+      var data = _ref5.data;
+      dispatch({
+        type: "TEAM_DATA",
+        payload: data
+      });
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  };
+};
+var loadFeed = function loadFeed(token) {
+  var url = "/api/team/feed/".concat(token);
+  return function (dispatch) {
+    _axios__WEBPACK_IMPORTED_MODULE_0__.default.get(url, {
+      withCredentials: true
     }).then(function (_ref6) {
       var data = _ref6.data;
       dispatch({
-        type: "TEAM_DATA",
+        type: "TEAM_FEED",
         payload: data
       });
     })["catch"](function (error) {
@@ -23644,49 +25147,121 @@ var loadTeam = function loadTeam(token) {
 
 /***/ }),
 
-/***/ "./resources/js/data/functions/addUserActions.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/data/functions/addUserActions.js ***!
-  \*******************************************************/
+/***/ "./resources/js/data/actions/userActions.js":
+/*!**************************************************!*\
+  !*** ./resources/js/data/actions/userActions.js ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "getUserData": () => (/* binding */ getUserData),
+/* harmony export */   "getUserFeed": () => (/* binding */ getUserFeed)
 /* harmony export */ });
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var addUserActions = function addUserActions(state, _ref) {
-  var data = _ref.data;
-  var total = data.total,
-      actions = data.actions;
-  console.log(actions);
-  return _objectSpread(_objectSpread({}, state), {}, {
-    user: {
-      total: total,
-      actions: {
-        data: actions.data,
-        current_page: actions.current_page,
-        last_page: actions.last_page
-      },
-      hasLoaded: true
-    }
-  });
+var getUserData = function getUserData() {
+  return function (dispatch) {
+    dispatch({
+      type: "FETCH.USER_DATA"
+    });
+    axios.get("api/user", {
+      withCredentials: true
+    }).then(function (_ref) {
+      var data = _ref.data;
+      dispatch({
+        type: "SUCCESS.USER_DATA",
+        payload: data.data
+      });
+    })["catch"](function (error) {
+      return console.log(error);
+    });
+  };
 };
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addUserActions);
+var getUserFeed = function getUserFeed(id, page) {
+  return function (dispatch) {
+    dispatch({
+      type: "FETCH.USER_FEED"
+    });
+    axios.get("api/actions/".concat(id), {
+      withCredentials: true,
+      params: {
+        page: page
+      }
+    }).then(function (_ref2) {
+      var data = _ref2.data;
+      dispatch({
+        type: "SUCCESS.USER_FEED",
+        payload: data
+      });
+    })["catch"](function (error) {
+      return console.log(error);
+    });
+  };
+};
 
 /***/ }),
 
-/***/ "./resources/js/data/functions/init.js":
-/*!*********************************************!*\
-  !*** ./resources/js/data/functions/init.js ***!
-  \*********************************************/
+/***/ "./resources/js/data/initial.js":
+/*!**************************************!*\
+  !*** ./resources/js/data/initial.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "userInitial": () => (/* binding */ userInitial),
+/* harmony export */   "logInitial": () => (/* binding */ logInitial),
+/* harmony export */   "RequestsInitial": () => (/* binding */ RequestsInitial)
+/* harmony export */ });
+var userInitial = {
+  loggedIn: false,
+  meta: {
+    name: "",
+    id: "",
+    email: "",
+    avatar: "",
+    team_token: "",
+    isFetching: false
+  },
+  data: {
+    feed: {
+      data: [],
+      current_page: 0,
+      last_page: 0
+    },
+    total: 0,
+    isFetching: false
+  },
+  error: false
+};
+var logInitial = {
+  team: {
+    meta: {
+      isFetch: false
+    },
+    data: {
+      total: 0,
+      goal: 0
+    },
+    feed: {
+      isFetch: false
+    }
+  }
+};
+var RequestsInitial = {
+  loader: {
+    actions: [],
+    errors: []
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/data/reducerFunctions/init.js":
+/*!****************************************************!*\
+  !*** ./resources/js/data/reducerFunctions/init.js ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -23705,10 +25280,78 @@ var init = function init(reducer) {
 
 /***/ }),
 
-/***/ "./resources/js/data/functions/teamData.js":
-/*!*************************************************!*\
-  !*** ./resources/js/data/functions/teamData.js ***!
-  \*************************************************/
+/***/ "./resources/js/data/reducerFunctions/saveUserData.js":
+/*!************************************************************!*\
+  !*** ./resources/js/data/reducerFunctions/saveUserData.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var saveUserData = function saveUserData(state, _ref) {
+  var data = _ref.data;
+  var total = data.total,
+      actions = data.actions;
+  return _objectSpread(_objectSpread({}, state), {}, {
+    data: _objectSpread(_objectSpread({}, data), {}, {
+      total: total,
+      feed: {
+        data: actions.data,
+        current_page: actions.current_page,
+        last_page: actions.last_page
+      }
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (saveUserData);
+
+/***/ }),
+
+/***/ "./resources/js/data/reducerFunctions/saveUserMeta.js":
+/*!************************************************************!*\
+  !*** ./resources/js/data/reducerFunctions/saveUserMeta.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var saveUserMeta = function saveUserMeta(state, payload) {
+  console.log(payload);
+  return _objectSpread(_objectSpread({}, state), {}, {
+    loggedIn: true,
+    meta: _objectSpread(_objectSpread({}, payload), {}, {
+      isFetching: false
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (saveUserMeta);
+
+/***/ }),
+
+/***/ "./resources/js/data/reducerFunctions/teamData.js":
+/*!********************************************************!*\
+  !*** ./resources/js/data/reducerFunctions/teamData.js ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -23750,10 +25393,43 @@ var teamData = function teamData(state, _ref) {
 
 /***/ }),
 
-/***/ "./resources/js/data/functions/updateActions.js":
-/*!******************************************************!*\
-  !*** ./resources/js/data/functions/updateActions.js ***!
-  \******************************************************/
+/***/ "./resources/js/data/reducerFunctions/teamFeed.js":
+/*!********************************************************!*\
+  !*** ./resources/js/data/reducerFunctions/teamFeed.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var teamFeed = function teamFeed(state, _ref) {
+  var data = _ref.data;
+  return _objectSpread(_objectSpread({}, state), {}, {
+    team: _objectSpread(_objectSpread({}, state.team), {}, {
+      feed: {
+        data: data,
+        hasLoaded: true
+      }
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (teamFeed);
+
+/***/ }),
+
+/***/ "./resources/js/data/reducerFunctions/updateActions.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/data/reducerFunctions/updateActions.js ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -23780,37 +25456,10 @@ var updateActions = function updateActions(state, _ref) {
 
 /***/ }),
 
-/***/ "./resources/js/data/functions/userData.js":
-/*!*************************************************!*\
-  !*** ./resources/js/data/functions/userData.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var userData = function userData(state, payload) {
-  return _objectSpread(_objectSpread({}, state), {}, {
-    loggedIn: true
-  }, payload);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userData);
-
-/***/ }),
-
-/***/ "./resources/js/data/functions/userUpdate.js":
-/*!***************************************************!*\
-  !*** ./resources/js/data/functions/userUpdate.js ***!
-  \***************************************************/
+/***/ "./resources/js/data/reducerFunctions/userUpdate.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/data/reducerFunctions/userUpdate.js ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -23840,42 +25489,6 @@ var userUpdate = function userUpdate(state, _ref) {
 
 /***/ }),
 
-/***/ "./resources/js/data/initial.js":
-/*!**************************************!*\
-  !*** ./resources/js/data/initial.js ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "userInitial": () => (/* binding */ userInitial),
-/* harmony export */   "logInitial": () => (/* binding */ logInitial)
-/* harmony export */ });
-var userInitial = {
-  loggedIn: false,
-  name: "",
-  id: "",
-  email: "",
-  avatar: "",
-  team_token: ""
-};
-var logInitial = {
-  user: {
-    hasLoaded: false,
-    total: 0,
-    actions: []
-  },
-  team: {
-    hasLoaded: false,
-    goal: 0,
-    total: 0,
-    mates: []
-  }
-};
-
-/***/ }),
-
 /***/ "./resources/js/data/reducers.js":
 /*!***************************************!*\
   !*** ./resources/js/data/reducers.js ***!
@@ -23889,12 +25502,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "logReducer": () => (/* binding */ logReducer)
 /* harmony export */ });
 /* harmony import */ var _initial__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./initial */ "./resources/js/data/initial.js");
-/* harmony import */ var _functions_userData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions/userData */ "./resources/js/data/functions/userData.js");
-/* harmony import */ var _functions_init__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./functions/init */ "./resources/js/data/functions/init.js");
-/* harmony import */ var _functions_updateActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./functions/updateActions */ "./resources/js/data/functions/updateActions.js");
-/* harmony import */ var _functions_userUpdate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./functions/userUpdate */ "./resources/js/data/functions/userUpdate.js");
-/* harmony import */ var _functions_addUserActions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./functions/addUserActions */ "./resources/js/data/functions/addUserActions.js");
-/* harmony import */ var _functions_teamData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./functions/teamData */ "./resources/js/data/functions/teamData.js");
+/* harmony import */ var _reducerFunctions_saveUserMeta__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducerFunctions/saveUserMeta */ "./resources/js/data/reducerFunctions/saveUserMeta.js");
+/* harmony import */ var _reducerFunctions_saveUserData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducerFunctions/saveUserData */ "./resources/js/data/reducerFunctions/saveUserData.js");
+/* harmony import */ var _reducerFunctions_init__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reducerFunctions/init */ "./resources/js/data/reducerFunctions/init.js");
+/* harmony import */ var _reducerFunctions_updateActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reducerFunctions/updateActions */ "./resources/js/data/reducerFunctions/updateActions.js");
+/* harmony import */ var _reducerFunctions_userUpdate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./reducerFunctions/userUpdate */ "./resources/js/data/reducerFunctions/userUpdate.js");
+/* harmony import */ var _reducerFunctions_teamData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reducerFunctions/teamData */ "./resources/js/data/reducerFunctions/teamData.js");
+/* harmony import */ var _reducerFunctions_teamFeed__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reducerFunctions/teamFeed */ "./resources/js/data/reducerFunctions/teamFeed.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -23908,19 +25522,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var userReducer = function userReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _initial__WEBPACK_IMPORTED_MODULE_0__.userInitial;
   var action = arguments.length > 1 ? arguments[1] : undefined;
+  var data = state.data,
+      meta = state.meta;
 
   switch (action.type) {
-    case "USER_DATA":
-      return (0,_functions_userData__WEBPACK_IMPORTED_MODULE_1__.default)(state, action.payload);
+    case "FETCH.USER_DATA":
+      return _objectSpread(_objectSpread({}, state), {}, {
+        isFetching: true
+      });
+
+    case "SUCCESS.USER_DATA":
+      return (0,_reducerFunctions_saveUserMeta__WEBPACK_IMPORTED_MODULE_1__.default)(state, action.payload);
+
+    case "FETCH.USER_FEED":
+      return _objectSpread(_objectSpread({}, state), {}, {
+        data: _objectSpread(_objectSpread({}, data), {}, {
+          isFetching: true
+        })
+      });
+
+    case "SUCCESS.USER_FEED":
+      return (0,_reducerFunctions_saveUserData__WEBPACK_IMPORTED_MODULE_2__.default)(state, action.payload);
 
     case "LOG_OUT":
-      return (0,_functions_init__WEBPACK_IMPORTED_MODULE_2__.default)("USER");
+      return (0,_reducerFunctions_init__WEBPACK_IMPORTED_MODULE_3__.default)("USER");
 
     case "UPDATE_USER_DATA":
-      return (0,_functions_userUpdate__WEBPACK_IMPORTED_MODULE_4__.default)(state, action.payload);
+      return (0,_reducerFunctions_userUpdate__WEBPACK_IMPORTED_MODULE_5__.default)(state, action.payload);
 
     default:
       return _objectSpread({}, state);
@@ -23932,24 +25564,29 @@ var logReducer = function logReducer() {
 
   switch (action.type) {
     case "USER_ACTIONS":
-      return (0,_functions_addUserActions__WEBPACK_IMPORTED_MODULE_5__.default)(state, action.payload);
+      return addUserActions(state, action.payload);
 
     case "NEW_ACTION":
       return _objectSpread(_objectSpread({}, state), {}, {
         user: _objectSpread(_objectSpread({}, state.user), {}, {
           hasLoaded: false
+        }),
+        team: _objectSpread(_objectSpread({}, state.team), {}, {
+          hasLoaded: false
         })
       });
 
     case "ALL_ACTIONS":
-      return (0,_functions_updateActions__WEBPACK_IMPORTED_MODULE_3__.default)(state, action.payload);
+      return (0,_reducerFunctions_updateActions__WEBPACK_IMPORTED_MODULE_4__.default)(state, action.payload);
 
     case "TEAM_DATA":
-      console.log(action.payload);
-      return (0,_functions_teamData__WEBPACK_IMPORTED_MODULE_6__.default)(state, action.payload);
+      return (0,_reducerFunctions_teamData__WEBPACK_IMPORTED_MODULE_6__.default)(state, action.payload);
+
+    case "TEAM_FEED":
+      return (0,_reducerFunctions_teamFeed__WEBPACK_IMPORTED_MODULE_7__.default)(state, action.payload);
 
     case "LOG_OUT":
-      return (0,_functions_init__WEBPACK_IMPORTED_MODULE_2__.default)("LOG");
+      return (0,_reducerFunctions_init__WEBPACK_IMPORTED_MODULE_3__.default)("LOG");
 
     default:
       return _objectSpread({}, state);
