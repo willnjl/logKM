@@ -62,7 +62,6 @@ class Actions extends Controller
         $total = $user->getTotal();
         return response([
             'data' =>[
-                'total' => $total,
                'actions' => ActionListResource::collection($user->actions)->paginate(3),
             ]
         ]);

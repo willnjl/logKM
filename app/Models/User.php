@@ -67,13 +67,12 @@ class User extends Authenticatable
       return $this->actions
         ->count();
   }
-  public function getOverview()
+  public function getActivityBreakdown()
   {
       $groups = $this->actions->mapToGroups(function($item, $key){
           return [$item['activity_id'] => $item['distanceKM']];
-      })->sum();
+      });
 
-        $keys = array_keys($groups);
         return $groups;
 
   }

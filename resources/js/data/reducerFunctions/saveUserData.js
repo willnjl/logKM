@@ -1,11 +1,10 @@
 const saveUserData = (state, { data }) => {
-    const { total, actions } = data;
+    const { actions } = data;
 
     return {
         ...state,
         data: {
             ...state.data,
-            total,
             feed: {
                 data: actions.data,
                 current_page: actions.current_page,

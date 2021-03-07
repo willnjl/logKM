@@ -53,10 +53,11 @@ class Users extends Controller
     public function Overview($id)
     {
         $user = User::findOrFail($id);
-        // activity_name => total KM (user);
+
         return [
+            'total' => $user->getTotal(),
             'count' => $user->getCount(),
-            // 'activities' => $user->getOverview()
+            'activities' => $user->getActivityBreakdown()
         ];
     }
 

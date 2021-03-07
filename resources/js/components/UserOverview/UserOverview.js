@@ -5,9 +5,5 @@ export default function UserOverview({ user, handleLoad }) {
         handleLoad(user.meta.id);
     }, []);
 
-    return (
-        <div>
-            <h1>user overview</h1>
-        </div>
-    );
+    return <div></div>;
 }

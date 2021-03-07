@@ -51,7 +51,10 @@ export const getUserOverview = (id) => {
                 withCredentials: true,
             })
             .then(({ data }) => {
-                console.log(data);
+                dispatch({
+                    type: "SUCCESS.USER_OVERVIEW",
+                    payload: data,
+                });
             })
             .catch((error) => errorHandling(dispatch, error));
     };

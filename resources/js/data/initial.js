@@ -13,9 +13,14 @@ export const userInitial = {
             data: [],
             current_page: 0,
             last_page: 0,
+            isFetching: false,
         },
-        total: 0,
-        isFetching: false,
+        overview: {
+            total: 0,
+            count: 0,
+            activityBreakdown: {},
+            isFetching: false,
+        },
     },
     error: false,
 };

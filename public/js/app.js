@@ -25057,11 +25057,7 @@ function UserOverview(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     handleLoad(user.meta.id);
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-      children: "user overview"
-    })
-  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
 }
 
 /***/ }),
@@ -25339,7 +25335,10 @@ var getUserOverview = function getUserOverview(id) {
       withCredentials: true
     }).then(function (_ref3) {
       var data = _ref3.data;
-      console.log(data);
+      dispatch({
+        type: "SUCCESS.USER_OVERVIEW",
+        payload: data
+      });
     })["catch"](function (error) {
       return errorHandling(dispatch, error);
     });
@@ -25375,10 +25374,15 @@ var userInitial = {
     feed: {
       data: [],
       current_page: 0,
-      last_page: 0
+      last_page: 0,
+      isFetching: false
     },
-    total: 0,
-    isFetching: false
+    overview: {
+      total: 0,
+      count: 0,
+      activityBreakdown: {},
+      isFetching: false
+    }
   },
   error: false
 };
@@ -25446,11 +25450,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var saveUserData = function saveUserData(state, _ref) {
   var data = _ref.data;
-  var total = data.total,
-      actions = data.actions;
+  var actions = data.actions;
   return _objectSpread(_objectSpread({}, state), {}, {
-    data: _objectSpread(_objectSpread({}, data), {}, {
-      total: total,
+    data: _objectSpread(_objectSpread({}, state.data), {}, {
       feed: {
         data: actions.data,
         current_page: actions.current_page,
@@ -25492,6 +25494,43 @@ var saveUserMeta = function saveUserMeta(state, payload) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (saveUserMeta);
+
+/***/ }),
+
+/***/ "./resources/js/data/reducerFunctions/saveUserOverview.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/data/reducerFunctions/saveUserOverview.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var saveUserOverview = function saveUserOverview(state, _ref) {
+  var total = _ref.total,
+      count = _ref.count,
+      activities = _ref.activities;
+  var data = state.data;
+  return _objectSpread(_objectSpread({}, state), {}, {
+    data: _objectSpread(_objectSpread({}, data), {}, {
+      overview: _objectSpread(_objectSpread({}, data.overview), {}, {
+        total: total,
+        count: count,
+        activityBreakdown: _objectSpread({}, activities)
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (saveUserOverview);
 
 /***/ }),
 
@@ -25651,16 +25690,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _initial__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./initial */ "./resources/js/data/initial.js");
 /* harmony import */ var _reducerFunctions_saveUserMeta__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducerFunctions/saveUserMeta */ "./resources/js/data/reducerFunctions/saveUserMeta.js");
 /* harmony import */ var _reducerFunctions_saveUserData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducerFunctions/saveUserData */ "./resources/js/data/reducerFunctions/saveUserData.js");
-/* harmony import */ var _reducerFunctions_init__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reducerFunctions/init */ "./resources/js/data/reducerFunctions/init.js");
-/* harmony import */ var _reducerFunctions_updateActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reducerFunctions/updateActions */ "./resources/js/data/reducerFunctions/updateActions.js");
-/* harmony import */ var _reducerFunctions_userUpdate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./reducerFunctions/userUpdate */ "./resources/js/data/reducerFunctions/userUpdate.js");
-/* harmony import */ var _reducerFunctions_teamData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reducerFunctions/teamData */ "./resources/js/data/reducerFunctions/teamData.js");
-/* harmony import */ var _reducerFunctions_teamFeed__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reducerFunctions/teamFeed */ "./resources/js/data/reducerFunctions/teamFeed.js");
+/* harmony import */ var _reducerFunctions_saveUserOverview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reducerFunctions/saveUserOverview */ "./resources/js/data/reducerFunctions/saveUserOverview.js");
+/* harmony import */ var _reducerFunctions_init__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reducerFunctions/init */ "./resources/js/data/reducerFunctions/init.js");
+/* harmony import */ var _reducerFunctions_updateActions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./reducerFunctions/updateActions */ "./resources/js/data/reducerFunctions/updateActions.js");
+/* harmony import */ var _reducerFunctions_userUpdate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reducerFunctions/userUpdate */ "./resources/js/data/reducerFunctions/userUpdate.js");
+/* harmony import */ var _reducerFunctions_teamData__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reducerFunctions/teamData */ "./resources/js/data/reducerFunctions/teamData.js");
+/* harmony import */ var _reducerFunctions_teamFeed__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./reducerFunctions/teamFeed */ "./resources/js/data/reducerFunctions/teamFeed.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -25688,7 +25729,9 @@ var userReducer = function userReducer() {
     case "FETCH.USER_FEED":
       return _objectSpread(_objectSpread({}, state), {}, {
         data: _objectSpread(_objectSpread({}, data), {}, {
-          isFetching: true
+          feed: _objectSpread(_objectSpread({}, data.feed), {}, {
+            isFetching: true
+          })
         })
       });
 
@@ -25696,13 +25739,22 @@ var userReducer = function userReducer() {
       return (0,_reducerFunctions_saveUserData__WEBPACK_IMPORTED_MODULE_2__.default)(state, action.payload);
 
     case "FETCH.USER_OVERVIEW":
-      return _objectSpread({}, state);
+      return _objectSpread(_objectSpread({}, state), {}, {
+        data: _objectSpread(_objectSpread({}, data), {}, {
+          overview: _objectSpread(_objectSpread({}, data.overview), {}, {
+            isFetching: true
+          })
+        })
+      });
+
+    case "SUCCESS.USER_OVERVIEW":
+      return (0,_reducerFunctions_saveUserOverview__WEBPACK_IMPORTED_MODULE_3__.default)(state, action.payload);
 
     case "LOG_OUT":
-      return (0,_reducerFunctions_init__WEBPACK_IMPORTED_MODULE_3__.default)("USER");
+      return (0,_reducerFunctions_init__WEBPACK_IMPORTED_MODULE_4__.default)("USER");
 
     case "UPDATE_USER_DATA":
-      return (0,_reducerFunctions_userUpdate__WEBPACK_IMPORTED_MODULE_5__.default)(state, action.payload);
+      return (0,_reducerFunctions_userUpdate__WEBPACK_IMPORTED_MODULE_6__.default)(state, action.payload);
 
     default:
       return _objectSpread({}, state);
@@ -25727,16 +25779,16 @@ var logReducer = function logReducer() {
       });
 
     case "ALL_ACTIONS":
-      return (0,_reducerFunctions_updateActions__WEBPACK_IMPORTED_MODULE_4__.default)(state, action.payload);
+      return (0,_reducerFunctions_updateActions__WEBPACK_IMPORTED_MODULE_5__.default)(state, action.payload);
 
     case "TEAM_DATA":
-      return (0,_reducerFunctions_teamData__WEBPACK_IMPORTED_MODULE_6__.default)(state, action.payload);
+      return (0,_reducerFunctions_teamData__WEBPACK_IMPORTED_MODULE_7__.default)(state, action.payload);
 
     case "TEAM_FEED":
-      return (0,_reducerFunctions_teamFeed__WEBPACK_IMPORTED_MODULE_7__.default)(state, action.payload);
+      return (0,_reducerFunctions_teamFeed__WEBPACK_IMPORTED_MODULE_8__.default)(state, action.payload);
 
     case "LOG_OUT":
-      return (0,_reducerFunctions_init__WEBPACK_IMPORTED_MODULE_3__.default)("LOG");
+      return (0,_reducerFunctions_init__WEBPACK_IMPORTED_MODULE_4__.default)("LOG");
 
     default:
       return _objectSpread({}, state);
