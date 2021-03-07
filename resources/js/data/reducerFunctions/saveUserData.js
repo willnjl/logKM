@@ -4,7 +4,7 @@ const saveUserData = (state, { data }) => {
     return {
         ...state,
         data: {
-            ...data,
+            ...state.data,
             total,
             feed: {
                 data: actions.data,
