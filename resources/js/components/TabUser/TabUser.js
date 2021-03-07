@@ -5,6 +5,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import List from "@material-ui/icons/List";
 import Equalizer from "@material-ui/icons/Equalizer";
+import UserOverview from "../UserOverview";
 
 function a11yProps(index) {
     return {
@@ -33,7 +34,7 @@ export default function TabUser({ user, handleLoad }) {
                     />
                 );
             case 1:
-                return <TeamOverview />;
+                return <UserOverview />;
         }
     };
 

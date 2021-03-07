@@ -56,7 +56,7 @@ class Users extends Controller
         // activity_name => total KM (user);
         return [
             'count' => $user->getCount(),
-            'activities' => $user->getOverview()
+            // 'activities' => $user->getOverview()
         ];
     }
 

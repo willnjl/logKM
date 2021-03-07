@@ -19,6 +19,8 @@ export const userReducer = (state = userInitial, action) => {
             return { ...state, data: { ...data, isFetching: true } };
         case "SUCCESS.USER_FEED":
             return saveUserData(state, action.payload);
+        case "FETCH.USER_OVERVIEW":
+            return { ...state };
         case "LOG_OUT":
             return init("USER");
         case "UPDATE_USER_DATA":

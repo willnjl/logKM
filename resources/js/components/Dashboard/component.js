@@ -8,6 +8,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import TabUser from "../TabUser";
+import TeamOverview from "../TeamOverview";
 // import LoadUser from "../LoadUser";
 // import LoadTeam from "../LoadTeam";
 // import UserActionFeed from "../UserActionFeed";
@@ -45,14 +46,13 @@ const pageSelector = (page) => {
             return <TabUser />;
             break;
         case 1:
-            return <p> Team </p>;
+            return <TeamOverview />;
         default:
             break;
     }
 };
 export default function Dashboard({ user }) {
     const classes = useStyles();
-    const [page, setPage] = useState(1);
     const [tab, setTab] = useState(0);
     const { meta, data } = user;
 

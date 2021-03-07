@@ -41,3 +41,18 @@ export const getUserFeed = (id, page) => {
             .catch((error) => errorHandling(dispatch, error));
     };
 };
+export const getUserOverview = (id) => {
+    return (dispatch) => {
+        dispatch({
+            type: "FETCH.USER_OVERVIEW",
+        });
+        axios
+            .get(`api/user/${id}/overview`, {
+                withCredentials: true,
+            })
+            .then(({ data }) => {
+                console.log(data);
+            })
+            .catch((error) => errorHandling(dispatch, error));
+    };
+};
