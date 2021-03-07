@@ -24172,7 +24172,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapSateToProps = function mapSateToProps(_ref) {
   var user = _ref.user;
   return {
-    user: user
+    user: user.meta
   };
 };
 
@@ -25189,7 +25189,6 @@ var getUserData = function getUserData() {
   };
 };
 var getUserFeed = function getUserFeed(id, page) {
-  console.log("getting");
   return function (dispatch) {
     dispatch({
       type: "FETCH.USER_FEED"

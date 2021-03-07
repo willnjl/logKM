@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import Settings from "./Settings";
 import { update } from "../../data/actions";
 
-let mapSateToProps = ({ user }) => ({ user });
+let mapSateToProps = ({ user }) => ({ user: user.meta });
 let mapDispatchToProps = (dispatch) => ({
     postData: (id, data) => dispatch(update(id, data)),
 });

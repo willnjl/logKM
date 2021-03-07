@@ -24,7 +24,6 @@ export const getUserData = () => {
     };
 };
 export const getUserFeed = (id, page) => {
-    console.log("getting");
     return (dispatch) => {
         dispatch({
             type: "FETCH.USER_FEED",
