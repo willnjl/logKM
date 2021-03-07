@@ -45,6 +45,22 @@ class Users extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function Overview($id)
+    {
+        $user = User::findOrFail($id);
+        // activity_name => total KM (user);
+        return [
+            'count' => $user->getCount(),
+            'activities' => $user->getOverview()
+        ];
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -53,9 +69,6 @@ class Users extends Controller
      */
     public function update(UserRequest $request, User $user)
     {
-        
-        
-          
         $data = $request->all();
         $user->update([
             "name" => $data['name'],

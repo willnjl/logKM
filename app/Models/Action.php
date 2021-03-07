@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\User;
 use App\Models\Team;
+use App\Models\Activity;
 use Illuminate\Database\Eloquent\Model;
 
 class Action extends Model
@@ -23,4 +24,9 @@ class Action extends Model
     {
         return $this->belongsTo(Team::class);
     }
+    public function activity()
+    {
+        return $this->belongsTo(Activity::class);
+    }
+    
 }

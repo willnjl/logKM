@@ -30,7 +30,7 @@ Route::group(["prefix" => "user", "middleware" => ["auth:sanctum"]], function(){
     Route::post('/{user}', [Users::class, "update"]);
     Route::get('/{user}', [Users::class, "show"]);
 });
-
+Route::get('user/{id}/overview', [Users::class, "Overview"]);
 
 Route::group(["prefix" => "activities", "middleware" => ["auth:sanctum"]],function(){
     Route::get('', [Activities::class, "index"]);

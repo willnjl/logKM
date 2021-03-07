@@ -58,12 +58,26 @@ class User extends Authenticatable
 
   public function getTotal()
   {
-
       return $this->actions
         ->pluck('distanceKM')
         ->reduce(fn($acc, $val) => $acc + $val, 0);
-       
   }
+  public function getCount()
+  {
+      return $this->actions
+        ->count();
+  }
+  public function getOverview()
+  {
+      $groups = $this->actions->mapToGroups(function($item, $key){
+          return [$item['activity_id'] => $item['distanceKM']];
+      })->sum();
+
+        $keys = array_keys($groups);
+        return $groups;
+
+  }
+
   public function recent()
   {
      return $this->actions->take(1);

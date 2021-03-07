@@ -37,7 +37,7 @@ class Activities extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

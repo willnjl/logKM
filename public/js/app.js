@@ -25157,12 +25157,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getUserData": () => (/* binding */ getUserData),
 /* harmony export */   "getUserFeed": () => (/* binding */ getUserFeed)
 /* harmony export */ });
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios */ "./resources/js/axios.js");
+
+
+var errorHandling = function errorHandling(dispatch, error) {
+  if (error.response.status === 401) {
+    dispatch({
+      type: "LOG_OUT"
+    });
+  }
+
+  console.log(error.response);
+};
+
 var getUserData = function getUserData() {
   return function (dispatch) {
     dispatch({
       type: "FETCH.USER_DATA"
     });
-    axios.get("api/user", {
+    _axios__WEBPACK_IMPORTED_MODULE_0__.default.get("api/user", {
       withCredentials: true
     }).then(function (_ref) {
       var data = _ref.data;
@@ -25171,16 +25184,17 @@ var getUserData = function getUserData() {
         payload: data.data
       });
     })["catch"](function (error) {
-      return console.log(error);
+      return errorHandling(dispatch, error);
     });
   };
 };
 var getUserFeed = function getUserFeed(id, page) {
+  console.log("getting");
   return function (dispatch) {
     dispatch({
       type: "FETCH.USER_FEED"
     });
-    axios.get("api/actions/".concat(id), {
+    _axios__WEBPACK_IMPORTED_MODULE_0__.default.get("api/actions/".concat(id), {
       withCredentials: true,
       params: {
         page: page
@@ -25192,7 +25206,7 @@ var getUserFeed = function getUserFeed(id, page) {
         payload: data
       });
     })["catch"](function (error) {
-      return console.log(error);
+      return errorHandling(dispatch, error);
     });
   };
 };

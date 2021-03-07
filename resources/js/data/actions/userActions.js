@@ -1,3 +1,12 @@
+import axios from "../../axios";
+
+const errorHandling = (dispatch, error) => {
+    if (error.response.status === 401) {
+        dispatch({ type: "LOG_OUT" });
+    }
+    console.log(error.response);
+};
+
 export const getUserData = () => {
     return (dispatch) => {
         dispatch({
@@ -11,10 +20,11 @@ export const getUserData = () => {
                     payload: data.data,
                 });
             })
-            .catch((error) => console.log(error));
+            .catch((error) => errorHandling(dispatch, error));
     };
 };
 export const getUserFeed = (id, page) => {
+    console.log("getting");
     return (dispatch) => {
         dispatch({
             type: "FETCH.USER_FEED",
@@ -29,6 +39,6 @@ export const getUserFeed = (id, page) => {
             .then(({ data }) => {
                 dispatch({ type: "SUCCESS.USER_FEED", payload: data });
             })
-            .catch((error) => console.log(error));
+            .catch((error) => errorHandling(dispatch, error));
     };
 };
