@@ -1,10 +1,10 @@
 import axios from "../../axios";
 
 const errorHandling = (dispatch, error) => {
+    console.log(error);
     if (error.response.status === 401) {
         dispatch({ type: "LOG_OUT" });
     }
-    console.log(error.response);
 };
 
 export const getUserData = () => {
@@ -53,7 +53,7 @@ export const getUserOverview = (id) => {
             .then(({ data }) => {
                 dispatch({
                     type: "SUCCESS.USER_OVERVIEW",
-                    payload: data,
+                    payload: data.data,
                 });
             })
             .catch((error) => errorHandling(dispatch, error));

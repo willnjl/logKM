@@ -18,7 +18,7 @@ export default function TabUser({ user, handleLoad }) {
     const { data, meta } = user;
 
     const [page, setPage] = useState(1);
-    const [tab, setTab] = useState(0);
+    const [tab, setTab] = useState(1);
 
     useEffect(() => {
         handleLoad(meta.id, page);

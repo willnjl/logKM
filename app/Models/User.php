@@ -69,12 +69,11 @@ class User extends Authenticatable
   }
   public function getActivityBreakdown()
   {
+      
       $groups = $this->actions->mapToGroups(function($item, $key){
-          return [$item['activity_id'] => $item['distanceKM']];
+        return [$item['activity_id'] => $item['distanceKM']];
       });
-
-        return $groups;
-
+      return $groups;
   }
 
   public function recent()

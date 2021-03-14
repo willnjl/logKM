@@ -7,6 +7,7 @@ use App\Http\Resources\API\UserResource;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Http\Requests\API\UserRequest;
+use App\Http\Resources\API\UserOverviewResource;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -53,12 +54,7 @@ class Users extends Controller
     public function Overview($id)
     {
         $user = User::findOrFail($id);
-
-        return [
-            'total' => $user->getTotal(),
-            'count' => $user->getCount(),
-            'activities' => $user->getActivityBreakdown()
-        ];
+        return new UserOverviewResource($user);
     }
 
     /**

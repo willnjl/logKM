@@ -1,5 +1,4 @@
 const teamData = (state, { team_total, mates, goal }) => {
-    console.log(goal);
     let addLoad = (mates) => {
         return mates.map((mate) => ({ ...mate, hasLoaded: false }));
     };
