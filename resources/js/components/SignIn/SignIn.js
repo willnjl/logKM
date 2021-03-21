@@ -50,13 +50,9 @@ export default function SignIn({ getUserData, getActivityTerms }) {
             })
             .then((response) => {
                 getUserData();
+                getActivityTerms();
             })
             .catch((error) => console.log(error));
-
-        axios
-            .get("/api/activities")
-            .then((response) => getActivityTerms(response.data))
-            .catch((error) => console.log({ error }));
     };
 
     return (

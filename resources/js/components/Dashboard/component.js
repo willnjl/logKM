@@ -51,12 +51,12 @@ const pageSelector = (page) => {
             break;
     }
 };
-export default function Dashboard({ user }) {
+export default function Dashboard({ user, terms }) {
     const classes = useStyles();
     const [tab, setTab] = useState(0);
     const { meta, data } = user;
 
-    if (meta.isFetching) {
+    if (meta.isFetching || terms.isFetching) {
         return (
             <CardWrap>
                 <CircularProgress

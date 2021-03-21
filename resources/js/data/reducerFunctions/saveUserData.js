@@ -3,6 +3,7 @@ const saveUserData = (state, { data }) => {
 
     return {
         ...state,
+        isFetching: false,
         data: {
             ...state.data,
             feed: {

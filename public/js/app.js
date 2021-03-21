@@ -23717,7 +23717,8 @@ var pageSelector = function pageSelector(page) {
 };
 
 function Dashboard(_ref) {
-  var user = _ref.user;
+  var user = _ref.user,
+      terms = _ref.terms;
   var classes = useStyles();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
@@ -23728,7 +23729,7 @@ function Dashboard(_ref) {
   var meta = user.meta,
       data = user.data;
 
-  if (meta.isFetching) {
+  if (meta.isFetching || terms.isFetching) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CardWrap__WEBPACK_IMPORTED_MODULE_1__.default, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_6__.default, {
         className: classes.spinner,
@@ -23786,9 +23787,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(_ref) {
-  var user = _ref.user;
+  var user = _ref.user,
+      terms = _ref.terms;
   return {
-    user: user
+    user: user,
+    terms: terms
   };
 };
 
@@ -24365,15 +24368,9 @@ function SignIn(_ref) {
       password: password
     }).then(function (response) {
       getUserData();
+      getActivityTerms();
     })["catch"](function (error) {
       return console.log(error);
-    });
-    _axios__WEBPACK_IMPORTED_MODULE_1__.default.get("/api/activities").then(function (response) {
-      return getActivityTerms(response.data);
-    })["catch"](function (error) {
-      return console.log({
-        error: error
-      });
     });
   };
 
@@ -24467,7 +24464,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _SignIn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SignIn */ "./resources/js/components/SignIn/SignIn.js");
 /* harmony import */ var _data_actions_userActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/actions/userActions */ "./resources/js/data/actions/userActions.js");
-/* harmony import */ var _data_actions_logActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../data/actions/logActions */ "./resources/js/data/actions/logActions.js");
+/* harmony import */ var _data_actions_termsActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../data/actions/termsActions */ "./resources/js/data/actions/termsActions.js");
 
 
 
@@ -24485,8 +24482,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     getUserData: function getUserData() {
       return dispatch((0,_data_actions_userActions__WEBPACK_IMPORTED_MODULE_2__.getUserData)());
     },
-    getActivityTerms: function getActivityTerms(data) {
-      return dispatch((0,_data_actions_logActions__WEBPACK_IMPORTED_MODULE_3__.getActivityTerms)(data));
+    getActivityTerms: function getActivityTerms() {
+      return dispatch((0,_data_actions_termsActions__WEBPACK_IMPORTED_MODULE_3__.getActivityTerms)());
     }
   };
 };
@@ -24938,10 +24935,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(_ref) {
   var user = _ref.user,
-      log = _ref.log;
+      team = _ref.team;
   return {
     user: user,
-    log: log
+    team: team
   };
 };
 
@@ -25338,10 +25335,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(_ref) {
   var user = _ref.user,
-      log = _ref.log;
+      team = _ref.team;
   return {
     user: user,
-    log: log
+    team: team
   };
 };
 
@@ -25517,10 +25514,35 @@ var loadFeed = function loadFeed(token) {
 
 /***/ }),
 
-/***/ "./resources/js/data/actions/logActions.js":
-/*!*************************************************!*\
-  !*** ./resources/js/data/actions/logActions.js ***!
-  \*************************************************/
+/***/ "./resources/js/data/actions/errorHandling.js":
+/*!****************************************************!*\
+  !*** ./resources/js/data/actions/errorHandling.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var errorHandling = function errorHandling(dispatch, error) {
+  console.log(error);
+
+  if (error.response.status === 401) {
+    dispatch({
+      type: "LOG_OUT"
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (errorHandling);
+
+/***/ }),
+
+/***/ "./resources/js/data/actions/termsActions.js":
+/*!***************************************************!*\
+  !*** ./resources/js/data/actions/termsActions.js ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -25528,14 +25550,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getActivityTerms": () => (/* binding */ getActivityTerms)
 /* harmony export */ });
-var getActivityTerms = function getActivityTerms(data) {
-  console.log({
-    data: data
-  });
+/* harmony import */ var _errorHandling__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./errorHandling */ "./resources/js/data/actions/errorHandling.js");
+
+var getActivityTerms = function getActivityTerms() {
   return function (dispatch) {
     dispatch({
-      type: "SUCCESS.TERMS",
-      payload: data.data
+      type: "FETCH.ACTIVITY_TERMS"
+    });
+    axios.get("/api/activities").then(function (data) {
+      dispatch({
+        type: "SUCCESS.ACTIVITY_TERMS",
+        payload: data.data
+      });
+    })["catch"](function (error) {
+      return (0,_errorHandling__WEBPACK_IMPORTED_MODULE_0__.default)(dispatch, error);
     });
   };
 };
@@ -25556,17 +25584,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getUserOverview": () => (/* binding */ getUserOverview)
 /* harmony export */ });
 /* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios */ "./resources/js/axios.js");
+/* harmony import */ var _errorHandling__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./errorHandling */ "./resources/js/data/actions/errorHandling.js");
 
-
-var errorHandling = function errorHandling(dispatch, error) {
-  console.log(error);
-
-  if (error.response.status === 401) {
-    dispatch({
-      type: "LOG_OUT"
-    });
-  }
-};
 
 var getUserData = function getUserData() {
   return function (dispatch) {
@@ -25582,7 +25601,7 @@ var getUserData = function getUserData() {
         payload: data.data
       });
     })["catch"](function (error) {
-      return errorHandling(dispatch, error);
+      return (0,_errorHandling__WEBPACK_IMPORTED_MODULE_1__.default)(dispatch, error);
     });
   };
 };
@@ -25603,7 +25622,7 @@ var getUserFeed = function getUserFeed(id, page) {
         payload: data
       });
     })["catch"](function (error) {
-      return errorHandling(dispatch, error);
+      return (0,_errorHandling__WEBPACK_IMPORTED_MODULE_1__.default)(dispatch, error);
     });
   };
 };
@@ -25621,7 +25640,7 @@ var getUserOverview = function getUserOverview(id) {
         payload: data.data
       });
     })["catch"](function (error) {
-      return errorHandling(dispatch, error);
+      return (0,_errorHandling__WEBPACK_IMPORTED_MODULE_1__.default)(dispatch, error);
     });
   };
 };
@@ -25734,6 +25753,7 @@ var saveUserData = function saveUserData(state, _ref) {
   var data = _ref.data;
   var actions = data.actions;
   return _objectSpread(_objectSpread({}, state), {}, {
+    isFetching: false,
     data: _objectSpread(_objectSpread({}, state.data), {}, {
       feed: {
         data: actions.data,
@@ -25987,7 +26007,8 @@ var userUpdate = function userUpdate(state, _ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "userReducer": () => (/* binding */ userReducer),
-/* harmony export */   "logReducer": () => (/* binding */ logReducer)
+/* harmony export */   "TeamReducer": () => (/* binding */ TeamReducer),
+/* harmony export */   "TermsRedeucer": () => (/* binding */ TermsRedeucer)
 /* harmony export */ });
 /* harmony import */ var _initial__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./initial */ "./resources/js/data/initial.js");
 /* harmony import */ var _reducerFunctions_saveUserMeta__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducerFunctions/saveUserMeta */ "./resources/js/data/reducerFunctions/saveUserMeta.js");
@@ -26074,7 +26095,7 @@ var userReducer = function userReducer() {
       return _objectSpread({}, state);
   }
 };
-var logReducer = function logReducer() {
+var TeamReducer = function TeamReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _initial__WEBPACK_IMPORTED_MODULE_0__.logInitial;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
@@ -26082,6 +26103,33 @@ var logReducer = function logReducer() {
     case "SUCCESS.GET_TERMS":
       return _objectSpread(_objectSpread({}, state), {}, {
         activityTerms: _toConsumableArray(action.payload)
+      });
+
+    default:
+      return _objectSpread({}, state);
+  }
+};
+var TermsRedeucer = function TermsRedeucer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    activities: {
+      isFetching: false
+    }
+  };
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case "FETCH.ACTIVITY_TERMS":
+      return _objectSpread(_objectSpread({}, state), {}, {
+        activities: {
+          isFetching: true
+        }
+      });
+
+    case "SUCCESS.ACTIVITY_TERMS":
+      return _objectSpread(_objectSpread({}, state), {}, {
+        activities: _objectSpread(_objectSpread({}, action.payload), {}, {
+          isFetching: false
+        })
       });
 
     default:
@@ -26139,7 +26187,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_9__.combineReducers)({
   user: _data_reducers__WEBPACK_IMPORTED_MODULE_3__.userReducer,
-  log: _data_reducers__WEBPACK_IMPORTED_MODULE_3__.logReducer
+  team: _data_reducers__WEBPACK_IMPORTED_MODULE_3__.TeamReducer,
+  terms: _data_reducers__WEBPACK_IMPORTED_MODULE_3__.TermsRedeucer
 });
 var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || redux__WEBPACK_IMPORTED_MODULE_9__.compose;
 var store = (0,redux__WEBPACK_IMPORTED_MODULE_9__.createStore)(rootReducer, composeEnhancers(redux_localstorage__WEBPACK_IMPORTED_MODULE_2___default()(), (0,redux__WEBPACK_IMPORTED_MODULE_9__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_4__.default)));

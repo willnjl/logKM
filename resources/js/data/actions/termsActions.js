@@ -1,8 +1,8 @@
 import errorHandling from "./errorHandling";
 
-export const getActivityTerms = (data) => {
+export const getActivityTerms = () => {
     return (dispatch) => {
-        dispatch({ type: "FETCHING.ACTIVITY_TERMS" });
+        dispatch({ type: "FETCH.ACTIVITY_TERMS" });
         axios
             .get("/api/activities")
             .then((data) => {
