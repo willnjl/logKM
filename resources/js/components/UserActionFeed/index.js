@@ -4,10 +4,7 @@ import SpaceBar from "@material-ui/icons/SpaceBar";
 // import FitnessCenter from "@material-ui/icons/FitnessCenter";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import DirectionsRun from "@material-ui/icons/DirectionsRun";
-import DirectionsWalk from "@material-ui/icons/DirectionsWalk";
-import DirectionsBike from "@material-ui/icons/DirectionsBike";
-import Pool from "@material-ui/icons/Pool";
+import ActivityIcon from "../ActivityIcon";
 
 let spanWrap = (icon) => {
     return <span className={"material-icons"}>{icon}</span>;
@@ -36,12 +33,6 @@ const makeCols = (cols) => {
 };
 
 const makeRows = (data) => {
-    let icons = [
-        <DirectionsWalk />,
-        <DirectionsRun />,
-        <DirectionsBike />,
-        <Pool />,
-    ];
     const empty = [
         { distance: null, date_completed: null, activity_id: null },
         { distance: null, date_completed: null, activity_id: null },
@@ -55,13 +46,13 @@ const makeRows = (data) => {
             <tr key={i}>
                 <td>{row.date_completed}</td>
                 <td>{row.distance} km</td>
-                <td>{icons[row.activity_id]}</td>
+                <td>{<ActivityIcon activity={row.activity_id} />}</td>
             </tr>
         );
     });
 };
 
-export default function UserActionFeed({ feed, handlePage, isFetching }) {
+export default function UserActionFeed({ feed, handlePage }) {
     const { data, current_page, last_page } = feed;
     return (
         <>
