@@ -3,11 +3,8 @@ import saveUserMeta from "./reducerFunctions/saveUserMeta";
 import saveUserData from "./reducerFunctions/saveUserData";
 import saveUserOverview from "./reducerFunctions/saveUserOverview";
 import init from "./reducerFunctions/init";
-import updateActions from "./reducerFunctions/updateActions";
+import saveActivityTerms from "./reducerFunctions/saveActivityTerms";
 import userUpdate from "./reducerFunctions/userUpdate";
-
-import teamData from "./reducerFunctions/teamData";
-import teamFeed from "./reducerFunctions/teamFeed";
 
 export const userReducer = (state = userInitial, action) => {
     let { data, meta } = state;
@@ -57,12 +54,9 @@ export const TermsRedeucer = (
 ) => {
     switch (action.type) {
         case "FETCH.ACTIVITY_TERMS":
-            return { ...state, activities: { isFetching: true } };
+            return { ...state, isFetching: true, activities: [] };
         case "SUCCESS.ACTIVITY_TERMS":
-            return {
-                ...state,
-                activities: { ...action.payload, isFetching: false },
-            };
+            return saveActivityTerms(state, action.payload);
         default:
             return {
                 ...state,

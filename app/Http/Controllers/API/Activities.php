@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
+use App\Http\Resources\API\TermsResource;
 use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class Activities extends Controller
      */
     public function index()
     {
-        return Activity::all();
+        return TermsResource::collection(Activity::all());
     }
 
     /**

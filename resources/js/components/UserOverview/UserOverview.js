@@ -5,6 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import ActivityIcon from "../ActivityIcon";
 import { result } from "lodash";
 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +39,7 @@ let makeRows = (activityBreakdown) => {
     return activityBreakdown.map((activity, i) => {
         return (
             <tr key={activity.activityId}>
-                <td>{activity.activityId}</td>
+                <td>{<ActivityIcon activity={activity.activityId} />}</td>
                 <td>{activity.total}</td>
                 <td>{activity.longest}</td>
             </tr>

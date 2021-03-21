@@ -11,7 +11,7 @@ let setDistances = (activities) => {
         }, 0);
 
         let obj = {
-            activityId: key,
+            activityId: +key,
             total,
             longest,
         };

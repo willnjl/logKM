@@ -16,7 +16,7 @@ let rootReducer = combineReducers({
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     rootReducer,
-    composeEnhancers(persistState(), applyMiddleware(thunk))
+    composeEnhancers(applyMiddleware(thunk))
 );
 
 if (document.getElementById("root")) {
