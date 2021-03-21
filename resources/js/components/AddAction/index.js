@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import AddAction from "./AddAction";
 import { postAction } from "../../data/actions";
 
-let mapStateToProps = ({ user }) => ({ user });
+let mapStateToProps = ({ user, terms }) => ({ user, terms });
 
 let mapDispatchToProps = (dispatch) => {
     return {

@@ -60,7 +60,7 @@ const options = (activities) => {
     });
 };
 
-export default function AddAction({ user, postData }) {
+export default function AddAction({ user, postData, terms }) {
     const classes = useStyles();
     const dateFormat = "YYYY-MM-DD";
     const [values, setValues] = useState({
@@ -68,23 +68,7 @@ export default function AddAction({ user, postData }) {
         date: dayjs().format(dateFormat),
         activity_id: 0,
     });
-    const [activities, setActivities] = useState([]);
-    const [loaded, setLoaded] = useState(false);
     const [sent, setSent] = useState(false);
-
-    useEffect(() => {
-        axios
-            .get("api/activities")
-            .then(({ data }) => {
-                setActivities(data);
-                setLoaded(true);
-                setValues({
-                    ...values,
-                    activity_id: data[0].id,
-                });
-            })
-            .catch((error) => console.log(error));
-    }, []);
 
     const handleSubmit = (id, values) => {
         postData(id, values);
@@ -131,34 +115,22 @@ export default function AddAction({ user, postData }) {
                         }}
                     />
                     <FormControl className={classes.half}>
-                        {!loaded ? (
-                            <div className={classes.half}>
-                                <CircularProgress
-                                    className={classes.spinner}
-                                    size={"1.25rem"}
-                                />
-                            </div>
-                        ) : (
-                            <>
-                                <InputLabel id="select-activity-label">
-                                    Activity
-                                </InputLabel>
-                                <Select
-                                    labelId="select-activity-label"
-                                    label="Activity"
-                                    id="demo-simple-select"
-                                    value={values.activity_id}
-                                    onChange={(e) =>
-                                        handleChange(
-                                            "activity_id",
-                                            e.target.value
-                                        )
-                                    }
-                                >
-                                    {options(activities)}
-                                </Select>
-                            </>
-                        )}
+                        <>
+                            <InputLabel id="select-activity-label">
+                                Activity
+                            </InputLabel>
+                            <Select
+                                labelId="select-activity-label"
+                                label="Activity"
+                                id="demo-simple-select"
+                                value={values.activity_id}
+                                onChange={(e) =>
+                                    handleChange("activity_id", e.target.value)
+                                }
+                            >
+                                {options(terms.activities)}
+                            </Select>
+                        </>
                     </FormControl>
                 </div>
                 <div className={classes.row}>
