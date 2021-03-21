@@ -24338,7 +24338,8 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__.default
   };
 });
 function SignIn(_ref) {
-  var getUserData = _ref.getUserData;
+  var getUserData = _ref.getUserData,
+      getActivityTerms = _ref.getActivityTerms;
   var classes = useStyles();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("harry@horse.cow"),
@@ -24366,6 +24367,13 @@ function SignIn(_ref) {
       getUserData();
     })["catch"](function (error) {
       return console.log(error);
+    });
+    _axios__WEBPACK_IMPORTED_MODULE_1__.default.get("/api/activities").then(function (response) {
+      return getActivityTerms(response.data);
+    })["catch"](function (error) {
+      return console.log({
+        error: error
+      });
     });
   };
 
@@ -24459,6 +24467,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _SignIn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SignIn */ "./resources/js/components/SignIn/SignIn.js");
 /* harmony import */ var _data_actions_userActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/actions/userActions */ "./resources/js/data/actions/userActions.js");
+/* harmony import */ var _data_actions_logActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../data/actions/logActions */ "./resources/js/data/actions/logActions.js");
+
 
 
 
@@ -24474,6 +24484,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     getUserData: function getUserData() {
       return dispatch((0,_data_actions_userActions__WEBPACK_IMPORTED_MODULE_2__.getUserData)());
+    },
+    getActivityTerms: function getActivityTerms(data) {
+      return dispatch((0,_data_actions_logActions__WEBPACK_IMPORTED_MODULE_3__.getActivityTerms)(data));
     }
   };
 };
@@ -25504,6 +25517,31 @@ var loadFeed = function loadFeed(token) {
 
 /***/ }),
 
+/***/ "./resources/js/data/actions/logActions.js":
+/*!*************************************************!*\
+  !*** ./resources/js/data/actions/logActions.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getActivityTerms": () => (/* binding */ getActivityTerms)
+/* harmony export */ });
+var getActivityTerms = function getActivityTerms(data) {
+  console.log({
+    data: data
+  });
+  return function (dispatch) {
+    dispatch({
+      type: "SUCCESS.TERMS",
+      payload: data.data
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./resources/js/data/actions/userActions.js":
 /*!**************************************************!*\
   !*** ./resources/js/data/actions/userActions.js ***!
@@ -25623,13 +25661,14 @@ var userInitial = {
     overview: {
       total: 0,
       count: 0,
-      activityBreakdown: {},
+      activityBreakdown: [],
       isFetching: false
     }
   },
   error: false
 };
 var logInitial = {
+  activityTerms: [],
   team: {
     meta: {
       isFetch: false
@@ -25959,6 +25998,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reducerFunctions_userUpdate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reducerFunctions/userUpdate */ "./resources/js/data/reducerFunctions/userUpdate.js");
 /* harmony import */ var _reducerFunctions_teamData__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reducerFunctions/teamData */ "./resources/js/data/reducerFunctions/teamData.js");
 /* harmony import */ var _reducerFunctions_teamFeed__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./reducerFunctions/teamFeed */ "./resources/js/data/reducerFunctions/teamFeed.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -26028,30 +26079,10 @@ var logReducer = function logReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case "USER_ACTIONS":
-      return addUserActions(state, action.payload);
-
-    case "NEW_ACTION":
+    case "SUCCESS.GET_TERMS":
       return _objectSpread(_objectSpread({}, state), {}, {
-        user: _objectSpread(_objectSpread({}, state.user), {}, {
-          hasLoaded: false
-        }),
-        team: _objectSpread(_objectSpread({}, state.team), {}, {
-          hasLoaded: false
-        })
+        activityTerms: _toConsumableArray(action.payload)
       });
-
-    case "ALL_ACTIONS":
-      return (0,_reducerFunctions_updateActions__WEBPACK_IMPORTED_MODULE_5__.default)(state, action.payload);
-
-    case "TEAM_DATA":
-      return (0,_reducerFunctions_teamData__WEBPACK_IMPORTED_MODULE_7__.default)(state, action.payload);
-
-    case "TEAM_FEED":
-      return (0,_reducerFunctions_teamFeed__WEBPACK_IMPORTED_MODULE_8__.default)(state, action.payload);
-
-    case "LOG_OUT":
-      return (0,_reducerFunctions_init__WEBPACK_IMPORTED_MODULE_4__.default)("LOG");
 
     default:
       return _objectSpread({}, state);

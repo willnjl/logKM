@@ -18,7 +18,7 @@ export const userInitial = {
         overview: {
             total: 0,
             count: 0,
-            activityBreakdown: {},
+            activityBreakdown: [],
             isFetching: false,
         },
     },
@@ -26,6 +26,7 @@ export const userInitial = {
 };
 
 export const logInitial = {
+    activityTerms: [],
     team: {
         meta: {
             isFetch: false,

@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SignIn({ getUserData }) {
+export default function SignIn({ getUserData, getActivityTerms }) {
     const classes = useStyles();
     let [email, setEmail] = useState("harry@horse.cow");
     let [password, setPassword] = useState("password");
@@ -52,6 +52,11 @@ export default function SignIn({ getUserData }) {
                 getUserData();
             })
             .catch((error) => console.log(error));
+
+        axios
+            .get("/api/activities")
+            .then((response) => getActivityTerms(response.data))
+            .catch((error) => console.log({ error }));
     };
 
     return (

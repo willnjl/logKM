@@ -4,6 +4,7 @@ namespace App\Http\Resources\API;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Activity;
 class UserResource extends JsonResource
 {
     /**
@@ -14,6 +15,7 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
+     
         $team = $this->team;
         return [
             'id' => $this->id,
@@ -21,6 +23,7 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'avatar' => Storage::url($this->avatar),
             'team_token' => $team->team_token,
+        
         ];
     }
 }

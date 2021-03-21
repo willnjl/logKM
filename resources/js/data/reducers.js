@@ -42,24 +42,10 @@ export const userReducer = (state = userInitial, action) => {
             return { ...state };
     }
 };
-export const logReducer = (state = logInitial, action) => {
+export const TeamReducer = (state = logInitial, action) => {
     switch (action.type) {
-        case "USER_ACTIONS":
-            return addUserActions(state, action.payload);
-        case "NEW_ACTION":
-            return {
-                ...state,
-                user: { ...state.user, hasLoaded: false },
-                team: { ...state.team, hasLoaded: false },
-            };
-        case "ALL_ACTIONS":
-            return updateActions(state, action.payload);
-        case "TEAM_DATA":
-            return teamData(state, action.payload);
-        case "TEAM_FEED":
-            return teamFeed(state, action.payload);
-        case "LOG_OUT":
-            return init("LOG");
+        case "SUCCESS.GET_TERMS":
+            return { ...state, activityTerms: [...action.payload] };
         default:
             return { ...state };
     }

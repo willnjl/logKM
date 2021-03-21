@@ -32,7 +32,9 @@ Route::group(["prefix" => "user", "middleware" => ["auth:sanctum"]], function(){
 });
 Route::get('user/{id}/overview', [Users::class, "Overview"]);
 
-Route::group(["prefix" => "activities", "middleware" => ["auth:sanctum"]],function(){
+Route::group(["prefix" => "activities", 
+// "middleware" => ["auth:sanctum"]
+],function(){
     Route::get('', [Activities::class, "index"]);
     Route::get('activities', [Activities::class, "index"]);
 });
