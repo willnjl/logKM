@@ -45,8 +45,24 @@ export const userReducer = (state = userInitial, action) => {
 export const TeamReducer = (state = logInitial, action) => {
     switch (action.type) {
         case "SUCCESS.GET_TERMS":
+            console.log("success");
             return { ...state, activityTerms: [...action.payload] };
         default:
             return { ...state };
+    }
+};
+
+export const TermsRedeucer = (
+    state = { activities: { isFetching: false } },
+    action
+) => {
+    switch (action.type) {
+        case "FETCHING.GET_TERMS":
+            return { ...state, activities: { isFetching: true } };
+        case "SUCCESS.GET_TERMS":
+            return {
+                ...state,
+                activities: { ...action.payload, isFetching: false },
+            };
     }
 };

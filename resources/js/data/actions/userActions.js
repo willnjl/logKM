@@ -1,11 +1,5 @@
 import axios from "../../axios";
-
-const errorHandling = (dispatch, error) => {
-    console.log(error);
-    if (error.response.status === 401) {
-        dispatch({ type: "LOG_OUT" });
-    }
-};
+import errorHandling from "./errorHandling";
 
 export const getUserData = () => {
     return (dispatch) => {
